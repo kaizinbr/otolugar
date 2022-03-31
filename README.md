@@ -1,4 +1,4 @@
-# otolugar
+# OtoLugar
 O site do projeto integrador II
 
 ## Notion do Projeto
