@@ -1,0 +1,329 @@
+.perfil-usuario{
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    min-height: 700px;
+    border-end-end-radius: 15px;
+    border-end-start-radius: 15px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 160px;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    /* left: 255px; */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 170%;
+    background-image: linear-gradient(#1E457F, #8BAEE4);    
+    clip-path: circle(25% at 80% 60%);
+}
+
+
+
+.secaoPerfil::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 210%;
+    background-image: linear-gradient(#663FAA, #c5b4e3);    
+    clip-path: circle(10% at 20% 60%);
+}
+
+
+section.secaoPerfil{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    min-height: 150px;
+    min-width: 150px;
+}
+
+.button-dados{
+    border-radius: 25px;
+    background-color: #5b6b54ff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: -18px;
+    margin-left: 350px;
+    border: none;
+    /* border-bottom: 2px solid #5b6b54ff; */
+    transition-duration: 1s;
+    color: white;
+    cursor: pointer;
+    width: 270px;
+}
+.button-dados:hover{
+    background-color:#ebf5d7;
+    border:#5b6b54ff;
+    color:rgb(127, 133, 125);
+    /* border-bottom: 2px solid #5b6b54ff; */
+
+}
+
+.perfil{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.perfil-foto{
+    display: flex;
+    width: 280px;
+    height: 280px;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid #5b6b54ff;
+    background-color: #d2d8bdcb;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, -2);
+    position:relative;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+.info{
+    margin-top: 5px;
+    margin-left: 200px;
+    display: flex;
+
+}
+
+.info-media .bio2{
+    display: flex;
+    align-items: center;
+}
+.info-media .nome{
+    display: flex;
+    align-items: center;
+
+}
+.info-media .tele{
+    display: flex;
+    align-items: center;
+
+}
+.info-media .email1{
+    display: flex;
+    align-items: center;
+
+}
+.info-media .datan1{
+    display: flex;
+    align-items: center;
+
+}
+.info-media .gener1{
+    display: flex;
+    align-items: center;
+}
+.info-media{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -220px;
+    margin-top: 10px;
+}
+
+.bio3{
+    padding: 10px;
+    border-radius: 25px;
+    background-color:#d2d8bdcb;
+    border: none;
+    border-bottom: 2px solid #5b6b54ff;
+    min-height: 100px;
+    width: 100%;
+    height: auto;
+    outline: none;transition: .7s ease-in-out;
+
+}
+.bio3:focus{
+    background-color: #e3eccf;
+}
+
+
+.name{
+    padding-right: 400px;
+    align-items: center;
+    display:flex;
+    border-radius: 10px;
+    background-color:#d2d8bdcb ;
+    border: none;
+
+}
+.tel{
+    padding-right: 400px;
+    align-items: center;
+    display:flex;
+    border-radius: 10px;
+    background-color:#d2d8bdcb ;
+    border: none;
+}
+.datan1{
+    padding-right: 400px;
+    align-items: center;
+    display:flex;
+    border-radius: 10px;
+    background-color:#d2d8bdcb ;
+    border: none;
+}
+.gener1{
+    margin-top:25px;
+}
+.gener{
+    padding-right: 100px;
+    margin-top: 0px;
+    align-items: center;
+    display:flex;
+    border-radius: 10px;
+    background-color:#d2d8bdcb ;
+    border: none;
+}
+.email{
+    padding-right: 400px;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    border-radius: 10px;
+    background-color:#d2d8bdcb ;
+    border: none;
+}
+.campo{
+    margin-top: 40px;
+}
+
+.campo1 input{
+    border-radius: 32px;
+    padding: 7px;
+    padding-left: 15px;
+    outline: none;
+    width: 100%;
+    transition: .7s ease-in-out;
+    border-bottom: 2px solid #5b6b54ff;
+
+}
+.campo1 input:focus{
+    background-color: #e3eccf;
+}
+
+.campo1 select {
+    border-radius: 32px;
+    outline: none;
+    transition: .7s ease-in-out;
+}
+
+#foto{
+    display: none;
+}
+
+.foto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #5b6b54ff;
+}
+
+.bx-image-alt{
+    font-size: 25px;
+    color: whitesmoke;
+}
+
+/* Menu responsivo */
+
+@media screen and (max-width: 768px){
+
+    .perfil-usuario{
+        width:100%;
+        padding: 90px;
+        height: 100%;
+        left: 0;
+        display:flex;
+    }
+
+    .button-dados{
+        margin-left: 90px;
+        margin-top: 40px;
+    }
+    .email1{
+        margin-left:50px;
+    }
+    .email{
+        margin-left: 25px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .nome{
+        margin-left:50px;
+    }
+    .name{
+        margin-left:25px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .bio2{ 
+        margin-left:50px;
+    }
+    .bio3{
+        margin-left:30px;
+    }
+    .datan1{
+        margin-left:25px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .datan{
+        margin-left:50px;
+    }
+    .gener1{
+        margin-top: 0px;
+        margin-left:50px;
+    }
+    .gener{
+        margin-left:25px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .tele{
+        margin-left:50px;
+    }
+    .tel{
+        margin-left:25px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+
+}
+
+@media screen and (max-width: 500px){
+    .campo1 input, .bio3{
+        width: 80%;
+    }
+
+    .perfil-foto{
+        width: 150px;
+        height: 150px;
+    }
+}

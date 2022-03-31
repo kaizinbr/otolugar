@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,200&display=swap');
+
+.maior{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.content {
+    display: grid;
+    width: 900px;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #eaeedcc7;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);    
+    box-shadow: 10px 10px 20px rgba(133, 133, 133, 0.2);
+}
+
+.tabela{
+    margin-top: 30px;
+}
+
+.tabela a{
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    position: relative;
+}
+
+.tabela a:hover{
+    color: black;
+}
+
+.tabela a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+}
+  
+.tabela a:hover::before {
+    transform: scaleX(1);
+}
+  
+
+td{
+    padding-bottom: 6px;
+}
+
+td.um{
+    width: 35%;
+}
+
+.maior .content h1{
+    font-size: 5rem;
+}
+
+.maior .content h3{
+    width: 70%;
+    font-weight: 300;
+}
+
+
+@media (max-width: 950px){
+    .content{
+        width: 90%;
+    }
+}
+
+@media (max-width: 470px){
+    .maior .content h1{
+        font-size: 3.5rem;
+    }
+
+    .maior .content h3{
+        font-size: 12px;
+    }
+
+    td{
+        font-size: 10px;
+    }
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#1E457F, #8BAEE4);    
+    clip-path: circle(22% at 80% 60%);
+}
+
+
+
+.maior::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-image: linear-gradient(#663FAA, #c5b4e3);    
+    clip-path: circle(10% at 20% 60%);
+}

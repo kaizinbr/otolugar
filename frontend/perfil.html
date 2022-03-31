@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="resources/css/perfil.css">
+    <link rel="stylesheet" href="resources/css/main.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Meu Perfil | OtoLugar</title>
+</head>
+<body>
+    
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <img class="isotipo" src="resources/img-main/logo.svg" alt="">
+            </div>
+
+            <div class="navmenu">
+                <button id="btn-mobile">Menu</button>
+                <ul class="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pesquisa.html">Pesquisar</a></li>
+                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="sign">
+                <a href="#">Criar conta</a>
+                <a href="#">Entrar</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <script type="text/javascript" src="js/menu-responsivo.js"></script>
+
+    <section class="secaoPerfil">
+        <div class="perfil-usuario">
+            <box>
+                <div class="perfil"> 
+                    <div class="perfil-foto">
+                        <img class="avatar" src="images/soul.jpg" alt="avatar">
+                    </div>
+                    <input type="file" name="foto" id="foto">
+                    <label class="foto" for="foto"><i class='bx bx-image-alt'></i></label>
+                </div>
+                <div class="info">
+                    <div class="info-media">
+                        <form class="form" action="getform.php" method="get">
+                            <div class="campo1">
+                                <label class="bio1"><strong class="bio2">Biografia</strong></label>
+                                <textarea rows="6" type="text"  class="bio3" name="bio3" placeholder="Insira informações sobre você aqui"></textarea>
+                                <br>
+                                <label class="name2"><strong class="nome">Nome</strong></label>
+                                <input rows="6" type="text" class="name" name="name" placeholder="Insira seu nome aqui">
+                                <br>
+                                <label class="email2"><strong class="email1">Email</strong></label>
+                                <input rows="6" type="email" class="email" name="email" placeholder="Seu email não será compartilhado com terceiros!">
+                                <br>
+                                <label for="tele1"><strong class="tele">Telefone</strong></label>
+                                <input rows="6" type="tel" class="tel" name="tel" placeholder="Ex.: 83 912345678">
+                                <br>
+                                <label for="datan2"><strong class="datan">Data de Nascimento</strong></label>
+                                <input rows="6" type="date" class="datan1" name="datan1" placeholder="Ex.: 21/10/2000">
+                                <br>
+                                <label for="gener2"><strong class="gener1">Gênero</strong></label>
+                                <select class="gener" required>
+                                    <option selected disabled value="">Selecione como você se identifica</option>
+                                    <option value="masc">Masculino</option>
+                                    <option value="fem">Feminino</option>
+                                    <option value="nb">Não-Binárie</option>
+                                </select>
+                            </div>
+                            <button class= button-dados type=text>Alterar dados</button>
+        <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
+                        </form>
+                    </div>
+                </form>
+                </div>
+            </box>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/menu-responsivo.js"></script>
+    
+</body>
+</html>
