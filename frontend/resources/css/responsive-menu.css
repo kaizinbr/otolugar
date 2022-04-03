@@ -1,0 +1,95 @@
+* {
+    --jungle-green: #46a07aff;
+    --cadmium-green: #026b3fff;
+    --dark-green: #012e1bff;
+    --black-coffee: #3a2e39ff;
+    --fundo: #FAFFFD;
+    --mint-cream: #ECF5F3ff;
+    --aero-blue: #C9EFE0ff;
+    --op-aero-blue: rgba(255, 255, 255, 0.493);
+    --emerald: #00CC76ff;
+    --op-emerald: rgba(0, 204, 119, 0.479);
+
+    --british-racing-green: #13442Eff;
+}
+
+#btn-mobile {
+    display: none;
+}
+
+.mobileSign{
+    visibility: hidden;
+}
+
+@media (max-width: 1080px){
+
+    #btn-mobile{
+        display: block;
+        font-size: xx-large;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--cadmium-green);
+    }
+
+    .bx-x{
+        visibility: hidden;
+    }
+
+    .bx-x.active{
+        visibility: visible;
+    }
+
+    .bx-menu{
+        visibility: hidden;
+        transform: translateX(32px);
+    }
+
+    .bx-menu.active{
+        visibility: visible;
+    }
+
+    .sign{
+        display: none;}
+
+    ul.list{
+        /* display: none; */
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        height: 0;
+        align-items: center;
+        top: 70px;
+        right: 0;
+        background: var(--op-aero-blue);
+        backdrop-filter: blur(20px);
+        transition: all .6s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    ul.list li{
+        display: flex;
+        margin: 20px;
+        border-bottom: 2px solid var(--op-aero-blue);
+        border-radius: 0 0 15px 15px;
+        padding-bottom: 20px;
+        width: 80%;
+        /* align-items: center; */
+        justify-content: center;
+    }
+
+    .mobileSign{
+        max-height: 40px;
+    }
+
+    .navmenu.active ul.list, .navmenu.active .mobileSign{
+        display: flex;
+        height: calc(100vh - 70px);
+        visibility: visible;        
+        overflow-y: auto;
+    }
+
+
+}

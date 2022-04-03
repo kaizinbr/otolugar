@@ -72,14 +72,14 @@ header nav{
 
 header ul{
     list-style: none;
-    background-color: var(--aero-blue);
+    /* background-color: var(--aero-blue); */
 }
 
 header ul li {
     display: inline-block;
     padding-left: 15px;
     padding-right: 15px;
-    background-color: var(--aero-blue);
+    /* background-color: var(--aero-blue); */
 }
 
 header li a{
@@ -90,7 +90,7 @@ header li a{
                 background-color 0.7s;;
 
     color: var(--cadmium-green);
-    background-color: var(--aero-blue);
+    /* background-color: var(--aero-blue); */
 }
 
 header li a:hover {
@@ -162,6 +162,8 @@ header .sign a:nth-child(2):hover{
     max-height: 650px;
 }
 
+
+
 /* BARRA DE INFORMAÇÕES */
 
 div.infos{
@@ -196,7 +198,7 @@ div.infoImg img{
 
 .infoContent{
     background-color: var(--op-aero-blue);
-    border-radius: 32px;
+    border-radius: 15px;
 }
 
 .infoContent .intuito{
@@ -283,6 +285,9 @@ main{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 100%;
+    padding: 20px;
+    padding-bottom: 0;
 }
 
 .content .card .card-inside figure{
@@ -308,8 +313,9 @@ main{
     transform: scale(110%);
 }
 
-.content .card .card-inside h2{
+.content .card .card-inside h1{
     color: var(--cadmium-green);
+    text-transform: uppercase;
 }
 
 .content .card .card-inside a {
@@ -358,39 +364,70 @@ main{
 
 /* MENU RESPONSIVO */
 
-#btn-mobile {
-    display:none;
-}
-
-@media (max-width: 1090px){
-    #btn-mobile {
-        display: block;
+@media(max-width:1080px){
+    .greenboy img {
+        max-width: 70vw;
+    }
+    div.infoImg img{
+        max-width: 70px;
     }
 
-    .sign {
-        display: none;
+    .infoContent .intuito h2{
+        font-size: 15px;
+        padding: 10px;
+    }
+    
+    .infoContent .intuito p{
+        font-size: 9px ;
+        padding-bottom: 10px;
     }
 
-    .list {
-        display: flex;
-        position: absolute;
-        width: 100%;
-        top: 70px;
-        right: 0;
-        background-color: var(--mint-cream);
-        align-items: center;
-        height: 0;
-        transform: all .5s;
-        z-index: 10;
+    .infoContent .intuito{
+        padding: 10px;
     }
 
-    .list li {
-        margin: 20px;
+    .principal>h1, .card-inside h1{
+        font-size: 1rem;
+    }
+
+    .about .sobre h2, .card-inside a{
+        font-size: 15px;
+    }
+
+    .about .sobre span{
+        font-size: 10px;
+    }
+
+    
+    
+
+
+    .card-inside footer .bx-heart{
+        padding: 5px; 
+        border-radius: 7px 7px 0 0 ;
+    }
+
+    .content .card {
+        width: 60vw;
+        height: 60vw;
+        margin: 30px;
+        min-width: 60vw;
+    }
+
+    .content .card .card-inside a {
+        padding: 10px;
+    }
+
+    .content .card .card-inside img{
+        min-height: 100%;
+        max-width: 100%;
+    }
+
+    .content .card .card-inside figure{
+        margin-top: 0;
+        border-radius: 15px;
         height: 100vh;
-    }
-
-    .navmenu.active .list{
-        /* display: flex; */
-        flex-direction: column;
+        width: 50vw;
+        overflow: hidden;
     }
 }
