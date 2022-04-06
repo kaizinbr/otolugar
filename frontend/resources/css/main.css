@@ -49,7 +49,7 @@ body>footer{
 header {
     height: 70px;
     padding: 1rem;
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     background-color: var(--aero-blue);
     justify-content: baseline;
@@ -91,6 +91,7 @@ header li a{
                 background-color 0.7s;;
 
     color: var(--cadmium-green);
+    font-size: 16px;
     /* background-color: var(--aero-blue); */
 }
 
@@ -177,7 +178,7 @@ div.infos{
 
 .infos .content{
     max-width: 75vw;
-    min-height: 80vh;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,19 +224,6 @@ div.infoImg img{
     padding-right: 30px;
 }
 
-.infos .about{
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    width: 100%;
-    min-height: 150px;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 190px;
-    margin-bottom: 200px;
-    color: var(--dark-green);
-    background-color: var(--op-emerald);
-}
 
 /*PARTE DOS CARDS*/
 
@@ -295,10 +283,10 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     border-radius: 15px;
     height: 350px;
-    width: 470px;
+    /* width: 470px; */
     overflow: hidden;
 }
 
@@ -368,18 +356,19 @@ main{
 @media(max-width:1080px){
     .greenboy img {
         max-width: 70vw;
+        margin-top: 80px;
     }
     div.infoImg img{
         max-width: 70px;
     }
 
     .infoContent .intuito h2{
-        font-size: 15px;
+        font-size: 25px;
         padding: 10px;
     }
     
     .infoContent .intuito p{
-        font-size: 9px ;
+        font-size: 16px;
         padding-bottom: 10px;
     }
 
@@ -389,14 +378,6 @@ main{
 
     .principal>h1, .card-inside h1{
         font-size: 1rem;
-    }
-
-    .about .sobre h2, .card-inside a{
-        font-size: 15px;
-    }
-
-    .about .sobre span{
-        font-size: 10px;
     }
 
     
@@ -409,26 +390,73 @@ main{
     }
 
     .content .card {
-        width: 60vw;
-        height: 60vw;
+        width: 350px;
+        height: 350px;
         margin: 30px;
-        min-width: 60vw;
+        min-width: 350px;
     }
 
     .content .card .card-inside a {
         padding: 10px;
+        font-size: 12px
     }
 
     .content .card .card-inside img{
         min-height: 100%;
-        max-width: 100%;
     }
 
     .content .card .card-inside figure{
         margin-top: 0;
         border-radius: 15px;
         height: 100vh;
-        width: 50vw;
         overflow: hidden;
     }
+
+    .bx-sm {
+        font-size: 1rem!important;
+    }
+
+
+    .infos .content {
+        flex-direction: column;
+        max-width: 95vw;
+    }
+
+    .infoContent .intuito p {
+        /* font-size: 18px; */
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: center;
+    }
+
+    .recado {
+        height: 30vh;
+        padding-top: 70px;
+    }
+
+    div.infos {
+        height: 50vh;
+        min-height: 40vh;
+    }
+
+    div.infoImg {
+        display: none;
+    }  
+
+    .infoContent {
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 15px;
+    }
+
+ 
+
+    .principal>h1, .card-inside h1 {
+        font-size: 1.3rem;
+    }
+
+    
+    body > footer > p {
+        font-size: 8px;
+}
+
 }
