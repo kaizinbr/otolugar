@@ -37,10 +37,11 @@ CREATE TABLE pontos (
   po_id INTEGER NOT NULL,
   po_nome VARCHAR(70),
   po_descricao VARCHAR(250),
+  po_imagem VARCHAR(250),
+  po_alt_imagem VARCHAR(250),
   po_avaliacao_usuarios NUMERIC(3,2),
   po_endereco VARCHAR(100),
   po_valor NUMERIC(10,2),
-  of_id INTEGER,
   fk_oferecedor_servicos_of_id INTEGER NOT NULL
   );
  
