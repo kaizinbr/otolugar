@@ -10,9 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
 </head>
-<body>
-
-    
+<body onload="loadPontos()">
     <header>
         <nav>
             <div class="logo">
@@ -91,7 +89,7 @@
                         </figure>
                         <h1>BICA</h1>
                         <footer>
-                            <a href="pontos turisticos/centrohistorico.html">Saiba mais</a>
+                            <a href="resources/pontos/centrohistorico.html">Saiba mais</a>
                             <i class='bx bx-heart bx-sm'></i>
                         </footer>
                     </div>
@@ -104,7 +102,7 @@
                         </figure>
                         <h1>PRAÇA VIDAL DE NEGREIROS</h1>
                         <footer>
-                            <a href="pontos turisticos/centrohistorico.html">Saiba mais</a>
+                            <a href="resources/pontos/centrohistorico.html">Saiba mais</a>
                             <i class='bx bx-heart bx-sm'></i>
                         </footer>
                     </div>
@@ -117,7 +115,7 @@
                         </figure>
                         <h1>BICA</h1>
                         <footer>
-                            <a href="pontos turisticos/centrohistorico.html">Saiba mais</a>
+                            <a href="resources/pontos/centrohistorico.html">Saiba mais</a>
                             <i class='bx bx-heart bx-sm'></i>
                         </footer>
                     </div>
@@ -130,7 +128,7 @@
                         </figure>
                         <h1>BICA</h1>
                         <footer>
-                            <a href="pontos turisticos/centrohistorico.html">Saiba mais</a>
+                            <a href="resources/pontos/centrohistorico.html">Saiba mais</a>
                             <i class='bx bx-heart bx-sm'></i>
                         </footer>
                     </div>
@@ -143,7 +141,7 @@
                         </figure>
                         <h1>BICA</h1>
                         <footer>
-                            <a href="pontos turisticos/centrohistorico.html">Saiba mais</a>
+                            <a href="resources/pontos/centrohistorico.html">Saiba mais</a>
                             <i class='bx bx-heart bx-sm'></i>
                         </footer>
                     </div>
@@ -165,5 +163,32 @@
     
 
     <script src="resources/js/menu.js"></script>
+    <script>
+    async function loadPontos() {
+    const section = document.querySelector('section');
+
+    const url = '/get-pontos';
+
+    const pontos = await (await fetch(url)).json();
+
+    for (const ponto of pontos) {
+        const view = `                
+            <div class="card">
+            <div class="card-inside">
+                <figure>
+                    <img src="${ponto.imagem}" alt="${ponto.altImagem}">
+                </figure>
+                <h1>${ponto.nome}</h1>
+                <footer>
+                    <a href="resources/pontos/centrohistorico.html">Saiba mais</a>
+                    <i class='bx bx-heart bx-sm'></i>
+                </footer>
+            </div>
+        </div>`
+
+        section.insertAdjacentHTML('beforeend', view);
+    }
+    }
+    </script>
 </body>
 </html>
