@@ -9,21 +9,17 @@
     margin: 0; 
     padding: 0;
     box-sizing: border-box;
-    
-    /* CSS HEX */
     /* --mint-cream: #d8e7e0ff; */
     --jungle-green: #46a07aff;
     --cadmium-green: #026b3fff;
     --dark-green: #012e1bff;
     --black-coffee: #3a2e39ff;
     --fundo: #FAFFFD;
-    /* CSS HEX */
     --mint-cream: #ECF5F3ff;
     --aero-blue: #C9EFE0ff;
     --op-aero-blue: rgba(255, 255, 255, 0.493);
     --emerald: #00CC76ff;
     --op-emerald: rgba(0, 204, 119, 0.479);
-
     --british-racing-green: #13442Eff;
     font-family: 'Urbanist', sans-serif;
 }
