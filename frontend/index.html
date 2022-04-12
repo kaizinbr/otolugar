@@ -162,7 +162,7 @@
     <script src="resources/js/menu.js"></script>
     <script>
     async function loadPontos() {
-    const section = document.querySelector('section');
+    const section = document.querySelector('section .content');
 
     const url = '/get-pontos';
 
@@ -177,7 +177,7 @@
                 </figure>
                 <h1>${ponto.nome}</h1>
                 <footer>
-                    <a href="resources/pontos/centrohistorico.html">Saiba mais</a>
+                    <a href="resources/pontos/${ponto.nome}.html">Saiba mais</a>
                     <i class='bx bx-heart bx-sm'></i>
                 </footer>
             </div>

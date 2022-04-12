@@ -8,7 +8,7 @@
             "../img/teaser/ch/ch4.jpg",
             "../img/teaser/ch/5.jpg"
         ],
-        "description": [
+        "descricao": [
             "Terceira cidade mais antiga do Brasil, João Pessoa surgiu em 1585, às margens do Rio Sanhauá, como 'Cidade Real de Nossa Senhora das Neves'. Em 1588, a cidade adquiriu o nome de 'Filipeia de Nossa Senhora das Neves', em homenagem ao rei Filipe, que, na época, acumulava os tronos da Espanha e de Portugal. Durante a ocupação holandesa foi chamada Frederikstad, e foi uma das duas principais cidades da Nova Holanda, junto com Mauritsstadt (a atual Recife), na segunda metade do século XVII. Possui antigo e vasto patrimônio histórico, similar ao de Olinda. A denominação de João Pessoa foi aprovada em  setembro de 1930 como uma homenagem ao político paraibano homônimo, assassinado em 26 de julho de 1930, na Confeitaria Glória, em Recife, por João Duarte Dantas (1888 – 1930), quando era governador da Paraíba e candidato a vice-presidente na chapa de Getúlio Vargas.", 
             "São tombados 37 hectares de área e estimadas cerca de 700 edificações, além de ruas, praças e parques históricos que integrem esse conjunto, compreendendo a maior parte dos bairros do Varadouro e do Centro da cidade. Suas edificações compõem um cenário de diferentes estilos e épocas cheio de sobrados, praças, casarios coloniais e igrejas seculares, sendo considerado o principal acervo arquitetônico da Paraíba, relatando as diversas fases da história local, e um dos maiores e mais importantes sítios históricos do Brasil.",
             "A área delimitada possui bens que representam vários períodos da história de João Pessoa, a exemplo do barroco da Igreja da Ordem Terceira de São Francisco; do rococó da Igreja de Nossa Senhora do Carmo; do estilo maneirista da Igreja da Misericórdia, todas do século XVII; da arquitetura colonial e eclética do casario civil, além do art-nouveau e o art-déco, das décadas de 20 e 30, predominantes na Praça Antenor Navarro e no antigo Hotel Globo, hoje transformado em centro cultural.",
@@ -18,7 +18,7 @@
             "Já na Praça Pedro Américo encontra-se o Teatro Santa Roza, inaugurado em 1889, é em estilo barroco com fachada greco-romana e um dos teatros mais antigos do Brasil."  
         ],
         "fonte": "https://pt.wikipedia.org/wiki/Centro_Hist%C3%B3rico_de_Jo%C3%A3o_Pessoa",
-        "mapa": 
+        "endereco": "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr"
     }
 ]
 

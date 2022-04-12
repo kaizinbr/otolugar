@@ -236,8 +236,6 @@ div.infoImg img{
 
 main{
     min-height: calc(100vh - 70px);
-    /* margin-top: 90px; */
-    /* background-color: #026b3f; */
 }
 
 .principal > .content{
@@ -245,7 +243,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1800px;
+    /* max-width: 1800px; */
     flex-wrap: wrap;
     z-index: 1;
 }
