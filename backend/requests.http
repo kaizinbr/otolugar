@@ -3,7 +3,7 @@ POST http://localhost:3000/create-pontos
 Content-Type: application/json
 
 {
-    "nome": "Bica",
+    "nome": "Não quero saber de depressão",
     "descricao": "",
     "imagem": "resources/img/teaser/bica/1.jpg",
     "altImagem": "Imagem do Centro Histórico",
