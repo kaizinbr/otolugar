@@ -164,7 +164,10 @@
             heart = "bxs-heart";
         } else{
             heart = "bx-heart";
-        }
+        };
+
+        let endereco = ponto.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').toLowerCase();
+
         const view = `                
             <div class="card">
             <div class="card-inside">
@@ -173,15 +176,13 @@
                 </figure>
                 <h1>${ponto.nome}</h1>
                 <footer>
-                    <a href="resources/pontos/${ponto.nome}.html">Saiba mais</a>
+                    <a href="resources/pontos/${endereco}.html">Saiba mais</a>
                     <i class='bx ${heart} bx-sm'></i>
                 </footer>
             </div>
         </div>`
 
         section.insertAdjacentHTML('beforeend', view);
-
-        console.log(`a avaliação do usuario é ${ponto.avaliacaoUsuario}`);
 
         
 

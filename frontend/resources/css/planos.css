@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@font-face {
+    font-family: 'beatrice';
+    src: url(../fonts/BeatriceDisplay.ttf);
+}
+
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    
+    /* CSS HEX */
+    /* --mint-cream: #d8e7e0ff; */
+    --jungle-green: #46a07aff;
+    --cadmium-green: #026b3fff;
+    --dark-green: #012e1bff;
+    --black-coffee: #3a2e39ff;
+    --fundo: #FAFFFD;
+    /* CSS HEX */
+    --mint-cream: #ECF5F3ff;
+    --aero-blue: #C9EFE0ff;
+    --op-aero-blue: rgba(255, 255, 255, 0.493);
+    --mp-aero-blue: rgba(255, 255, 255, 0);
+    --emerald: rgba(0, 204, 119, 0.489);
+    --op-emerald: rgba(0, 204, 119, 0.479);
+
+    --british-racing-green: #13442Eff;
+    font-family: 'Urbanist', sans-serif;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.pCard {
+    height: 680px;
+    width: 400px;
+    background-color: var(--op-aero-blue);
+    border: 2px solid var(--op-aero-blue);
+    border-radius: 15px;
+    /* display: flex;
+    align-items: flex-end; */
+}
+
+/* .pCard.back{
+    transform: translateY(-100%);
+    backdrop-filter: blur(80px);
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.green {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: rgb(84, 251, 84);
+} */
