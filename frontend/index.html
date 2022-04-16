@@ -155,8 +155,16 @@
     const url = '/get-pontos';
 
     const pontos = await (await fetch(url)).json();
+    let heart = "";
+
 
     for (const ponto of pontos) {
+        
+        if (ponto.avaliacaoUsuario == 1){
+            heart = "bxs-heart";
+        } else{
+            heart = "bx-heart";
+        }
         const view = `                
             <div class="card">
             <div class="card-inside">
@@ -166,14 +174,21 @@
                 <h1>${ponto.nome}</h1>
                 <footer>
                     <a href="resources/pontos/${ponto.nome}.html">Saiba mais</a>
-                    <i class='bx bx-heart bx-sm'></i>
+                    <i class='bx ${heart} bx-sm'></i>
                 </footer>
             </div>
         </div>`
 
         section.insertAdjacentHTML('beforeend', view);
+
+        console.log(`a avaliação do usuario é ${ponto.avaliacaoUsuario}`);
+
+        
+
     }
-    }
+    };
+
+
     </script>
 </body>
 </html>

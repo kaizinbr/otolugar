@@ -342,6 +342,21 @@ main{
     border-bottom: 2px solid var(--emerald);
 }
 
+.card-inside footer .bxs-heart{
+    padding: 10px; 
+    border-radius: 11px 11px 0 0 ;
+    color: var(--aero-blue);
+    border: 2px solid var(--emerald);
+    background-color: var(--emerald);
+    cursor: pointer;
+    transition: border .5s;
+}
+
+.card-inside footer .bxs-heart:hover{
+    border: 2px solid var(--jungle-green);
+    border-bottom: 2px solid var(--emerald);
+}
+
 .content .card:hover{
     /* box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2); */
     border: 2px solid var(--emerald);
@@ -381,6 +396,10 @@ main{
 
 
     .card-inside footer .bx-heart{
+        padding: 5px; 
+        border-radius: 7px 7px 0 0 ;
+    }
+    .card-inside footer .bxs-heart{
         padding: 5px; 
         border-radius: 7px 7px 0 0 ;
     }

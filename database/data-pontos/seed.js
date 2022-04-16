@@ -7,7 +7,7 @@ function loadSeed() {
                 descricao: "",
                 imagem: "resources/img/teaser/ch/ch.jpg",
                 altImagem: "Imagem do Centro Histórico",
-                avaliacaoUsuario: 0,
+                avaliacaoUsuario: 1,
                 endereco: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
                 valor: 0
             },
@@ -27,7 +27,7 @@ function loadSeed() {
                 descricao: "",
                 imagem: "resources/img/teaser/ccsf/1.jpg",
                 altImagem: "Imagem do Centro Cultural São Francisco",
-                avaliacaoUsuario: 0,
+                avaliacaoUsuario: 1,
                 endereco: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
                 valor: 0
             },
@@ -37,7 +37,7 @@ function loadSeed() {
                 descricao: "",
                 imagem: "resources/img/teaser/bica/1.jpg",
                 altImagem: "Imagem da Bica",
-                avaliacaoUsuario: 0,
+                avaliacaoUsuario: 1,
                 endereco: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
                 valor: 0
             },
@@ -97,7 +97,7 @@ function loadSeed() {
                 descricao: "",
                 imagem: "resources/img/teaser/pcb/1.jpg",
                 altImagem: "Imagem do Praia do Cabo Branco",
-                avaliacaoUsuario: 0,
+                avaliacaoUsuario: 1,
                 endereco: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
                 valor: 0
             },
@@ -117,7 +117,7 @@ function loadSeed() {
                 descricao: "",
                 imagem: "resources/img/teaser/pns/1.jpg",
                 altImagem: "Imagem do Piscinas Naturais do Seixas",
-                avaliacaoUsuario: 0,
+                avaliacaoUsuario: 1,
                 endereco: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
                 valor: 0
             },
@@ -137,7 +137,7 @@ function loadSeed() {
                 descricao: "",
                 imagem: "resources/img/teaser/ps/1.jpg",
                 altImagem: "Imagem da Praia do Seixas",
-                avaliacaoUsuario: 0,
+                avaliacaoUsuario: 1,
                 endereco: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
                 valor: 0
             }
