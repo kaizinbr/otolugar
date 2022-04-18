@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#026b3f">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtoLugar - Encontre o seu lugar</title>
+    <link rel="stylesheet" href="frontend/resources/css/main.css">
+    <link rel="stylesheet" href="frontend/resources/css/responsive-menu.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="frontend/resources/img-main/isologo.svg" type="image/x-icon">
+</head>
+<body onload="loadPontos()">
+
+    <!-- Fora bolsonaro <3 !!! -->
+    <!-- Jovens tirem seus títulos eleitorais pfvr -->
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img class="isotipo" src="frontend/resources/img-main/logo.svg" alt="">
+            </div>
+
+            <div class="navmenu">
+                <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
+                <ul class="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pesquisa.html">Pesquisar</a></li>
+                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="cadastro.html" class="mobileSign">Cadastro</a></li>
+                </ul>
+            </div>
+
+            <div class="sign">
+                <a href="#">Criar conta</a>
+                <a href="#">Entrar</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="content">
+            <a href="frontend/index.html">CLIQUE AQUI</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Todos os direitos de imagem são de seus respectivos donos/criadores. Todas as imagens utilizadas são para fins acadêmicos. <br> Para mais informações ou reclamações entre em contato conosco.</p>
+        
+    </footer>
+    
+
+    <script src="frontend/resources/js/menu.js"></script>
+    <script>
+    async function loadPontos() {
+    const section = document.querySelector('section .content');
+
+    const url = '/get-pontos';
+
+    const pontos = await (await fetch(url)).json();
+    let heart = "";
+
+
+    for (const ponto of pontos) {
+        
+        if (ponto.avaliacaoUsuario == 1){
+            heart = "bxs-heart";
+        } else{
+            heart = "bx-heart";
+        };
+
+        let endereco = ponto.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').toLowerCase();
+
+        const view = `                
+            <div class="card">
+            <div class="card-inside">
+                <figure>
+                    <img src="${ponto.imagem}" alt="${ponto.altImagem}">
+                </figure>
+                <h1>${ponto.nome}</h1>
+                <footer>
+                    <a href="frontend/resources/pontos/${endereco}.html">Saiba mais</a>
+                    <i class='bx ${heart} bx-sm'></i>
+                </footer>
+            </div>
+        </div>`
+
+        section.insertAdjacentHTML('beforeend', view);
+
+        
+
+    }
+    };
+
+
+    </script>
+</body>
+</html>
