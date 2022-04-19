@@ -239,6 +239,7 @@ div.infoImg img{
 
 main{
     min-height: calc(100vh - 70px);
+    padding: 0 0 100px 0;
 }
 
 .principal > .content{

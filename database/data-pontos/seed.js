@@ -149,7 +149,7 @@ function loadSeed() {
 };
 
 function create(ponto) {
-    const id = `Ponto número ${pontos.length + 1}`;
+    const id = pontos.length + 1;
     const novoPonto = {...ponto, id};
 
     pontos.push(novoPonto);

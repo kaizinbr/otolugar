@@ -144,11 +144,11 @@
 
     <footer>
         <p>Todos os direitos de imagem são de seus respectivos donos/criadores. Todas as imagens utilizadas são para fins acadêmicos. <br> Para mais informações ou reclamações entre em contato conosco.</p>
-        
     </footer>
     
 
     <script src="resources/js/menu.js"></script>
+    <!-- <script src="../database/data-pontos/favs.js"></script> -->
     <script>
     async function loadPontos() {
     const section = document.querySelector('section .content');
@@ -170,7 +170,7 @@
         let endereco = ponto.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').toLowerCase();
 
         const view = `                
-            <div class="card">
+            <div class="card ${ponto.n}" id="${ponto.id}">
             <div class="card-inside">
                 <figure>
                     <img src="${ponto.imagem}" alt="${ponto.altImagem}">
@@ -189,7 +189,6 @@
 
     }
     };
-
 
     </script>
 </body>
