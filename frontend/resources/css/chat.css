@@ -1,0 +1,118 @@
+    #inbox {
+        display: inline-block;
+        vertical-align: top;
+        width: 25%;
+        box-shadow: 21px 10px 30px -37px #026b3fff;
+    }
+    
+    #chat {
+        vertical-align: top;
+        display: inline-block;
+        width: 74%;
+    }
+    
+    .column {
+        height: 100vh;
+    }
+    
+    .column p.title {
+        font-size: 30px;
+        padding: 20px 30px;
+        color: #026b3fff;
+        font: 'Urbanist', sans-serif;
+    }
+    
+    #inbox input.searchField {
+        display: block;
+        margin: auto;
+        width: 90%;
+        max-width: 300px;
+        padding: 5px 10px;
+        border: none;
+        background-color: white;
+        height: 30px;
+        border-radius: 30px;
+    }
+    
+    #inbox #searchContainer {
+        display: block;
+        margin: 10px auto;
+        width: auto;
+        max-width: 300px;
+        height: 200px;
+        padding: 10px;
+        border: none;
+        background-color: white;
+        overflow-y: auto;
+        display: none;
+    }
+    
+    #chat #body {
+        height: 81vh;
+        display: auto;
+        justify-content: auto;
+        align-items: auto;
+    }
+    
+    #chat #header {
+        padding: 10px;
+        font: 'Urbanist', sans-serif;
+        background-color: rgba(255, 255, 255, 0.493);
+        margin-bottom: 15px;
+        font-style: initial;
+    }
+    
+    #chat #message {
+        background-color: #13442Eff;
+        padding: 10px;
+        color: white;
+        width: fit-content;
+        border-radius: 30px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        margin-left: 5px;
+        font: 'Urbanist', sans-serif;
+    }
+    
+    #chat #usermessage {
+        background-color: #46a07aff;
+        padding: 10px;
+        color: white;
+        width: fit-content;
+        border-radius: 20px;
+        margin-bottom: 15px;
+        margin-left: auto;
+        font-size: 15px;
+        font: 'Urbanist', sans-serif;
+    }
+    
+    #chat #footer #form {
+        display: flex;
+    }
+    
+    #chat #footer #form input {
+        background-color: white;
+        flex: 1;
+        height: 40px;
+        border: none;
+        outline: none;
+        padding-left: 5px;
+        font-size: 16px;
+    }
+    
+    #chat #footer #form button {
+        width: 100px;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: darkgray;
+        color: black;
+        cursor: pointer;
+    }
+    
+    #chat #header #webchat {
+        color: #026b3fff;
+        font: 'Urbanist', sans-serif;
+        text-align: center;
+        font-weight: 400;
+    }
