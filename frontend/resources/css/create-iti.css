@@ -1,9 +1,9 @@
-.perfil-usuario{
+.iti-emp{
     display: flex;
     justify-content: center;
     top: 70px;
-    width: 800px;
-    height: 1100px;
+    width: 600px;
+    height: 650px;
     border-radius: 15px;
     align-items: center;
     background-color: rgba(40, 161, 71, 0.479);
@@ -12,11 +12,11 @@
     position: relative;
     /* left: 255px; */
 }
-.meu-perfil{
+.iti-create{
     position: relative;
-    font-size: 50px;
-    margin-top: -1000px;
-    left: 190px;
+    font-size: 30px;
+    margin-top: -550px;
+    left: 238px;
     white-space: nowrap;
     display: flex;
     color: #012e1bff;
@@ -26,46 +26,43 @@
     border-radius: 30px;
 
 }
-.box{
+.form{
+    width: 500px;
+}
+.box-iti{
     color:#012e1bff;
     position: relative;
-    left: -100px;
+    left: -200px;
+    top: 10px;
 }
 
 
 
-section.secaoPerfil{
+section.secaoiti{
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
-.avatar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    min-height: 150px;
-    min-width: 150px;
-}
 
 .button-dados{
     border-radius: 25px;
     background-color: #012e1bff;
+    white-space: nowrap;
     justify-content: center;
     align-items: center;
     display: flex;
     padding: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-top: -18px;
-    margin-left: 350px;
+    position: relative;
+    left: 170px;
+    top: 40px;
     border: none;
     /* border-bottom: 2px solid #5b6b54ff; */
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     color: white;
     cursor: pointer;
-    width: 270px;
+    width: 150px;
+
 }
 .button-dados:hover{
     background-color:#ebf5d7;
@@ -74,63 +71,68 @@ section.secaoPerfil{
     /* border-bottom: 2px solid #5b6b54ff; */
 
 }
+.button-sele{
+    border-radius: 25px;
+    background-color: #012e1bff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    border: none;
+    /* border-bottom: 2px solid #5b6b54ff; */
+    transition-duration: 0.5s;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+}
+.button-sele:hover{
+    background-color:#ebf5d7;
+    border:#012e1bff;
+    color:rgb(127, 133, 125);
+    /* border-bottom: 2px solid #5b6b54ff; */
 
-.perfil{
+}
+
+.itinenario{
     align-items: center;
     justify-content: center;
     display: flex;
 }
-.perfil-foto{
-    display: flex;
-    width: 280px;
-    height: 280px;
-    align-items: center;
-    justify-content: center;
-    border: 7px solid #012e1bff;
-    background-color: white;
-    border-radius: 50%;
-    box-shadow: 0 0 12px rgba(0, 0, 0, -2);
-    position:relative;
-    overflow: hidden;
-    margin-bottom: 50px;
-    left: -90px;
-}
-.info-emp{
+
+.info-iti{
     margin-top: 5px;
     margin-left: 200px;
     display: flex;
 
 }
 
-.info-media .bio2{
+.info-iti-create .desc2{
     display: flex;
     align-items: center;
 }
-.info-media .nome{
-    display: flex;
-    align-items: center;
-
-}
-.info-media .tele{
+.info-iti-create .nameiti2{
     display: flex;
     align-items: center;
 
 }
-.info-media .email1{
+.info-iti-create .ende2{
     display: flex;
     align-items: center;
 
 }
-.info-media .datan1{
+.info-iti-create .value2{
     display: flex;
     align-items: center;
 
 }
-.info-media .gener1{
+.info-iti-create .select2{
     display: flex;
     align-items: center;
+
 }
-.info-media{
+.info-iti-create{
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -138,11 +140,11 @@ section.secaoPerfil{
     margin-left: -220px;
     margin-top: 10px;
 }
-.bio2{
+.desc2{
     position: relative;
     top: -15px;
 }
-.bio3{
+.desc3{
     padding: 10px;
     border-radius: 25px;
     background-color:white;
@@ -157,13 +159,14 @@ section.secaoPerfil{
     position: relative;
     top: -12px;
 
+
 }
-.bio3:focus{
+.desc3:focus{
     background-color: #e3eccf;
 }
 
 
-.name{
+.nameiti3{
     padding-right: 400px;
     align-items: center;
     display:flex;
@@ -174,7 +177,7 @@ section.secaoPerfil{
     border-color:white ;
 
 }
-.tel{
+.value3{
     padding-right: 400px;
     align-items: center;
     display:flex;
@@ -185,7 +188,8 @@ section.secaoPerfil{
     border-color:white ;
 
 }
-.datan1{
+
+.ende3{
     padding-right: 400px;
     align-items: center;
     display:flex;
@@ -196,22 +200,11 @@ section.secaoPerfil{
     border-style: solid;
     border-color:white ;
 }
-.gener1{
+.select1{
     margin-top:25px;
+
 }
-.gener{
-    padding-right: 100px;
-    margin-top: 0px;
-    align-items: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
-    border: none;
-    border-width: medium;
-    border-style: solid;
-    border-color:white ;
-}
-.email{
+.ende3{
     padding-right: 400px;
     align-items: center;
     justify-content: center;
@@ -246,39 +239,8 @@ section.secaoPerfil{
     transition: .7s ease-in-out;
 }
 
-#foto{
-    display: none;
-}
 
-.foto{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #012e1bff;
-    transition: 7s ease-in-out;
-    position: relative;
-    left: -80px;
-} 
 
-.bx-image-alt{
-    font-size: 25px;
-    color: whitesmoke;
-}
-.bx {
-    font-family: boxicons!important;
-    font-weight: 400;
-    font-style: normal;
-    font-variant: normal;
-    line-height: 1;
-    text-rendering: auto;
-    display: inline-block;
-    text-transform: none;
-    speak-as: none;
-    -webkit-font-smoothing: antialiased;
-}
 /* Menu responsivo */
 
 @media screen and (max-width: 768px){

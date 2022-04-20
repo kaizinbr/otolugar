@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="resources/css/perfilemp.css">
+    <link rel="stylesheet" href="resources/css/main.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Meu Perfil | OtoLugar</title>
+</head>
+<body>
+    
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <img class="isotipo" src="resources/img-main/logo.svg" alt="">
+            </div>
+
+            <div class="navmenu">
+                <button id="btn-mobile">Menu</button>
+                <ul class="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pesquisa.html">Pesquisar</a></li>
+                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="sign">
+                <a href="#">Criar conta</a>
+                <a href="#">Entrar</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <script type="text/javascript" src="js/menu-responsivo.js"></script>
+
+    <section class="secaoPerfilemp">
+        <div class="perfil-emp">
+            <h1 class= perfil-empresa>Perfil empresa</h1>
+            <box class="box-emp" >
+                <div class="empperfil"> 
+                </div>
+                <div class="info-emp">
+                    <div class="info-media-emp">
+                        <form class="form" action="getform.php" method="get">
+                            <div class="campo1">
+                                <label class="cnpj1"><strong class="cnpj2">CNPJ</strong></label>
+                                <input rows="6" type="text"  class="cnpj3" name="cnpj3" placeholder="Insira seu CNPJ. Ex: XX. XXX. XXX/0001-XX."></input>
+                                <br>
+                                <label class="nomefant1"><strong class="nomefant2">Nome fantasia</strong></label>
+                                <input rows="6" type="text" class="nomefant3" name="nomefant3" placeholder="Insira o nome fantasia completo da empresa."></input>
+                                <br>
+                                <label class="emailemp1"><strong class="emailemp2">Email</strong></label>
+                                <input rows="6" type="email" class="emailemp3" name="emailemp3" placeholder="Insira seu endereço eletrônico."></input>
+                                <br>
+                                <label for="telemp1"><strong class="telemp2">Telefone</strong></label>
+                                <input rows="6" type="tel" class="telemp3" name="telemp3" placeholder="Ex.: XX XXXXX-XXXX">
+                                <br>
+                                <label for="insest1"><strong class="insest2">Inscrição Estadual</strong></label>
+                                <input rows="6" type="text" class="insest3" name="insest3" placeholder="Insira o número da inscrição estadual da empresa."></input>
+                                <br>
+                                <label for="est1"><strong class="est2">Estado</strong></label>
+                                <select class="est3" required>
+                                    <option selected disabled value="">Selecione a unidade de federação correspondente.</option>
+                                    <option>Acre (AC)</option>
+                                    <option>Alagoas (AL)</option>
+                                    <option>Amapá (AP)</option>
+                                    <option>Amazonas (AM)</option>
+                                    <option>Bahia (BH)</option>
+                                    <option>Ceará (CE)</option>
+                                    <option>Distrito Federal (DF)</option>
+                                    <option>Espírito Santo (ES)</option>
+                                    <option>Goiás (GO)</option>
+                                    <option>Maranhão (MA)</option>
+                                    <option>Mato Grosso (MT)</option>
+                                    <option>Mato Grosso do Sul (MS)</option>
+                                    <option>Minas Gerais (MG)</option>
+                                    <option>Pará (PA)</option>
+                                    <option>Paraíba (PB)</option>
+                                    <option>Paraná (PR)</option>
+                                    <option>Pernambuco (PE)</option>
+                                    <option>Piauí (PI)</option>
+                                    <option>Rio de Janeiro (RJ)</option>
+                                    <option>Rio Grande do Norte (RN)</option>
+                                    <option>Rio Grande do Sul (RS)</option>
+                                    <option>Rondônia (RO)</option>
+                                    <option>Roraima (RR)</option>
+                                    <option>Santa Catarina (SC)</option>
+                                    <option>São Paulo (SP)</option>
+                                    <option>Sergipe (SE)</option>
+                                    <option>Tocantins (TO)</option>   
+                                </select>
+                            </div>
+            <div class="perfil-emp2">
+                <box class="box-emp2" >
+                <div class="empperfil2"> 
+                </div>
+                <div class="info-emp2">
+                    <div class="info-media-emp2">
+                        <form class="form" action="getform.php" method="get">
+                            <div class="campo1">
+                                <label for="razaoso1"><strong class="razaoso2">Razão Social</strong></label>
+                                <input rows="6" type="text" class="razaoso3" name="razaoso3" placeholder="Insira o nome completo da empresa.">
+                                <br>
+                                <label for="longra1"><strong class="longra2">Longradouro</strong></label>
+                                <input rows="6" type="text" class="longra3" name="longra3" placeholder="Insira o nome da rua, avenida etc.">
+                                <br>
+                                <label for="bairro1"><strong class="bairro2">Bairro</strong></label>
+                                <input rows="6" type="text" class="bairro3" name="bairro3" placeholder="Insira o bairro correspondente.">          
+                                <br>
+                                <label for="cid1"><strong class="cid2">Cidade</strong></label>
+                                <input rows="6" type="text" class="cid3" name="cid3" placeholder="Insira o nome do município.">
+                                <br>
+                                <label for="cont1"><strong class="cont2">Contato</strong></label>
+                                <input rows="6" type="text" class="cont3" name="cont3" placeholder="Insira o nome de uma pessoa da empresa para contato.">
+                            </div>
+                            <button class= button-dados type=text>Alterar dados</button>
+        <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
+                        </form>
+                    </div>
+                </form>
+                </div>
+            </box>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/menu-responsivo.js"></script>
+    
+</body>
+</html>

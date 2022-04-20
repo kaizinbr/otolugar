@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtoLugar - Encontre o seu lugar</title>
+    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/create-iti.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img class="isotipo" src="resources/img-main/logo.svg" alt="">
+            </div>
+
+            <div class="navmenu">
+                <button id="btn-mobile">Menu</button>
+                <ul class="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pesquisa.html">Pesquisar</a></li>
+                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="sign">
+                <a href="#">Criar conta</a>
+                <a href="#">Entrar</a>
+            </div>
+        </nav>
+    </header>
+        <script type="text/javascript" src="js/menu-responsivo.js"></script>
+    
+        <section class="secaoiti">
+            <div class="iti-emp">
+                <h1 class= iti-create>Crie um itinerário</h1>
+                <box class="box-iti" >
+                    <div class="itinerario"> 
+                    </div>
+                    <div class="info-iti">
+                        <div class="info-iti-create">
+                            <form class="form" action="getform.php" method="get">
+                                <div class="campo1">
+                                    <label class="desc1"><strong class="desc2">Descrição</strong></label>
+                                    <textarea rows="6" type="text"  class="desc3" name="desc3" placeholder="Insira informações aqui"></textarea>
+                                    <br>
+                                    <label class="nameiti1"><strong class="nameiti2">Nome</strong></label>
+                                    <input rows="6" type="text" class="nameiti3" name="nameiti3" placeholder="Insira o nome da sua empresa">
+                                    <br>
+                                    <label class="ende1"><strong class="ende2">Endereço</strong></label>
+                                    <input rows="6" type="email" class="ende3" name="ende3" placeholder="Insira o local">
+                                    <br>
+                                    <label class="value1"><strong class="value2">Valor</strong></label>
+                                    <input rows="6" type="number" class="value3" name="value3" placeholder="Insira o quanto custa">
+                                    <br>
+                                    <label for="select1"><strong class="select2">Seleção de pontos</strong></label>
+                                </div>
+                                <button class= button-sele type=text>Selecione</button>
+                                <button class= button-dados type=text>Criar</button>
+            <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
+                            </form>
+                        </div>
+                    </form>
+                    </div>
+                </box>
+            </div>
+        </section>
+        <script type="text/javascript" src="js/menu-responsivo.js"></script>
+        
+    </body>
+    </html>
