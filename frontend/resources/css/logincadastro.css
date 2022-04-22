@@ -1,10 +1,31 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@font-face {
+    font-family: 'beatrice';
+    src: url(../fonts/BeatriceDisplay.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    /* --mint-cream: #d8e7e0ff; */
+    --jungle-green: #46a07aff;
+    --cadmium-green: #026b3fff;
+    --dark-green: #012e1bff;
+    --black-coffee: #3a2e39ff;
+    --fundo: #FAFFFD;
+    --mint-cream: #ECF5F3ff;
+    --aero-blue: #C9EFE0ff;
+    --op-aero-blue: rgba(255, 255, 255, 0.493);
+    --emerald: #00CC76ff;
+    --op-emerald: rgba(0, 204, 119, 0.479);
+    --british-racing-green: #13442Eff;
+    font-family: 'Urbanist', sans-serif;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -23,7 +44,7 @@
 .content::before {
     content: "";
     position: absolute;
-    background-color: #8EA382;
+    background-color: var(--cadmium-green);
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
@@ -41,7 +62,7 @@
     color: #fff;
 }
 .title-second {
-    color: #8EA382;
+    color: var(--cadmium-green);
 }
 .description {
     font-size: 14px;
@@ -80,13 +101,13 @@
     color: #D3DABB;
 }
 .btn-second {
-    background-color: #8EA382;
-    border: 1px solid #8EA382;
+    background-color: var(--cadmium-green);
+    border: 1px solid var(--cadmium-green);
     transition: background-color .5s;
 }
 .btn-second:hover {
     background-color: #fff;
-    border: 1px solid #8EA382;
+    border: 1px solid var(--cadmium-green);
     color: #D3DABB;
 }
 .first-content {
@@ -116,9 +137,9 @@
     transition: background-color .5s;
 }
 .link-social-media:hover .item-social-media{
-    background-color: #58af9b;
+    background-color: var(--cadmium-green);
     color: #fff;
-    border-color: #58af9b;
+    border-color: var(--cadmium-green);
 }
 .list-social-media {
     display: flex;

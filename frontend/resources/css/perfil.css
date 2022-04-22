@@ -1,7 +1,7 @@
 .perfil-usuario{
     display: flex;
     justify-content: center;
-    top: 70px;
+    /* top: 70px; */
     width: 800px;
     height: 1100px;
     border-radius: 15px;
@@ -10,7 +10,6 @@
     padding: 160px;
     backdrop-filter: blur(10px);
     position: relative;
-    /* left: 255px; */
 }
 .meu-perfil{
     position: relative;

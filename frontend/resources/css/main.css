@@ -40,6 +40,8 @@ body>footer{
     min-height: 70px;
     background-color: rgba(245, 255, 250, 0.308);
     color: var(--jungle-green);
+    margin-top: 70px;
+
 }
 
 /* MENU SUSPENSO */
