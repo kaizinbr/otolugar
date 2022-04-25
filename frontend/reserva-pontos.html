@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/responsive-menu.css">
     <link rel="stylesheet" href="resources/css/reserva-pontos.css">
-    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/main.css">    
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
     <title>Reserva de Pontos | OtoLugar</title>
 </head>
 
@@ -19,12 +22,14 @@
             </div>
 
             <div class="navmenu">
-                <button id="btn-mobile">Menu</button>
+                <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
                 <ul class="list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
                     <li><a href="perfil.html">Meu perfil</a></li>
                     <li><a href="contato.html">Contato</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="main-cadastro-login.html" class="mobileSign">Cadastro</a></li>
                 </ul>
             </div>
 
@@ -34,41 +39,43 @@
             </div>
         </nav>
     </header>
+
+
     <main class="container">
         <h1 class="title">Reserva de Itinerários</h1>
         <div class="row">
             <div class="inputbox">
                 <input type="text" id="local">
-                <label for="local"> Nome do Ponto Turistico</label>
+                <label for="local"> Nome do Ponto Turistico:</label>
             </div>
 
             <div class="inputbox">
                 <input type="text" id="data">
-                <label for="data"> Data da Reserva</label>
+                <label for="data"> Data da Reserva:</label>
             </div>
 
             <div class="inputbox">
                 <input type="horario" id="horario">
-                <label for="horario"> Horário previsto </label>
+                <label for="horario"> Horário previsto: </label>
             </div>
 
             <div class="inputbox">
                 <input type="text" id="cpf">
-                <label for="cpf"> CPF </label>
+                <label for="cpf"> CPF: </label>
             </div>
 
             <div class="inputbox">
                 <input type="text" id="tel">
-                <label for="tel"> Telefone para contato </label>
+                <label for="tel"> Telefone para contato: </label>
             </div>
 
             <div class="inputbox">
                 <input type="text" id="email">
-                <label for="email"> Email para contato </label>
+                <label for="email"> Email para contato: </label>
             </div>
             <div class="inputbox">
                 <input type="text" id="info-ad">
-                <label for="info-ad"> Informações adicionais </label>
+                <label for="info-ad"> Informações adicionais: </label>
             </div>
 
         </div>
@@ -78,5 +85,8 @@
 
     </main>
 </body>
+
+<script src="resources/js/menu.js"></script>
+
 
 </html>
