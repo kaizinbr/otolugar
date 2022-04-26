@@ -45,36 +45,36 @@
         <h1 class="title">Reserva de Itinerários</h1>
         <div class="row">
             <div class="inputbox">
-                <input type="text" id="local">
+                <input type="text" id="local" required placeholder="aaaaaaaaaaa">
                 <label for="local"> Nome do Ponto Turistico:</label>
             </div>
 
             <div class="inputbox">
-                <input type="text" id="data">
+                <input type="text" onblur="(this.type='text')" onfocus="(this.type='date')" id="data" required>
                 <label for="data"> Data da Reserva:</label>
             </div>
 
             <div class="inputbox">
-                <input type="horario" id="horario">
+                <input type="text" onblur="(this.type='text')" onfocus="(this.type='time')" id="horario" placeholder="aaaa" required>
                 <label for="horario"> Horário previsto: </label>
             </div>
 
             <div class="inputbox">
-                <input type="text" id="cpf">
+                <input type="text" id="cpf" placeholder="aaaa"  required>
                 <label for="cpf"> CPF: </label>
             </div>
 
             <div class="inputbox">
-                <input type="text" id="tel">
+                <input type="tel" id="tel" placeholder="aaaa" required>
                 <label for="tel"> Telefone para contato: </label>
             </div>
 
             <div class="inputbox">
-                <input type="text" id="email">
+                <input type="email" id="email" placeholder="aaaa" required>
                 <label for="email"> Email para contato: </label>
             </div>
             <div class="inputbox">
-                <input type="text" id="info-ad">
+                <input type="text" id="info-ad" placeholder="aaaa" required>
                 <label for="info-ad"> Informações adicionais: </label>
             </div>
 
