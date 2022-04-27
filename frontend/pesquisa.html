@@ -41,19 +41,73 @@
 
     <main>
         <div class='search-box'>
-            <input class="search-txt" type='text' name='' placeholder='Faça a sua pesquisa' >
-            <a class='search-btn' href='#'>
+            <input class="search-txt" type='text' name='' placeholder='Faça a sua pesquisa' id="search-input">
+            <a class='search-btn' href='#' id="search-btn">
                 <i class='bx bx-search-alt'></i>
             </a>
             
         </div>
-    
+        
+        <section class="principal row" style="margin-top: 15%;">
+            <div class="content">
+                <!-- Gerado automaticamente -->
+            </div>
+        </section>
     </main>
     <footer>
         <p>Todos os direitos de imagem são de seus respectivos donos/criadores. Todas as imagens utilizadas são para fins acadêmicos. <br> Para mais informações ou reclamações entre em contato conosco.</p>
     </footer>
         
     <script src="resources/js/menu.js"></script>
+        <script>
+            var search = document.getElementById('search-input');
+            var searchBtn = document.getElementById('search-btn');
+
+            searchBtn.addEventListener('click', () => {
+                if(search.value.length > 0){
+                    loadPontos(search.value);
+                }
+            });
+
+    async function loadPontos(nome) {
+    const section = document.querySelector('section .content');
+
+    const url = '/get-pontos/nome/' + nome;
+
+    const pontos = await (await fetch(url)).json();
+    let heart = "";
+
+
+    for (const ponto of pontos) {
         
+        if (ponto.avaliacaoUsuario == 1){
+            heart = "bxs-heart";
+        } else{
+            heart = "bx-heart";
+        };
+
+        let endereco = ponto.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').toLowerCase();
+
+        const view = `                
+            <div class="card ${ponto.n}" id="${ponto.id}">
+            <div class="card-inside">
+                <figure>
+                    <img src="${ponto.imagem}" alt="${ponto.altImagem}">
+                </figure>
+                <h1>${ponto.nome}</h1>
+                <footer>
+                    <a href="resources/pontos/${endereco}.html">Saiba mais</a>
+                    <i class='bx ${heart} bx-sm'></i>
+                </footer>
+            </div>
+        </div>`
+
+        section.insertAdjacentHTML('beforeend', view);
+
+        
+
+    }
+    };
+        </script>
     </body>
 </html>

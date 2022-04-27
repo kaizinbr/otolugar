@@ -161,4 +161,26 @@ function readAll(){
     return pontos;
 };
 
-export default { create, readAll, loadSeed}
+function readByNome(nome) {
+    const ponto = (pontos.filter(ponto => (ponto.nome).toLowerCase() === (nome).toLowerCase()));
+
+    if (ponto[0] === undefined) {
+        return undefined;
+    } else {
+        return ponto;
+    }
+}
+
+function readById(id) {
+    const ponto = (pontos.find(ponto => ponto.id === id));
+
+    console.log(ponto)
+
+    if (ponto) {
+        return ponto;
+    } else {
+        return undefined;
+    }
+}
+
+export default { create, readAll, loadSeed, readByNome, readById}
