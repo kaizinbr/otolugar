@@ -4,7 +4,7 @@
 ## Documentação do projeto
 * [Requisitos do Projeto](https://www.notion.so/oto-lugar/invite/f247f6234bdf8c003025e70267bbccb7b5c4370a)
 * Planos de trabalho
-  * Front-end: URL aqui
+  * Front-end: (https://docs.google.com/document/d/1iAPaG3No_BfIsTYyu7dev1DdXk0YbTyZopSYqneRjUo/edit?usp=sharing)
   * Back-end: URL aqui
 
 ## Caso esteja acessando pelo git pages, [clique aqui](frontend/index.html)
