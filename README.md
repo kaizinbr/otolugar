@@ -1,7 +1,12 @@
 # *OtoLugar*
 ## *O site do projeto integrador II*
 
-## [Requisitos do Projeto](https://www.notion.so/oto-lugar/invite/f247f6234bdf8c003025e70267bbccb7b5c4370a)
+# [Requisitos do Projeto](https://www.notion.so/oto-lugar/invite/f247f6234bdf8c003025e70267bbccb7b5c4370a)
+
+## Documentação do projeto
+* Planos de trabalho
+  * Front-end: URL aqui
+  * Back-end: URL aqui
 
 ## Caso esteja acessando pelo git pages, [clique aqui](frontend/index.html)
 
