@@ -17,7 +17,6 @@
             </div>
 
             <div class="navmenu">
-                <button id="btn-mobile">Menu</button>
                 <ul class="list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
@@ -36,30 +35,34 @@
     
         <section class="secaoiti">
             <div class="iti-emp">
-                <h1 class= iti-create>Crie um itinerário</h1>
+                <h1 class= iti-create>Crie um Ponto</h1>
                 <box class="box-iti" >
                     <div class="itinerario"> 
                     </div>
                     <div class="info-iti">
                         <div class="info-iti-create">
-                            <form class="form" id="formulario" action="getform.php" method="get">
+                            <form class="form" id="formulario" action="." method="get">
                                 <div class="campo1">
-                                    <label class="nameiti1"><strong class="nameiti2">Nome</strong></label>
-                                    <input rows="6" type="text" class="nameiti3" name="nameiti1" placeholder="Insira o nome da sua empresa">
+                                      <label class="nameiti1"><strong class="nameiti2">Nome</strong></label>
+                                    <input rows="6" type="text" class="nameiti3" id="nome" name="nameiti1" placeholder="Insira o nome da sua empresa">
                                     <br>
                                     <label class="desc1"><strong class="desc2">Descrição</strong></label>
-                                    <textarea rows="6" type="text"  class="desc3" name="desc1" placeholder="Insira informações aqui"></textarea>
+                                    <textarea rows="6" type="text"  id="descricao" class="desc3" name="desc1" placeholder="Insira informações aqui"></textarea>
                                     <br>
                                     <label class="ende1"><strong class="ende2">Endereço</strong></label>
-                                    <input rows="6" type="email" class="ende3" name="ende1" placeholder="Insira o local">
+                                    <input rows="6" type="text" id="endereco" class="ende3" name="ende1" placeholder="Insira o local">
+                                    <br>
+                                    <label class="ende1"><strong class="ende2">Imagem</strong></label>
+                                    <input rows="6" type="text" id="imagem" class="ende3" name="ende1" placeholder="Insira a url da imagem">
+                                    <br>
+                                    <label class="ende1"><strong class="ende2">Descrição da imagem</strong></label>
+                                    <textarea rows="6" type="text"  class="ende3" id="altImagem" name="ende1" placeholder="Insira uma descrição da imagem para ajudar na acessibilidade"></textarea>
                                     <br>
                                     <label class="value1"><strong class="value2">Valor</strong></label>
-                                    <input rows="6" type="number" class="value3" name="value1" placeholder="Insira o quanto custa">
+                                    <input rows="6" type="number" class="value3" id="valor" name="value1" placeholder="Insira o quanto custa">
                                     <br>
-                                    <label for="select1"><strong class="select2">Seleção de pontos</strong></label>
                                 </div>
-                                <button class= button-sele type=text>Selecione</button>
-                                <button class= button-dados type=text>Criar</button>
+                                <button class= button-dados onclick="getFormInfos(), window.location.href = '/'"type=text>Criar</button>
             <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
                             </form>
                         </div>
@@ -75,6 +78,48 @@
 
         <!-- Retira o evento padrão do formulario-->
         <script>
+        function getFormInfos() {
+
+  let nome = document.getElementById('nome').value;
+  let descricao = document.getElementById('descricao').value;
+  let imagem = document.getElementById('imagem').value;
+  let altImagem = document.getElementById('altImagem').value;
+  let mapa = document.getElementById('endereco').value;
+  let valor = document.getElementById('valor').value;
+  
+  let ponto = {
+    nome: nome,
+    descricao: descricao,
+    imagem: imagem,
+    altImagem: altImagem,
+    mapa: mapa,
+    valor: valor
+  }
+
+  createPonto(ponto);
+}
+
+async function createPonto(ponto) {
+  const url = '/create-pontos';
+
+  await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(ponto),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        
+        }
+}
+          
         document.getElementById('formulario').addEventListener(
          'submit', stopDefAction, false
         );

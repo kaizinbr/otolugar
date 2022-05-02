@@ -1,11 +1,13 @@
 # *OtoLugar*
-## *O site do projeto integrador II*
+ *O site do projeto integrador II*
 
 ## Documentação do projeto
 * [Requisitos do Projeto](https://www.notion.so/oto-lugar/invite/f247f6234bdf8c003025e70267bbccb7b5c4370a)
 * Planos de trabalho
-  * Front-end: (https://docs.google.com/document/d/1iAPaG3No_BfIsTYyu7dev1DdXk0YbTyZopSYqneRjUo/edit?usp=sharing)
-  * Back-end: URL aqui
+  * [Front-end](https://docs.google.com/document/d/1iAPaG3No_BfIsTYyu7dev1DdXk0YbTyZopSYqneRjUo/edit?usp=sharing)
+  * Back-end:
+    O backend foi adaptado para também funcionar no Replit
+    * [OtoLugar no Replit](https://replit.com/join/oknqbetmlz-jovemcarlosti)
 
 ## Caso esteja acessando pelo git pages, [clique aqui](frontend/index.html)
 
@@ -26,8 +28,8 @@
 ```
 
 ### Instalando projeto backend
+
 ```
-> cd backend
 > npm install
 > npm run dev
 ```
