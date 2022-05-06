@@ -99,31 +99,6 @@ main .content p{
     font-weight: 300;
 }
 
-/* 
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(#1E457F, #8BAEE4);    
-    clip-path: circle(22% at 80% 60%);
-}
-
-
-
-main::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 110%;
-    background-image: linear-gradient(#663FAA, #c5b4e3);    
-    clip-path: circle(10% at 20% 60%);
-} */
-
 
 
 .sugest{
@@ -161,6 +136,23 @@ main::before {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sugest #chatBtn{
+    border-radius: 25px;
+    background-color: var(--cadmium-green);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.sugest #chatBtn:hover{
+    background-color: var(--jungle-green);
+}
+
+.sugest #chatBtn a{
+    font-size: 2.5rem;
+    color: var(--aero-blue);
 }
 
 
