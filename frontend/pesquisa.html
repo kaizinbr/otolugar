@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/css/responsive-menu.css">
-    <link rel="stylesheet" href="resources/css/barra de pesquisa.css">
+    <link rel="stylesheet" href="resources/css/pesquisa.css">
     <link rel="stylesheet" href="resources/css/main.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -48,9 +48,10 @@
             
         </div>
         
-        <section class="principal row" style="margin-top: 15%;">
+        <section class="principal row" >
             <div class="content">
                 <!-- Gerado automaticamente -->
+
             </div>
         </section>
     </main>
@@ -65,48 +66,72 @@
 
             searchBtn.addEventListener('click', () => {
                 if(search.value.length > 0){
+                    removeSearch();
                     loadPontos(search.value);
                 }
             });
 
+            function removeSearch(){
+                let content = document.querySelector('section .content');
+
+                content.innerHTML = '';
+            }
+
     async function loadPontos(nome) {
-    const section = document.querySelector('section .content');
+        const section = document.querySelector('section .content');
 
-    const url = '/get-pontos/nome/' + nome;
+        const url = '/get-pontos/nome/' + nome;
 
-    const pontos = await (await fetch(url)).json();
-    let heart = "";
+        const pontos = await (await fetch(url)).json();
+
+        console.log(pontos);
+
+        if(pontos == 'Não encontrado'){
+            console.log('não achou');
+
+            const error404 = `
+                <div class="notFound">
+                    <figure>
+                        <h1>404</h1>
+                        <img src="resources/img/greenboy-shy.png" alt="Garoto constrangido">
+                    </figure>
+                    <h2>Lugar não encontrado...</h2>
+                    <h3>Poxa, acho que ainda não temos esse lugar em nosso banco de dados :/ <br>
+                    Que tal você cadastrá-lo? Nos envie um e-mail ou <a href="ponto-create.html">clique aqui!</a></h3>
+                </div>`
+
+            section.insertAdjacentHTML('beforeend', error404);
+        }
+
+        let heart = "";
 
 
-    for (const ponto of pontos) {
-        
-        if (ponto.avaliacaoUsuario == 1){
-            heart = "bxs-heart";
-        } else{
-            heart = "bx-heart";
-        };
+        for (const ponto of pontos) {
+            
+            if (ponto.avaliacaoUsuario == 1){
+                heart = "bxs-heart";
+            } else{
+                heart = "bx-heart";
+            };
 
-        let endereco = ponto.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').toLowerCase();
+            let endereco = ponto.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').toLowerCase();
 
-        const view = `                
-            <div class="card ${ponto.n}" id="${ponto.id}">
-            <div class="card-inside">
-                <figure>
-                    <img src="${ponto.imagem}" alt="${ponto.altImagem}">
-                </figure>
-                <h1>${ponto.nome}</h1>
-                <footer>
-                    <a href="resources/pontos/${endereco}.html">Saiba mais</a>
-                    <i class='bx ${heart} bx-sm'></i>
-                </footer>
-            </div>
-        </div>`
+            const view = `                
+                <div class="card ${ponto.n}" id="${ponto.id}">
+                <div class="card-inside">
+                    <figure>
+                        <img src="${ponto.imagem}" alt="${ponto.altImagem}">
+                    </figure>
+                    <h1>${ponto.nome}</h1>
+                    <footer>
+                        <a href="resources/pontos/${endereco}.html">Saiba mais</a>
+                        <i class='bx ${heart} bx-sm'></i>
+                    </footer>
+                </div>
+            </div>`;
 
-        section.insertAdjacentHTML('beforeend', view);
-
-        
-
-    }
+            section.insertAdjacentHTML('beforeend', view);
+        }
     };
         </script>
     </body>

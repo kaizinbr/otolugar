@@ -13,7 +13,7 @@ btnSignup.addEventListener("click", function () {
 });
 
 function putChat (){
-    let body = document.querySelector('body');
+    let html = document.querySelector('body');
 
     const chat = `<div class="chatWindow">
     <div class="chatFloat">
@@ -26,7 +26,7 @@ function putChat (){
         </div>
     </div>`;
 
-    body.insertAdjacentHTML("beforeend", chat)
+    html.insertAdjacentHTML("beforeend", chat)
 };
 
 function hideChat (){
