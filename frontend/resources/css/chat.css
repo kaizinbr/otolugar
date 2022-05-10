@@ -7,8 +7,10 @@
     
     #chat {
         vertical-align: top;
-        display: inline-block;
-        width: 74%;
+        display: flex;
+      align-items: center;
+      flex-direction: column;
+        width: 100%;
     }
     
     .column {
@@ -46,12 +48,18 @@
         overflow-y: auto;
         display: none;
     }
+
     
     #chat #body {
         height: 81vh;
         display: auto;
         justify-content: auto;
         align-items: auto;
+      width: 80vw;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 25px;
+      border: 2px solid #026b3fff;
     }
     
     #chat #header {
@@ -60,6 +68,7 @@
         background-color: rgba(255, 255, 255, 0.493);
         margin-bottom: 15px;
         font-style: initial;
+      width: 100%;
     }
     
     #chat #message {
@@ -68,10 +77,12 @@
         color: white;
         width: fit-content;
         border-radius: 30px;
+        border-bottom-left-radius: 0;
         margin-bottom: 15px;
         font-size: 15px;
         margin-left: 5px;
         font: 'Urbanist', sans-serif;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
     }
     
     #chat #usermessage {
@@ -80,10 +91,12 @@
         color: white;
         width: fit-content;
         border-radius: 20px;
+        border-bottom-right-radius: 0;
         margin-bottom: 15px;
         margin-left: auto;
         font-size: 15px;
         font: 'Urbanist', sans-serif;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
     }
     
     #chat #footer #form {
@@ -116,3 +129,8 @@
         text-align: center;
         font-weight: 400;
     }
+
+  #form {
+    border-radius: 16px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  }

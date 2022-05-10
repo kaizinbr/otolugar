@@ -46,5 +46,9 @@ router.get('/get-datapontos', (req, res) => {
     const pontos = readData();
     res.status(200).json(pontos);
 });
+
+router.post('/create-user', (req, res) => {
+  
+});
   
 export default router;
