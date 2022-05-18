@@ -111,34 +111,16 @@ header .sign a{
 
     color: var(--cadmium-green);
     background-color: var(--aero-blue);
-}
 
-header .sign a:nth-child(1){
     margin-right: 7px;
     border: 2px solid var(--cadmium-green);
     transition: all .7s;
 }
 
-header .sign a:nth-child(1):hover{
+header .sign a:hover{
     color: mintcream;
     background-color: var(--cadmium-green);
 }
-
-header .sign a:nth-child(2){
-    color: mintcream;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: 7px;
-    background-color: var(--cadmium-green);
-    border: 2px solid var(--cadmium-green);
-    transition: all .7s;
-}
-
-header .sign a:nth-child(2):hover{
-    color: var(--cadmium-green);
-    background-color: rgba(255, 255, 255, 0);
-}
-
 .sign, .logo, .navmenu{
     display: flex;
     align-items: center;

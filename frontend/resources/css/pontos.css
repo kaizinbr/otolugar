@@ -439,14 +439,13 @@ span.hide:hover{
     }
 
     .description h2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0 -20px 3rem -20px;
     }
 
     .description p {
-        font-size: 18px;
-        line-height: 32px;
-        margin-top: 2em;
+        font-size: 14px;
+        line-height: 20px;
     }
 
     
