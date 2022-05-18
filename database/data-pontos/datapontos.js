@@ -86,7 +86,7 @@ const data = [
     {    
         nome: "Centro Histórico", 
         fotos: [
-            "../img/teaser/ch/ch.jpg",
+            "resources/img/teaser/ch/ch.jpg",
             "../img/teaser/ch/ch2.jpg",
             "../img/teaser/ch/ch3.jpg",
             "../img/teaser/ch/ch4.jpg",

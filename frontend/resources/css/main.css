@@ -58,6 +58,15 @@ header {
     z-index: 1000;
 }
 
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 header img {
     max-height: 40px;
     height: auto;
@@ -127,6 +136,72 @@ header .sign a:hover{
     justify-content: center;
     background-color: var(--aero-blue);
 }
+<<<<<<< HEAD
+/* JANELINHA FLUTUANTE DE CHAT */
+
+.chatWindow{
+    position: fixed;
+    float: right;
+    bottom: 0;
+    right: 5vw;
+    z-index: 10;
+    transition: all .8s;
+  width: 400px;
+  height: 800px;
+
+    background-color: var(--op-aero-blue);
+    padding: 20px;
+    padding-bottom: 0;
+    backdrop-filter: blur(10px);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.chatFloat{
+    /* bottom: 20px; */
+    min-height: 70px;
+}
+
+.chatFloat .bx-chevron-down{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    color: var(--cadmium-green);
+    transition: all .4s;
+}
+
+.chatFloat .bxs-message-square-dots {
+    font-size: 40px !important;
+    top: -10px;
+}
+
+.chatWindow a{
+    text-decoration: none;
+    color: var(--cadmium-green);
+    display: flex;
+    flex-direction: column;
+}
+
+.chatWindow.hide{
+    transform: translateY(80%);
+}
+
+button.hideChatBtn{
+    background: none;
+    border: none;
+    height: 10px;
+    width: 10px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    color: var(--cadmium-green)
+}
+
+.chatWindow.hide .bx-chevron-down{
+    transform: rotate(180deg);
+}
+=======
+>>>>>>> origin/main
 
 /* RECADO FRONT */
 

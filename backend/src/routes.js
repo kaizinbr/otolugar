@@ -1,6 +1,14 @@
 import express from 'express';
 import seed from '../../database/data-pontos/seed.js'; 
 import readData from '../../database/data-pontos/datapontos.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+console.log(__dirname);
+
 
 const router = express.Router();
 
@@ -14,7 +22,7 @@ router.post('/create-pontos', (req, res) => {
 });
   
 router.get('/get-pontos', (req, res) => {
-    // envia os pontos do Seed automaticamente
+    // envia os pontos do Seed automaticamente e fora Bolsonaro!!!
     const pontos = seed.readAll();
     res.status(200).json(pontos);
 });
@@ -46,5 +54,14 @@ router.get('/get-datapontos', (req, res) => {
     const pontos = readData();
     res.status(200).json(pontos);
 });
+
+router.post('/create-user', (req, res) => {
+  
+});
+
+router.get('/pontos/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/base-ponto.html'));
+
+})
   
 export default router;
