@@ -15,16 +15,7 @@ btnSignup.addEventListener("click", function () {
 function putChat (){
     let html = document.querySelector('body');
 
-    const chat = `<div class="chatWindow">
-    <div class="chatFloat">
-        <button class="hideChatBtn" onclick="hideChat()"><i class='bx bx-chevron-down'></i></button>
-        <a href="chat.html">
-            <i class='bx bxs-message-square-dots'></i>
-            <span>Chat</span>
-        </a>
-            
-        </div>
-    </div>`;
+    const chat = ``;
 
     html.insertAdjacentHTML("beforeend", chat)
 };

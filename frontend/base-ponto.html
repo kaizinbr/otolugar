@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pontos.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/responsive-menu.css">
+    <link rel="stylesheet" href="/resources/css/pontos.css">
+    <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" href="/resources/css/responsive-menu.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="../img-main/isologo.svg" type="image/x-icon">
     <title>Centro Histórico | OtoLugar</title>
@@ -16,7 +16,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img class="isotipo" src="../img-main/logo.svg" alt="">
+                <img class="isotipo" src="/resources/img-main/logo.svg" alt="">
             </div>
 
             <div class="navmenu">
@@ -95,7 +95,33 @@
 
             <section class="right">
 
-                
+                <div class="guarda-guias modal-guias" id="modal">
+                    <div class="cards-guias" id="guias">
+
+                        <span class="hide" onclick="hideModal()">&times;</span>
+
+                        <div class="modal-content">
+                        
+                            <div class="cardGuia">
+                                <i class='bx bxs-face'></i>
+                                <a href="#">Nome Sobrenome</a>
+                            </div>
+
+                            <div class="cardGuia">
+                                <i class='bx bxs-face'></i>
+                                <a href="#">Nome Sobrenome</a>
+                            </div>
+                            
+                            <div class="cardGuia">
+                                <i class='bx bxs-face'></i>
+                                <a href="#">Nome Sobrenome</a>
+                            </div>
+                            
+                            
+                        </div>
+
+                    </div>
+                </div>
 
                 <div class="cards-pt">
                             <div class="cardPt">
@@ -108,7 +134,10 @@
                                 <a href="#">Veja lugares semelhantes a esse</a>
                             </div>
 
-                            
+                            <div class="cardPt">
+                                <i class='bx bxs-face'></i>
+                                <a href="#guarda-guias" onclick="showModal()">Veja guias que atuam nesse local</a>
+                            </div>
                 </div>
 
             </section>
@@ -122,8 +151,8 @@
         
     </footer>
 
-    <script type="text/javascript" src="../js/modal.js"></script>
-    <script src="../js/menu.js"></script>
+    <script type="text/javascript" src="/resources/js/modal.js"></script>
+    <script src="/resources/js/menu.js"></script>
     <script>
         
     async function loadData() {
@@ -147,9 +176,10 @@
 
     for (const ponto of pontos) {
         if (ponto.nome == title){
+          // For para imagens
             const fotos = `                
             <div class="slide s1">
-                <img src="${ponto.fotos[0]}" alt="">
+                <img src="/resources/${ponto.fotos[0]}" alt="">
             </div>
             <div class="slide">
                 <img src="${ponto.fotos[1]}" alt="">
