@@ -154,6 +154,7 @@ header .sign a:nth-child(2):hover{
     justify-content: center;
     background-color: var(--aero-blue);
 }
+<<<<<<< HEAD
 /* JANELINHA FLUTUANTE DE CHAT */
 
 .chatWindow{
@@ -217,6 +218,8 @@ button.hideChatBtn{
 .chatWindow.hide .bx-chevron-down{
     transform: rotate(180deg);
 }
+=======
+>>>>>>> origin/main
 
 /* RECADO FRONT */
 

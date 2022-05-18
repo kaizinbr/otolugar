@@ -8,11 +8,13 @@
     <title>OtoLugar - Encontre o seu lugar</title>
     <link rel="stylesheet" href="resources/css/main.css">
     <link rel="stylesheet" href="resources/css/responsive-menu.css">
+    <link rel="stylesheet" href="resources/css/chat.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
 </head>
 
-<body onload="putChat(), loadPontos()">
+<body onload=" loadPontos()"> <!-- putChat(), -->
 
     <script src="resources/js/app.js"></script>
 
@@ -45,6 +47,43 @@
         </nav>
     </header>
 
+<<<<<<< HEAD
+=======
+    <div class="chatWindow">
+        <div class="chatFloat">
+
+                <!-- <i class='bx bx-x'></i>
+                <a href="chat.html">
+                    <i class='bx bxs-message-square-dots'></i>
+                    <span>Chat</span>
+                </a> -->
+
+            <div id="chat" class="chat invisible">
+                <div class="header" id="header">
+                    <h1>
+                        <span class="material-symbols-outlined">
+                            account_circle_full
+                            </span>                        Webchat
+                    </h1>
+                </div>
+                <div class="chatBody ">
+                    <p class="receiveMessage ">Olá! Gostaria de marcar uma viagem.</p>
+                    <p class="sendMessage" id="usermessage">Olá! Qual o destino que você procura?</p>
+                </div>
+                    <div class="footer ">
+                        <form id="form">
+                            <input type="text " name=" ">
+                            <button id="button">
+                                <span class="material-symbols-outlined" >send</span>
+                            </button>
+                        </form>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+
+>>>>>>> origin/main
     <div class="recado">
 
         <div class="greenboy">
