@@ -7,8 +7,6 @@ import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-console.log(__dirname);
-
 
 const router = express.Router();
 
@@ -59,9 +57,12 @@ router.post('/create-user', (req, res) => {
   
 });
 
-router.get('/pontos/:id', (req, res) => {
+router.get('/pontos', (req, res) => {
+  const id = Number(req.query);
   res.sendFile(path.join(__dirname, '../../frontend/base-ponto.html'));
 
+  // window.sessionStorage.setItem('ponto_id', id);
+  // console.log(window.sessionStorage.getItem('ponto_id'));
 })
   
 export default router;

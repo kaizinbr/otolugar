@@ -9,30 +9,31 @@
     <link rel="stylesheet" href="/resources/css/responsive-menu.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="../img-main/isologo.svg" type="image/x-icon">
-    <title>Centro Histórico | OtoLugar</title>
+    <title id="title">Nome | OtoLugar</title>
 </head>
 <body onload="loadData()">
     
     <header>
         <nav>
             <div class="logo">
-                <img class="isotipo" src="/resources/img-main/logo.svg" alt="">
+                <a href="index.html">
+                    <img class="isotipo" src="../resources/img-main/logo.svg" alt="">
+                </a>
             </div>
 
             <div class="navmenu">
                 <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
                 <ul class="list">
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../../pesquisa.html">Pesquisar</a></li>
-                    <li><a href="../../perfil.html">Meu perfil</a></li>
-                    <li><a href="../../contato.html">Contato</a></li>
-                    <li><a href="../../cadastro.html" class="mobileSign">Cadastro</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pesquisa.html">Pesquisar</a></li>
+                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="main-cadastro-login.html" class="mobileSign">Cadastro/Login</a></li>
                 </ul>
             </div>
 
             <div class="sign">
-                <a href="#">Criar conta</a>
-                <a href="#">Entrar</a>
+                <a href="main-cadastro-login.html">Cadastro/Login</a>
             </div>
         </nav>
     </header>
@@ -45,7 +46,6 @@
             <section class="left">
 
                 <div class="titulo">
-                    <h1>Areia Vermelha</h1>
                 </div>
 
                 <div class="fotos">
@@ -53,31 +53,19 @@
                     <div class="content">
                         <div class="slides">
                             <input type="radio" name="slide" id="slide1" checked>
-                            <input type="radio" name="slide" id="slide2">
-                            <input type="radio" name="slide" id="slide3">
-                            <input type="radio" name="slide" id="slide4">
-                            <input type="radio" name="slide" id="slide5">
 
 
-                        
-                    
+                
                         </div>
                     </div>
                     <div class="navigation">
                             <label class="bar" for="slide1"></label>
-                            <label class="bar" for="slide2"></label>
-                            <label class="bar" for="slide3"></label>
-                            <label class="bar" for="slide4"></label>
-                            <label class="bar" for="slide5"></label>
                         </div>
                 </div>
 
 
                 <div class="description">
                         <h2>Saiba mais sobre este lugar:</h2>
-                    <div>
-                        
-                    </div>
                 </div>
 
                 <div class="mapa-modal" id="modalMapa">
@@ -95,33 +83,7 @@
 
             <section class="right">
 
-                <div class="guarda-guias modal-guias" id="modal">
-                    <div class="cards-guias" id="guias">
-
-                        <span class="hide" onclick="hideModal()">&times;</span>
-
-                        <div class="modal-content">
-                        
-                            <div class="cardGuia">
-                                <i class='bx bxs-face'></i>
-                                <a href="#">Nome Sobrenome</a>
-                            </div>
-
-                            <div class="cardGuia">
-                                <i class='bx bxs-face'></i>
-                                <a href="#">Nome Sobrenome</a>
-                            </div>
-                            
-                            <div class="cardGuia">
-                                <i class='bx bxs-face'></i>
-                                <a href="#">Nome Sobrenome</a>
-                            </div>
-                            
-                            
-                        </div>
-
-                    </div>
-                </div>
+                
 
                 <div class="cards-pt">
                             <div class="cardPt">
@@ -132,11 +94,6 @@
                             <div class="cardPt">
                                 <i class='bx bx-map' ></i>
                                 <a href="#">Veja lugares semelhantes a esse</a>
-                            </div>
-
-                            <div class="cardPt">
-                                <i class='bx bxs-face'></i>
-                                <a href="#guarda-guias" onclick="showModal()">Veja guias que atuam nesse local</a>
                             </div>
                 </div>
 
@@ -156,65 +113,42 @@
     <script>
         
     async function loadData() {
+    // Pega o parâmetro ID
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    console.log(id)
+      
     const section = document.querySelector('section .content');
 
-    const url = '/get-datapontos';
+    const url = `/get-pontos/id/${id}`;
 
-    const pontos = await (await fetch(url)).json();
-
-    console.log(pontos);
+    const ponto = await (await fetch(url)).json();
+    console.log(ponto);
 
     const h1 = document.querySelector('h1');
     const paraFotos = document.querySelector('.slides'); 
-    const paraDescricao = document.querySelector('.description div');
+    const paraDescricao = document.querySelector('.description');
     const paraMapa = document.querySelector('.modal-content-mapa');
+    const paraTitle = document.querySelector('.titulo');
+    const title = document.querySelector('#title');
 
-    let title = h1.textContent;
-
-    
-
-
-    for (const ponto of pontos) {
-        if (ponto.nome == title){
+    document.title = `${ponto.nome} | OtoLugar`
+      
+    const nome = `<h1>${ponto.nome}</h1>`
+    paraTitle.insertAdjacentHTML('beforeend', nome);
           // For para imagens
-            const fotos = `                
-            <div class="slide s1">
-                <img src="/resources/${ponto.fotos[0]}" alt="">
-            </div>
-            <div class="slide">
-                <img src="${ponto.fotos[1]}" alt="">
-            </div>
-            <div class="slide">
-                <img src="${ponto.fotos[2]}" alt="">
-            </div>
-            <div class="slide">
-                <img src="${ponto.fotos[3]}" alt="">
-             </div>
-             <div class="slide">
-                <img src="${ponto.fotos[4]}" alt="">
-            </div>`;
-
-
-            for (const paragrafos of ponto.descricao){
-                let parag =  paragrafos;
-
+          const fotos = ` <div class="slide s1">
+                <img src="${ponto.imagem}" alt="${ponto.altImagem}">
+            </div>`
+      
                 const descricao = `
-                    <p>${parag}</p>
+                    <p>${ponto.descricao}</p>
                 `
                 paraDescricao.insertAdjacentHTML('beforeend', descricao);
 
-            };
-
-            const fonte = `
-                <span class="fonte">Fonte: <a href="${ponto.fonte}">Wikipédia</a></span>
-
-            `
-
-            paraDescricao.insertAdjacentHTML('beforeend', fonte);
-
             const mapa = `
-                <div class="mapa"><iframe src="${ponto.endereco}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
-
+                <div class="mapa"><iframe src="${ponto.mapa}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
                     `;
 
             paraMapa.insertAdjacentHTML('beforeend', mapa);
@@ -222,15 +156,6 @@
 
             paraFotos.insertAdjacentHTML('beforeend', fotos);
         }
-        
-    
-        
-
-        
-
-    }
-    };
-
     </script>
 
 
