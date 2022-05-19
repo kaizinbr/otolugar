@@ -118,8 +118,8 @@ header .sign a{
     /* transition: letter-spacing 0.7s,
                 background-color 0.7s;; */
 
-    color: var(--cadmium-green);
-    background-color: var(--aero-blue);
+    color: var(--aero-blue);
+    background-color: var(--cadmium-green);
 
     margin-right: 7px;
     border: 2px solid var(--cadmium-green);
@@ -127,8 +127,8 @@ header .sign a{
 }
 
 header .sign a:hover{
-    color: mintcream;
-    background-color: var(--cadmium-green);
+    color: var(--cadmium-green);
+    background-color: var(--aero-blue);
 }
 .sign, .logo, .navmenu{
     display: flex;
@@ -136,10 +136,9 @@ header .sign a:hover{
     justify-content: center;
     background-color: var(--aero-blue);
 }
-<<<<<<< HEAD
 /* JANELINHA FLUTUANTE DE CHAT */
 
-.chatWindow{
+/* .chatWindow{
     position: fixed;
     float: right;
     bottom: 0;
@@ -158,7 +157,7 @@ header .sign a:hover{
 }
 
 .chatFloat{
-    /* bottom: 20px; */
+    bottom: 20px;
     min-height: 70px;
 }
 
@@ -199,9 +198,7 @@ button.hideChatBtn{
 
 .chatWindow.hide .bx-chevron-down{
     transform: rotate(180deg);
-}
-=======
->>>>>>> origin/main
+} */
 
 /* RECADO FRONT */
 
@@ -212,6 +209,12 @@ button.hideChatBtn{
     align-items: center;
     min-height: 100vh;
     background-color: var(--aero-blue);
+}
+
+.greenboy{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -370,7 +373,7 @@ main{
     max-width: 120px;
     text-decoration: none;
     font-weight: 600;
-    color: var(--aero-blue);
+    color: mintcream;
     background-color: var(--emerald);
     border: 2px solid var(--emerald);
     transition: all .5s;
