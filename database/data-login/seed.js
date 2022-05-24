@@ -1,169 +1,69 @@
-const pontos = [];
+const users = [];
 
 async function loadSeed() {
-    const novosPontos = [
-            {
-                nome: "Centro Histórico",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/ch/ch.jpg",
-                altImagem: "Imagem do Centro Histórico",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Areia Vermelha",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/av/1.jpg",
-                altImagem: "Imagem do Areia Vermelha",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Centro Cultural São Francisco",
-                descricao: "",
-                imagem: "resources/img/teaser/ccsf/1.jpg",
-                altImagem: "Imagem do Centro Cultural São Francisco",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Bica",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/bica/1.jpg",
-                altImagem: "Imagem da Bica",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Estação Cabo Branco",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/ecb/1.jpg",
-                altImagem: "Imagem do Estação Cabo Branco",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Farol do Cabo Branco",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/farol/1.jpg",
-                altImagem: "Imagem do Farol do Cabo Branco",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Parque Solón de Lucena",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/lagoa/1.jpg",
-                altImagem: "Imagem do Parque Solón de Lucena",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Museu da cidade de João Pessoa",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/museujp/1.jpeg",
-                altImagem: "Imagem do Museu da cidade de João Pessoa",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Museu do Artesanato Paraibano",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/museuart/1.jpg",
-                altImagem: "Imagem do Museu do Artesanato Paraibano",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Praia do Cabo Branco",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/pcb/1.jpg",
-                altImagem: "Imagem do Praia do Cabo Branco",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Praia do Jacaré",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/pj/1.jpg",
-                altImagem: "Imagem do Praia do Jacaré",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Piscinas Naturais do Seixas",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/pns/1.jpg",
-                altImagem: "Imagem do Piscinas Naturais do Seixas",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Praça Vidal de Negreiros",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/100reis/1.jpg",
-                altImagem: "Imagem da Praça Vidal de Negreiros",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            },
-            
-            {
-                nome: "Praia do Seixas",
-                descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies iaculis orci. Integer ut arcu elit. Praesent vitae pellentesque sapien, id porttitor lorem. Aenean blandit turpis quis rutrum eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse auctor ullamcorper tellus, in vestibulum eros porta sit amet. In luctus arcu quis quam tincidunt, a sollicitudin mi finibus. Vivamus nibh lorem, eleifend feugiat tortor non, congue vehicula nisl. Vivamus fermentum ligula est, eget ultrices nulla vehicula sed. Nunc eu feugiat neque. Curabitur ligula elit, gravida eget justo eu, maximus commodo arcu. Maecenas molestie metus vel nisi congue, non sodales erat cursus.",
-                imagem: "resources/img/teaser/ps/1.jpg",
-                altImagem: "Imagem da Praia do Seixas",
-                mapa: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15836.216183162982!2d-34.88679940458585!3d-7.119735570952628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scentro%20hist%C3%B3rico%20de%20jo%C3%A3o%20pessoa!5e0!3m2!1spt-BR!2sbr!4v1638301328009!5m2!1spt-BR!2sbr",
-                valor: 0
-            }
-];
-
-    for ( const ponto of novosPontos) {
-        await create(ponto)
+    const perfis = [
+    {
+      "id": 1,
+      "nome": "profissional"
+    },
+    {
+      "id": 2,
+      "nome": "visitante"
+    }             
+   ]
+  
+    const novosUsers = [
+      {"nome": "carlin",
+       "telefone": "4002-8922",
+       "data_nascimento": "19/06/2004",
+       "foto_perfil": "https://instagram.fjpa14-1.fna.fbcdn.net/v/t51.2885-15/82212194_141076820717095_7007747681815825815_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fjpa14-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=T5XeIEBz4AIAX_cTVAd&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=MjIyOTQzMjk1OTEzMDQ4NDg0Mg%3D%3D.2-ccb7-5&oh=00_AT_hsl--qj8ydaj0HLqbomPTdfeOeP8J25ZC2ug64zb0Dg&oe=62922DE4&_nc_sid=30a2ef",
+       "bio": "Lorem aleatório pra teste",
+       "email": "carlosandre116@gmail.com",
+       "sexo": "masculino",
+       "senha": "cavalo",
+       "perfil_id": 1
+      }
+    ];
+    // Necessário mecanismo para criar perfil, depois de criar user (que consiga ligar id de perfil com user, claro)!
+  for ( const perfil of perfis) {
+        await createPerfil(perfil)
+    };
+  
+  for ( const user of novosUsers) {
+        await create(user)
     };
 };
 
-function create(ponto) {
-    const id = pontos.length + 1;
-    const novoPonto = {...ponto, id, avaliacaoUsuario: 0};
+function create(user) {
+    const id = users.length + 1;
+    const novoUser = {...user, id, avaliacaoUsuario: 0};
 
-    pontos.push(novoPonto);
+    users.push(novoUser);
 
-    return novoPonto;
+    return novoUser;
 };
 
 function readAll(){
-    return pontos;
+    return users;
 };
 
 function readByNome(nome) {
-    const ponto = (pontos.filter(ponto => (ponto.nome).toLowerCase().includes(nome.toLowerCase())));
+    const user = (users.filter(user => (user.nome).toLowerCase().includes(nome.toLowerCase())));
 
-    if (ponto[0] === undefined) {
+    if (user[0] === undefined) {
         return undefined;
     } else {
-        return ponto;
+        return user;
     }
 }
 
 function readById(id) {
-    const ponto = (pontos.find(ponto => ponto.id === id));
+    const user = (users.find(user => user.id === id));
 
-    console.log(ponto)
+    console.log(user)
 
-    if (ponto) {
-        return ponto;
+    if (user) {
+        return user;
     } else {
         return undefined;
     }
