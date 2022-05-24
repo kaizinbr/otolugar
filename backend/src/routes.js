@@ -1,5 +1,6 @@
 import express from 'express';
 import seed from '../../database/data-pontos/seed.js'; 
+import userdatatest from '../../database/data-pontos/userdatatest.js'; 
 import readData from '../../database/data-pontos/datapontos.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -14,7 +15,7 @@ router.post('/create-pontos', (req, res) => {
     let ponto = req.body;
   
     // junta o novo ponto aos do Seed, adicionando sempre na última posição
-    seed.create(ponto)
+    seed.create(ponto);
 
     res.status(200).json(ponto);
 });
@@ -54,7 +55,21 @@ router.get('/get-datapontos', (req, res) => {
 });
 
 router.post('/create-user', (req, res) => {
-  
+    let user = req.body;
+    userdatatest.create(user);
+
+    res.status(200).json(user);
+});
+
+router.get('/get-user', (req, res)=> {
+    userdatatest.returnUserData;
+    res.status(200).json(userdatatest.returnUserData);
+})
+
+router.get('/get-user-data', (req, res) => {
+    // pega os dados do usuário quando ele estiver logado
+    const pontos = seed.readAll();
+    res.status(200).json(pontos);
 });
 
 router.get('/pontos', (req, res) => {

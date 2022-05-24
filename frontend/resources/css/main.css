@@ -427,6 +427,36 @@ main{
     border: 2px solid var(--emerald);
 }
 
+/* BOTAO DE CRIAR PONTO */
+.createPonto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createPonto button{
+    border: none;
+    
+}
+
+.createPonto button a {
+    padding: 15px;
+    max-width: 120px;
+    text-decoration: none;
+    font-weight: 600;
+    color: mintcream;
+    background-color: var(--emerald);
+    border: 2px solid var(--emerald);
+    transition: all .5s;
+    border-radius: 32px;
+    justify-content: center;
+    margin: 0 0 10px 0px;
+}
+
+.createPonto button a:hover{
+    border: 2px solid var(--jungle-green);
+}
+
 /* MENU RESPONSIVO */
 
 @media(max-width:1080px){

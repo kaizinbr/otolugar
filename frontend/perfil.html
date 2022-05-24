@@ -91,6 +91,56 @@
         <p>Todos os direitos de imagem são de seus respectivos donos/criadores. Todas as imagens utilizadas são para fins acadêmicos. <br> Para mais informações ou reclamações entre em contato conosco.</p>
     </footer>
     <script src="resources/js/menu.js"></script>
+    <!-- <script>
+        function getFormInfos() {
+
+  let nome = document.getElementById('nome').value;
+  let descricao = document.getElementById('descricao').value;
+  let imagem = document.getElementById('imagem').value;
+  let altImagem = document.getElementById('altImagem').value;
+  let mapa = document.getElementById('endereco').value;
+  let valor = document.getElementById('valor').value;
+  
+  let ponto = {
+    nome: nome,
+    descricao: descricao,
+    imagem: imagem,
+    altImagem: altImagem,
+    mapa: mapa,
+    valor: valor
+  }
+
+  createPonto(ponto);
+}
+
+async function createPonto(ponto) {
+  const url = '/create-pontos';
+
+  await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(ponto),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        
+        }
+          
+        document.getElementById('formulario').addEventListener(
+         'submit', stopDefAction, false
+        );
+
+        function stopDefAction(evt) {
+            evt.preventDefault();
+        }
+        </script> -->
     
 </body>
 </html>
