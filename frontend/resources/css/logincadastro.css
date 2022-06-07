@@ -24,6 +24,7 @@ html {
     --emerald: #00CC76ff;
     --op-emerald: rgba(0, 204, 119, 0.479);
     --british-racing-green: #13442Eff;
+  --pink: pink;
     font-family: 'Urbanist', sans-serif;
 }
 .container {
@@ -170,6 +171,13 @@ html {
     transition: 1s;
 }
 
+.form input[type=radio]{
+    height: 25px;
+  width: 25px;
+    font: inherit;
+    border-radius: 50%;
+}
+
 .form input:focus{
     background-color: #f1f4f5;
     transition: 1s;
@@ -188,6 +196,26 @@ input:-webkit-autofill {
     border: none;
     border-bottom: 2px solid #5b6b54ff;
     transition: 1s;
+}
+
+.radioBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 8px;
+    width: 100%;
+    gap: 50px;
+    border: none;
+    transition: 1s;
+    text-align: center;
+}
+
+.radioBtn div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
 .label-input:focus{

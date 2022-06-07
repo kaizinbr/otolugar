@@ -7,7 +7,7 @@
   * [Front-end](https://docs.google.com/document/d/1iAPaG3No_BfIsTYyu7dev1DdXk0YbTyZopSYqneRjUo/edit?usp=sharing)
   * Back-end:
     O backend foi adaptado para também funcionar no Replit
-    * [OtoLugar no Replit](https://replit.com/join/oknqbetmlz-jovemcarlosti)
+    * [OtoLugar no Replit](https://replit.com/join/fxtimwknim-jovemcarlosti)
 
 ## Caso esteja acessando pelo git pages, [clique aqui](frontend/index.html)
 

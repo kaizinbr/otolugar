@@ -1,6 +1,6 @@
 import express from 'express';
 import seed from '../../database/data-pontos/seed.js'; 
-import userdatatest from '../../database/data-pontos/userdatatest.js'; 
+import seedUser from '../../database/data-login/seed.js'; 
 import readData from '../../database/data-pontos/datapontos.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -56,28 +56,45 @@ router.get('/get-datapontos', (req, res) => {
 
 router.post('/create-user', (req, res) => {
     let user = req.body;
-    userdatatest.create(user);
+    const response = seedUser.create(user);
 
-    res.status(200).json(user);
+    res.status(200).json(response);
 });
 
-router.get('/get-user', (req, res)=> {
-    userdatatest.returnUserData;
-    res.status(200).json(userdatatest.returnUserData);
+router.post('/auth-user', (req, res) => {
+    let {login, senha} = req.body;
+
+    console.log({login, senha})
+    const authorized = seedUser.auth(login, senha);
+
+    if (authorized) {
+      res.status(200).json({"status": "logado!"});
+    } else {
+      res.status(404).json({"status": "Não foi!"});
+    }
+
+});
+
+router.get('/get-user/id/:id', async (req, res) => {
+    const id = req.params.id;
+    const user = await seedUser.readById(id)
+
+    console.log({id, user})
+  
+    res.status(200).json(user);
 })
 
-router.get('/get-user-data', (req, res) => {
+router.get('/get-users-data', (req, res) => {
     // pega os dados do usuário quando ele estiver logado
-    const pontos = seed.readAll();
-    res.status(200).json(pontos);
+    const users = seedUser.readAll();
+    res.status(200).json(users);
 });
 
 router.get('/pontos', (req, res) => {
   const id = Number(req.query);
   res.sendFile(path.join(__dirname, '../../frontend/base-ponto.html'));
+});
 
-  // window.sessionStorage.setItem('ponto_id', id);
-  // console.log(window.sessionStorage.getItem('ponto_id'));
-})
+router.get('/get')
   
 export default router;

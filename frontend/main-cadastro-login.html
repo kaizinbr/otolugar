@@ -50,44 +50,33 @@
             </div>    
             <div class="second-column">
                 <h2 class="title title-second">Criar conta</h2>
-                <div class="social-media">
-                    <ul class="list-social-media">
-                        <a class="link-social-media" href="emconstrução.html">
-                            <li class="item-social-media">
-                                <i class="fab fa-facebook-f"></i>        
-                            </li>
-                        </a>
-                        <a class="link-social-media" href="emconstrução.html">
-                            <li class="item-social-media">
-                                <i class="fab fa-google-plus-g"></i>
-                            </li>
-                        </a>
-                        <a class="link-social-media" href="emconstrução.html">
-                            <li class="item-social-media">
-                                <i class="fab fa-linkedin-in"></i>
-                            </li>
-                        </a>
-                    </ul>
-                </div><!-- social media -->
-                <p class="description description-second">ou use seu e-mail para registro:</p>
-                <form class="form">
-                    <label class="label-input" for="">
+                         
+                <p class="description description-second">Insira seu e-mail para registro:</p>
+                <form class="form" id="form-create">
+                    <label class="label-input" for="nome">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="Nome">
+                        <input type="text" placeholder="Nome" id="nome">
                     </label>
                     
-                    <label class="label-input" for="">
+                    <label class="label-input" for="email">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="E-mail" id="email">
                     </label>
                     
-                    <label class="label-input" for="">
+                    <label class="label-input" for="senha">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha">
+                        <input type="password" placeholder="Senha" id="senha">
+                    </label>
+
+                    <label class="radioBtn" for="radioBtn">
+                        <div><input type="radio" name="radioBtn" id="user"> <label for="user" >Pessoal</label></div>
+                        <div><input type="radio" name="radioBtn" id="business"> <label for="business" >Empresarial</label> </div>
+                      
                     </label>
                     
                     
-                    <button class="btn btn-second">
+                    <button class="btn btn-second"
+                      onclick="createUser()">
                         Registrar</button>        
                 </form>
             </div><!-- second column -->
@@ -97,45 +86,28 @@
                 <h2 class="title title-primary">Olá, usuário.</h2>
                 <p class="description description-primary">Insira seus dados pessoais</p>
                 <p class="description description-primary">e conheça alguns do melhores locais da Paraíba</p>
-                <button id="signup" class="btn btn-primary">
+                <button type="submit" id="signup" class="btn btn-primary">
                     Registrar</button>
             </div>
             <div class="second-column">
                 <h2 class="title title-second">Entrar</h2>
-                <div class="social-media">
-                    <ul class="list-social-media">
-                        <a class="link-social-media" href="emconstrução.html">
-                            <li class="item-social-media">
-                                <i class="fab fa-facebook-f"></i>
-                            </li>
-                        </a>
-                        <a class="link-social-media" href="emconstrução.html">
-                            <li class="item-social-media">
-                                <i class="fab fa-google-plus-g"></i>
-                            </li>
-                        </a>
-                        <a class="link-social-media" href="emconstrução.html">
-                            <li class="item-social-media">
-                                <i class="fab fa-linkedin-in"></i>
-                            </li>
-                        </a>
-                    </ul>
-                </div><!-- social media -->
-                <p class="description description-second">ou use sua conta de e-mail:</p>
-                <form class="form">
+               
+                <p class="description description-second">Use sua conta de e-mail:</p>
+                <form class="form" id="form-login">
                 
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" id="email-auth">
                     </label>
                 
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha">
+                        <input type="password" placeholder="Senha" id="senha-auth">
                     </label>
                 
                     <a class="password" href="emconstrução.html">Esqueceu sua senha?</a>
-                    <button class="btn btn-second">Entrar</button>
+                    <button class="btn btn-second" type="submit"
+                      onclick="authUser()">Entrar</button>
                 </form>
             </div><!-- second column -->
         </div><!-- second-content -->
@@ -145,5 +117,85 @@
     </footer>
     <script src="resources/js/menu.js"></script>
     <script src="resources/js/app.js"></script>
+
+    <script>
+      // Previne evento padrão dos form
+      document.getElementById('form-create').addEventListener(
+            'submit', stopDefAction, false
+        );
+      document.getElementById('form-login').addEventListener(
+            'submit', stopDefAction, false
+        );
+
+      
+      function stopDefAction(evt) {
+            evt.preventDefault();
+        }
+
+      // Coleta e envia as infos para registrar
+      async function createUser() {
+        const nomeInput = document.getElementById('nome').value
+        const emailInput = document.getElementById('email').value
+        const senhaInput = document.getElementById('senha').value
+
+        const businessInput = document.getElementById('business').checked
+        
+        const perfilInput = businessInput ? 2 : 1
+
+        const newUser = {
+          "nome": nomeInput,
+          "email": emailInput,
+          "senha": senhaInput,
+          "perfil_id": perfilInput
+        }
+
+          const url = '/create-user';
+
+          await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUser),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        
+        }
+
+      async function authUser() {
+        const emailInput = document.getElementById('email-auth').value
+        const senhaInput = document.getElementById('senha-auth').value
+
+        const authUser = {
+          "login": emailInput,
+          "senha": senhaInput
+        }
+
+          const url = '/auth-user';
+
+  await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(authUser),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        
+        }
+      
+    </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const users = [];
+ import Database from '../database.js';
 
 async function loadSeed() {
     const perfis = [
@@ -13,7 +13,8 @@ async function loadSeed() {
    ]
   
     const novosUsers = [
-      {"nome": "carlin",
+      {
+        "nome": "carlin",
        "telefone": "4002-8922",
        "data_nascimento": "19/06/2004",
        "foto_perfil": "https://instagram.fjpa14-1.fna.fbcdn.net/v/t51.2885-15/82212194_141076820717095_7007747681815825815_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fjpa14-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=T5XeIEBz4AIAX_cTVAd&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=MjIyOTQzMjk1OTEzMDQ4NDg0Mg%3D%3D.2-ccb7-5&oh=00_AT_hsl--qj8ydaj0HLqbomPTdfeOeP8J25ZC2ug64zb0Dg&oe=62922DE4&_nc_sid=30a2ef",
@@ -34,17 +35,79 @@ async function loadSeed() {
     };
 };
 
-function create(user) {
-    const id = users.length + 1;
-    const novoUser = {...user, id, avaliacaoUsuario: 0};
+async function createPerfil(perfil) {
+    const db = await Database.connect();
+    
+    const {nome} = perfil;
 
-    users.push(novoUser);
+    const perfilSQL = `
+      INSERT INTO
+        perfil (nome)
+      VALUES
+        (?)
+    `;
 
-    return novoUser;
+    let lastID = await db.run(perfilSQL, [nome]);
+}
+
+async function create(user) {
+   const db = await Database.connect();
+  const {nome, email, senha, perfil_id} = user;
+  
+
+    if (!(verifyEmail(email))) {
+      const usuarioSQL = `
+        INSERT INTO
+          usuario (nome, email, senha, perfil_id)
+        VALUES
+          (?, ?, ?, ?)
+      `;
+  
+      let {lastID} = await db.run(usuarioSQL, [nome, email, senha, perfil_id]);
+  
+      return lastID;
+    } else {
+      return {"status": "Já possui uma conta com esse email!"}
+    }
+
+    
+    
 };
 
-function readAll(){
-    return users;
+async function verifyEmail(email) {
+  const db = await Database.connect();
+
+    const EmailSQL = `
+      SELECT
+        email
+      FROM
+        usuario
+    `;
+  
+  const emails = await db.all(EmailSQL);
+
+  
+  const response = emails.find(DBEmail =>  email == DBEmail.email);
+
+  console.log(response);
+  
+  return response;
+}
+
+async function readAll(){
+  const db = await Database.connect();
+
+  const selectUserSQL = `
+    SELECT
+      *
+    FROM
+      usuario
+    `;
+
+  const usuarios = await db.all(selectUserSQL);
+  
+  
+    return usuarios;
 };
 
 function readByNome(nome) {
@@ -58,15 +121,21 @@ function readByNome(nome) {
 }
 
 function readById(id) {
-    const user = (users.find(user => user.id === id));
+    const response = (users.find(user => user.id == id));
 
-    console.log(user)
-
-    if (user) {
-        return user;
+    if (response) {
+        return response;
     } else {
         return undefined;
     }
 }
 
-export default {create, readAll, loadSeed, readByNome, readById}
+function auth(login, senha) {
+  const response = (users.find(user => user.email == login));
+
+  if (response) {
+    return (response.senha == senha);
+  }
+}
+
+export default {create, readAll, loadSeed, readByNome, readById, auth}
