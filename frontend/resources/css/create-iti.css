@@ -1,9 +1,9 @@
 .iti-emp{
     display: flex;
     justify-content: center;
-    top: 70px;
+    top: 20px;
     width: 600px;
-    height: 650px;
+    height: 820px;
     border-radius: 15px;
     align-items: center;
     background-color: rgba(40, 161, 71, 0.479);
@@ -14,15 +14,13 @@
 }
 .iti-create{
     position: relative;
+    padding: 3px;
+    margin-bottom: 20px;
     font-size: 30px;
-    margin-top: -550px;
-    left: 238px;
+    text-align: center;
     white-space: nowrap;
-    display: flex;
     color: #012e1bff;
-    background-color: rgb(255, 255, 255); 
-    padding-left: 100px;
-    padding-right: 80px; 
+    background-color: rgb(255, 255, 255);
     border-radius: 30px;
 
 }
@@ -32,7 +30,7 @@
 .box-iti{
     color:#012e1bff;
     position: relative;
-    left: -200px;
+    
     top: 10px;
 }
 
@@ -55,7 +53,7 @@ section.secaoiti{
     padding: 10px;
     position: relative;
     left: 170px;
-    top: 40px;
+    margin-top: 10px;
     border: none;
     /* border-bottom: 2px solid #5b6b54ff; */
     transition-duration: 0.5s;
@@ -140,45 +138,14 @@ section.secaoiti{
     margin-left: -220px;
     margin-top: 10px;
 }
-.desc2{
-    position: relative;
-    top: -15px;
-}
-.desc3{
-    padding: 10px;
-    border-radius: 25px;
-    background-color:white;
-    border: none;
-    border-width: medium;
-    border-style: solid;
-    border-color:white ;
-    min-height: 100px;
-    width: 100%;
-    height: auto;
-    outline: none;transition: .7s ease-in-out;
-    position: relative;
-    top: -12px;
-
-
-}
 .desc3:focus{
     background-color: #e3eccf;
 }
 
 
 .nameiti3{
-    padding-right: 400px;
-    align-items: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
-    border-width: medium;
-    border-style: solid;
-    border-color:white ;
-
-}
-.value3{
-    padding-right: 400px;
+    width: 100%;
+    min-height: 30px;
     align-items: center;
     display:flex;
     border-radius: 10px;
@@ -189,31 +156,32 @@ section.secaoiti{
 
 }
 
+.ende1{
+  position: relative;
+  
+}
 .ende3{
-    padding-right: 400px;
-    align-items: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 25px;
+    background-color:white;
     border: none;
     border-width: medium;
     border-style: solid;
     border-color:white ;
+    width: 100%;
+    outline: none;transition: .7s ease-in-out;
+    position: ; relative;
+    top: 10px;
 }
 .select1{
     margin-top:25px;
 
-}
-.ende3{
-    padding-right: 400px;
-    align-items: center;
-    justify-content: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
-    border-width: medium;
-    border-style: solid;
-    border-color:white ;
+
+
+label {
+    margin-top: 20px;
 }
 .campo{
     margin-top: 40px;
@@ -244,108 +212,424 @@ section.secaoiti{
 /* Menu responsivo */
 
 @media screen and (max-width: 768px){
+  .iti-emp{
+    display: flex;
+    justify-content: center;
+    top: 20px;
+    width: 600px;
+    height: 820px;
+    border-radius: 15px;
+    align-items: center;
+    background-color: rgba(40, 161, 71, 0.479);
+    padding: 160px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    /* left: 255px; */
+}
+.iti-create{
+    position: relative;
+    padding: 3px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+    white-space: nowrap;
+    color: #012e1bff;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
 
-    .perfil-usuario{
-        width: 100px;
-        height: 1000px;
-        top: 100px;
-        left: -22px;
-        display:flex;
-    }
-    .form{
-        position: relative;
-        left: -50px;
-    }
-    .box{
-        box-sizing: inherit;
-        padding-left: 10px;
-    }
-    .button-dados{
-        position: relative;
-        top: 100px;
-        left: 110px;
-    }
-    .email1{
-        position: relative;
-        left: 300px;
-
-    }
-    .email{
-        position: relative;
-        left: 470px;
-    }
-    .nome{
-        position: relative;
-        left: 470px;
-    }
-    .name{
-        position: relative;
-        left: 470px;
-        padding-left: 80px;
-        padding-right: 80px;
-    }
-    .bio2{ 
-        position: relative;
-        left: 470px;
-    }
-    .bio3{
-        position: relative;
-        left: 470px;
-    }
-    .datan1{
-        position: relative;
-        left: 470px;
-        padding-left: 80px;
-        padding-right: 80px;
-    }
-    .datan{
-        position: relative;
-        left: 470px;
-    }
-    .gener1{
-        margin-top: 0px;
-        margin-left:50px;
-    }
-    .gener{
-        position: relative;
-        left: 470px;
-    }
-    .tele{
-        position: relative;
-        left: 470px;
-    }
-    .tel{
-        position: relative;
-        left: 470px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
-    .meu-perfil{
-        left: 300px;
-        top: 60px;
-        font-size: 30px;
-        padding-left: 100px;
-        padding-right: 100px;
-    }
-    .foto{
-        position: relative;
-        left: 250px;
-    }
-    .info-media{
-        width:50%;
-    }
+}
+.form{
+    width: 500px;
+}
+.box-iti{
+    color:#012e1bff;
+    position: relative;
+    
+    top: 10px;
 }
 
+
+
+section.secaoiti{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+.button-dados{
+    border-radius: 25px;
+    background-color: #012e1bff;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    position: relative;
+    left: 170px;
+    margin-top: 10px;
+    border: none;
+    /* border-bottom: 2px solid #5b6b54ff; */
+    transition-duration: 0.5s;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+
+}
+.button-dados:hover{
+    background-color:#ebf5d7;
+    border:#012e1bff;
+    color:rgb(127, 133, 125);
+    /* border-bottom: 2px solid #5b6b54ff; */
+
+}
+.button-sele{
+    border-radius: 25px;
+    background-color: #012e1bff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    border: none;
+    /* border-bottom: 2px solid #5b6b54ff; */
+    transition-duration: 0.5s;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+}
+.button-sele:hover{
+    background-color:#ebf5d7;
+    border:#012e1bff;
+    color:rgb(127, 133, 125);
+    /* border-bottom: 2px solid #5b6b54ff; */
+
+}
+
+.itinenario{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.info-iti{
+    margin-top: 5px;
+    margin-left: 200px;
+    display: flex;
+
+}
+
+.info-iti-create .desc2{
+    display: flex;
+    align-items: center;
+}
+.info-iti-create .nameiti2{
+    display: flex;
+    align-items: center;
+
+}
+.info-iti-create .ende2{
+    display: flex;
+    align-items: center;
+
+}
+.info-iti-create .value2{
+    display: flex;
+    align-items: center;
+
+}
+.info-iti-create .select2{
+    display: flex;
+    align-items: center;
+
+}
+.info-iti-create{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -220px;
+    margin-top: 10px;
+}
+.desc3:focus{
+    background-color: #e3eccf;
+}
+
+
+.nameiti3{
+    width: 100%;
+    min-height: 30px;
+    align-items: center;
+    display:flex;
+    border-radius: 10px;
+    background-color:white ;
+    border-width: medium;
+    border-style: solid;
+    border-color:white ;
+
+}
+
+.ende1{
+  position: relative;
+  
+}
+.ende3{
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 25px;
+    background-color:white;
+    border: none;
+    border-width: medium;
+    border-style: solid;
+    border-color:white ;
+    width: 100%;
+    outline: none;transition: .7s ease-in-out;
+    position: ; relative;
+    top: 10px;
+}
+.select1{
+    margin-top:25px;
+
+
+
+label {
+    margin-top: 20px;
+}
+.campo{
+    margin-top: 40px;
+}
+
+.campo1 input{
+    border-radius: 32px;
+    padding: 7px;
+    padding-left: 15px;
+    outline: none;
+    width: 100%;
+    transition: .7s ease-in-out;
+    border-bottom: 2px solid white;
+
+}
+.campo1 input:focus{
+    background-color: #e3eccf;
+}
+
+.campo1 select {
+    border-radius: 32px;
+    outline: none;
+    transition: .7s ease-in-out;
+}
+
+
+  
 @media screen and (max-width: 500px){
-    .campo1 input, .bio3{
-        width: 80%;
-    }
-
-    .perfil-foto{
-        position: relative;
-        left: 250px;
-        width: 150px;
-        height: 150px;
-    }
+  .iti-emp{
+    display: flex;
+    justify-content: center;
+    top: 20px;
+    width: 600px;
+    height: 820px;
+    border-radius: 15px;
+    align-items: center;
+    background-color: rgba(40, 161, 71, 0.479);
+    padding: 160px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    /* left: 255px; */
 }
+.iti-create{
+    position: relative;
+    padding: 3px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+    white-space: nowrap;
+    color: #012e1bff;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+
+}
+.form{
+    width: 500px;
+}
+.box-iti{
+    color:#012e1bff;
+    position: relative;
+    
+    top: 10px;
+}
+
+
+
+section.secaoiti{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+.button-dados{
+    border-radius: 25px;
+    background-color: #012e1bff;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    position: relative;
+    left: 170px;
+    margin-top: 10px;
+    border: none;
+    /* border-bottom: 2px solid #5b6b54ff; */
+    transition-duration: 0.5s;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+
+}
+.button-dados:hover{
+    background-color:#ebf5d7;
+    border:#012e1bff;
+    color:rgb(127, 133, 125);
+    /* border-bottom: 2px solid #5b6b54ff; */
+
+}
+.button-sele{
+    border-radius: 25px;
+    background-color: #012e1bff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    border: none;
+    /* border-bottom: 2px solid #5b6b54ff; */
+    transition-duration: 0.5s;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+}
+.button-sele:hover{
+    background-color:#ebf5d7;
+    border:#012e1bff;
+    color:rgb(127, 133, 125);
+    /* border-bottom: 2px solid #5b6b54ff; */
+
+}
+
+.itinenario{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.info-iti{
+    margin-top: 5px;
+    margin-left: 200px;
+    display: flex;
+
+}
+
+.info-iti-create .desc2{
+    display: flex;
+    align-items: center;
+}
+.info-iti-create .nameiti2{
+    display: flex;
+    align-items: center;
+
+}
+.info-iti-create .ende2{
+    display: flex;
+    align-items: center;
+
+}
+.info-iti-create .value2{
+    display: flex;
+    align-items: center;
+
+}
+.info-iti-create .select2{
+    display: flex;
+    align-items: center;
+
+}
+.info-iti-create{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -220px;
+    margin-top: 10px;
+}
+.desc3:focus{
+    background-color: #e3eccf;
+}
+
+
+.nameiti3{
+    width: 100%;
+    min-height: 30px;
+    align-items: center;
+    display:flex;
+    border-radius: 10px;
+    background-color:white ;
+    border-width: medium;
+    border-style: solid;
+    border-color:white ;
+
+}
+
+.ende1{
+  position: relative;
+  
+}
+.ende3{
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 25px;
+    background-color:white;
+    border: none;
+    border-width: medium;
+    border-style: solid;
+    border-color:white ;
+    width: 100%;
+    outline: none;transition: .7s ease-in-out;
+    position: ; relative;
+    top: 10px;
+}
+.select1{
+    margin-top:25px;
+
+
+
+label {
+    margin-top: 20px;
+}
+.campo{
+    margin-top: 40px;
+}
+
+.campo1 input{
+    border-radius: 32px;
+    padding: 7px;
+    padding-left: 15px;
+    outline: none;
+    width: 100%;
+    transition: .7s ease-in-out;
+    border-bottom: 2px solid white;
+
+}
+.campo1 input:focus{
+    background-color: #e3eccf;
+}
+
+.campo1 select {
+    border-radius: 32px;
+    outline: none;
+    transition: .7s ease-in-out;
+}
+
