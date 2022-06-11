@@ -124,6 +124,8 @@ header .sign a{
     margin-right: 7px;
     border: 2px solid var(--cadmium-green);
     transition: all .7s;
+
+  justify-content: inline;
 }
 
 header .sign a:hover{
@@ -569,4 +571,39 @@ main{
         font-size: 8px;
 }
 
+}
+
+img.imgPerfil {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: var(--dark-green);
+
+  margin: 0 8px;
+
+  cursor: pointer;
+  
+}
+
+.saudacao{
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: letter-spacing 0.7s,
+                background-color 0.7s;;
+
+    color: var(--cadmium-green);
+    font-size: 16px;
+    /* background-color: var(--aero-blue); */
+}
+
+.saudacao:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.logout {
+  color: var(--dark-green);
+  cursor: pointer;
 }

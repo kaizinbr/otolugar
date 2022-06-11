@@ -13,12 +13,9 @@
     <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
 </head>
 
-<body onload=" loadPontos()"> 
+<body onload="startIndex()"> 
 
     <script src="resources/js/app.js"></script>
-
-    <!-- Fora bolsonaro <3 !!! -->
-    <!-- Jovens tirem seus títulos eleitorais pfvr -->
 
     <header>
         <nav>
@@ -33,14 +30,14 @@
                 <ul class="list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
-                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <!--<li><a href="perfil.html">Meu perfil</a></li> -->
                     <li><a href="contato.html">Contato</a></li>
                     <li><a href="main-cadastro-login.html" class="mobileSign">Cadastro/Login</a></li>
                 </ul>
             </div>
 
-            <div class="sign">
-                <a href="main-cadastro-login.html">Cadastro/Login</a>
+            <div class="sign" id="sign">
+                <!-- verifyAuth -->
             </div>
         </nav>
     </header>
@@ -92,6 +89,11 @@
     <script src="resources/js/menu.js"></script>
     <!-- <script src="../database/data-pontos/favs.js"></script> -->
     <script>
+    function startIndex() {
+      verifyAuth()
+      loadPontos()
+    }
+      
     async function loadPontos() {
     const section = document.querySelector('section .content');
 
@@ -126,8 +128,6 @@
         </div>`
 
         section.insertAdjacentHTML('beforeend', view);
-
-        
 
     }
     };

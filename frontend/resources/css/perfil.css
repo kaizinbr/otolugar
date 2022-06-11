@@ -233,8 +233,12 @@ section.secaoPerfil{
     width: 100%;
     transition: .7s ease-in-out;
     border-bottom: 2px solid white;
-
 }
+
+.campo1 {
+  width: 100%;
+}
+
 .campo1 input:focus{
     background-color: #e3eccf;
 }
@@ -370,7 +374,7 @@ section.secaoPerfil{
         left: 250px;
     }
     .info-media{
-        width:50%;
+        width: 80%;
     }
 }
 

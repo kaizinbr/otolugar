@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="resources/css/responsive-menu.css">
     <link rel="stylesheet" href="resources/css/create-iti.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+      <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
+      <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-<body>
+<body onload="verifyAuth()">
     
     <header>
         <nav>
@@ -25,14 +27,14 @@
                 <ul class="list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
-                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <!--<li><a href="perfil.html">Meu perfil</a></li> -->
                     <li><a href="contato.html">Contato</a></li>
                     <li><a href="main-cadastro-login.html" class="mobileSign">Cadastro/Login</a></li>
                 </ul>
             </div>
 
-            <div class="sign">
-                <a href="main-cadastro-login.html">Cadastro/Login</a>
+            <div class="sign" id="sign">
+                <!-- verifyAuth -->
             </div>
         </nav>
     </header>
@@ -82,9 +84,14 @@
             <p>Todos os direitos de imagem são de seus respectivos donos/criadores. Todas as imagens utilizadas são para fins acadêmicos. <br> Para mais informações ou reclamações entre em contato conosco.</p>
         </footer>
         <script src="resources/js/menu.js"></script>
+        <script src="resources/js/app.js"></script>
 
         <!-- Retira o evento padrão do formulario-->
         <script>
+ if(!(window.sessionStorage.getItem('user_id'))) {
+          window.location.href = '/main-cadastro-login.html'
+ }
+          
         function getFormInfos() {
 
   let nome = document.getElementById('nome').value;

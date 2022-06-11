@@ -11,6 +11,8 @@ const __dirname = dirname(__filename);
 
 const router = express.Router();
 
+// Pontos
+
 router.post('/create-pontos', (req, res) => {
     let ponto = req.body;
   
@@ -54,21 +56,32 @@ router.get('/get-datapontos', (req, res) => {
     res.status(200).json(pontos);
 });
 
-router.post('/create-user', (req, res) => {
+// Users
+
+router.post('/create-user', async (req, res) => {
     let user = req.body;
-    const response = seedUser.create(user);
+    const response = await seedUser.create(user);
 
     res.status(200).json(response);
 });
 
-router.post('/auth-user', (req, res) => {
+router.put('/change-user', async (req, res) => {
+    let user = req.body;
+
+    console.log(user)
+  
+    const response = await seedUser.change(user);
+
+    res.status(200).json(response);
+});
+
+router.post('/auth-user', async (req, res) => {
     let {login, senha} = req.body;
 
-    console.log({login, senha})
-    const authorized = seedUser.auth(login, senha);
+    const authorized = await seedUser.auth(login, senha);
 
     if (authorized) {
-      res.status(200).json({"status": "logado!"});
+      res.status(200).json({"status": "logado!", "id": authorized});
     } else {
       res.status(404).json({"status": "Não foi!"});
     }
@@ -84,14 +97,13 @@ router.get('/get-user/id/:id', async (req, res) => {
     res.status(200).json(user);
 })
 
-router.get('/get-users-data', (req, res) => {
+router.get('/get-users-data', async (req, res) => {
     // pega os dados do usuário quando ele estiver logado
-    const users = seedUser.readAll();
+    const users = await seedUser.readAll();
     res.status(200).json(users);
 });
 
 router.get('/pontos', (req, res) => {
-  const id = Number(req.query);
   res.sendFile(path.join(__dirname, '../../frontend/base-ponto.html'));
 });
 
