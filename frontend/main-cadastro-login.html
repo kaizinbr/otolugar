@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
 </head>
-<body>
+<body onload="verifyAuth()">
     
     
     <header>
@@ -28,14 +28,14 @@
                 <ul class="list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
-                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <!--<li><a href="perfil.html">Meu perfil</a></li> -->
                     <li><a href="contato.html">Contato</a></li>
                     <li><a href="main-cadastro-login.html" class="mobileSign">Cadastro/Login</a></li>
                 </ul>
             </div>
 
-            <div class="sign">
-                <a href="main-cadastro-login.html">Cadastro/Login</a>
+            <div class="sign" id="sign">
+                <!-- verifyAuth -->
             </div>
         </nav>
     </header>
@@ -189,6 +189,12 @@
             .then((response) => response.json())
             .then((data) => {
               console.log("Success:", data);
+
+              window.sessionStorage.setItem('user_id', data.id);
+              
+              console.log(window.sessionStorage.getItem('user_id'));
+
+              window.location.href = '/'
             })
             .catch((error) => {
               console.error("Error:", error);

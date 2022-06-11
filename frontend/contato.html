@@ -11,10 +11,12 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
+      <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Contato | OtoLugar</title>
 </head>
-<body>
+<body onload="verifyAuth()">
     
+    <script src="resources/js/app.js"></script>
     
    
     <header>
@@ -30,14 +32,14 @@
                 <ul class="list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
-                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <!--<li><a href="perfil.html">Meu perfil</a></li> -->
                     <li><a href="contato.html">Contato</a></li>
                     <li><a href="main-cadastro-login.html" class="mobileSign">Cadastro/Login</a></li>
                 </ul>
             </div>
 
-            <div class="sign">
-                <a href="main-cadastro-login.html">Cadastro/Login</a>
+            <div class="sign" id="sign">
+                <!-- verifyAuth -->
             </div>
         </nav>
     </header>

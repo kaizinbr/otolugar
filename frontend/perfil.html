@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="resources/css/perfil.css">
     <link rel="stylesheet" href="resources/css/main.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
+      <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Meu Perfil | OtoLugar</title>
 </head>
-<body>
+<body onload="startToPerfil()">
     
+    <script src="resources/js/app.js"></script>
     
     
     <header>
@@ -28,119 +30,113 @@
                 <ul class="list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
-                    <li><a href="perfil.html">Meu perfil</a></li>
+                    <!--<li><a href="perfil.html">Meu perfil</a></li> -->
                     <li><a href="contato.html">Contato</a></li>
                     <li><a href="main-cadastro-login.html" class="mobileSign">Cadastro/Login</a></li>
                 </ul>
             </div>
 
-            <div class="sign">
-                <a href="main-cadastro-login.html">Cadastro/Login</a>
+            <div class="sign" id="sign">
+                <!-- verifyAuth -->
             </div>
         </nav>
     </header>
-
+  <form class="form" id="formulario">
     <section class="secaoPerfil">
         <div class="perfil-usuario">
             <h1 class= meu-perfil>Meu Perfil</h1>
             <box class="box" >
                 <div class="perfil"> 
                     <div class="perfil-foto">
-                        <img class="avatar" src="https://static1.purebreak.com.br/articles/0/35/25/0/@/173286-justin-bieber-voltou-a-ser-loiro-no-fina-700x700-1.jpg" alt="avatar">
+                        <img class="avatar" src="https://static1.purebreak.com.br/articles/0/35/25/0/@/173286-justin-bieber-voltou-a-ser-loiro-no-fina-700x700-1.jpg" alt="avatar" id="foto_perfil">
                     </div>
                     <input type="file" name="foto" id="foto">
                     <label class="foto" for="foto"><i class='bx bx-image-alt'></i></label>
                 </div>
                 <div class="info">
                     <div class="info-media">
-                        <form class="form" action="getform.php" method="get">
+                      
                             <div class="campo1">
-                                <label class="bio1"><strong class="bio2">Biografia</strong></label>
-                                <textarea rows="6" type="text"  class="bio3" name="bio3" placeholder="Insira informações sobre você aqui"></textarea>
+                                <label class="bio1"><strong class="bio2" >Biografia</strong></label>
+                                <textarea rows="6" type="text"  class="bio3" name="bio3" id="bio" placeholder="Insira informações sobre você aqui"></textarea>
                                 <br>
                                 <label class="name2"><strong class="nome">Nome</strong></label>
-                                <input rows="6" type="text" class="name" name="name" placeholder="Insira seu nome aqui">
+                                <input rows="6" type="text" class="name" name="name" id="nome" placeholder="Insira seu nome aqui">
                                 <br>
                                 <label class="email2"><strong class="email1">Email</strong></label>
-                                <input rows="6" type="email" class="email" name="email" placeholder="Seu email não será compartilhado com terceiros!">
+                                <input rows="6" type="email" class="email" name="email" id="email" placeholder="Seu email não será compartilhado com terceiros!">
                                 <br>
                                 <label for="tele1"><strong class="tele">Telefone</strong></label>
-                                <input rows="6" type="tel" class="tel" name="tel" placeholder="Ex.: 83 912345678">
+                                <input rows="6" type="tel" class="tel" name="tel" id="telefone" placeholder="Ex.: 83 912345678">
                                 <br>
                                 <label for="datan2"><strong class="datan">Data de Nascimento</strong></label>
-                                <input rows="6" type="date" class="datan1" name="datan1" placeholder="Ex.: 21/10/2000">
+                                <input rows="6" type="date" class="datan1" name="datan1" id="data_nascimento" data-date-format="DD MMMM YYYY" placeholder="Ex.: 21/10/2000">
                                 <br>
                                 <label for="gener2"><strong class="gener1">Gênero</strong></label>
-                                <select class="gener" required>
+                                <select class="gener" id="sexo" required>
                                     <option selected disabled value="">Selecione como você se identifica</option>
-                                    <option value="masc">Masculino</option>
-                                    <option value="fem">Feminino</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
                                     <option value="nb">Não-Binárie</option>
                                 </select>
                             </div>
-                            <button class= button-dados type=text>Alterar dados</button>
+                            <button class="button-dados" type="submit">Alterar dados</button>
         <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
-                        </form>
                     </div>
-                </form>
                 </div>
             </box>
         </div>
     </section>
+  </form>
+  
     <footer>
         <p>Todos os direitos de imagem são de seus respectivos donos/criadores. Todas as imagens utilizadas são para fins acadêmicos. <br> Para mais informações ou reclamações entre em contato conosco.</p>
     </footer>
     <script src="resources/js/menu.js"></script>
-    <!-- <script>
-        function getFormInfos() {
-
-  let nome = document.getElementById('nome').value;
-  let descricao = document.getElementById('descricao').value;
-  let imagem = document.getElementById('imagem').value;
-  let altImagem = document.getElementById('altImagem').value;
-  let mapa = document.getElementById('endereco').value;
-  let valor = document.getElementById('valor').value;
-  
-  let ponto = {
-    nome: nome,
-    descricao: descricao,
-    imagem: imagem,
-    altImagem: altImagem,
-    mapa: mapa,
-    valor: valor
-  }
-
-  createPonto(ponto);
-}
-
-async function createPonto(ponto) {
-  const url = '/create-pontos';
-
-  await fetch(url, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(ponto),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              console.log("Success:", data);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        
-        }
-          
-        document.getElementById('formulario').addEventListener(
-         'submit', stopDefAction, false
-        );
-
-        function stopDefAction(evt) {
+    <script>
+      function stopDefAction(evt) {
             evt.preventDefault();
+      }
+
+document.getElementById('formulario').addEventListener(
+            'submit', stopDefAction, false
+        );
+      
+      function startToPerfil() {
+        
+        if(!(window.sessionStorage.getItem('user_id'))) {
+          window.location.href = '/main-cadastro-login.html'
+        } else {
+          verifyAuth()
+          loadInfos()
         }
-        </script> -->
+      }
+      
+      async function loadInfos() {
+      const imagemInput = document.getElementById('foto_perfil')
+      const nomeInput = document.getElementById('nome')
+      const emailInput = document.getElementById('email')
+      const telefoneInput = document.getElementById('telefone')
+      const dataNascimentoInput = document.getElementById('data_nascimento')
+      const sexoInput = document.getElementById('sexo')
+        
+      const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
+
+      const user = (await (await fetch(url)).json())[0];
+
+      console.log(user)
+        
+      imagemInput.src = user.foto_perfil
+      nomeInput.value = user.nome
+      emailInput.value = user.email
+      telefoneInput.value = user.telefone
+      sexoInput.value = user.sexo
+      dataNascimentoInput.value = user.data_nascimento
+      
+      }
+
+      
+    </script>
     
 </body>
 </html>

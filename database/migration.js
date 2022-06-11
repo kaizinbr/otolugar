@@ -1,4 +1,6 @@
 import Database from './database.js'
+import seedUser from './data-login/seed.js'; 
+
 
 async function up() {
   const db = await Database.connect();
@@ -47,12 +49,17 @@ async function up() {
         FOREIGN KEY (usuario_id) REFERENCES usuario (usuario_id),
         FOREIGN KEY (ponto_id) REFERENCES ponto (ponto_id)
       )`;
-
   
+  try {
   db.run(createPerfil);
   db.run(createUsuario);
   db.run(createPonto);
   db.run(createReserva);
+  seedUser.loadSeed();
+  } catch (err) {
+   console.err(err); 
+  }
+  
 }
 
 export default { up };

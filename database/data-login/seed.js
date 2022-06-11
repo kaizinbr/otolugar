@@ -52,26 +52,23 @@ async function createPerfil(perfil) {
 
 async function create(user) {
    const db = await Database.connect();
-  const {nome, email, senha, perfil_id} = user;
   
+  const {nome, email, senha, perfil_id} = user;
 
-    if (!(verifyEmail(email))) {
+    if (!(await verifyEmail(email))) {
       const usuarioSQL = `
         INSERT INTO
           usuario (nome, email, senha, perfil_id)
         VALUES
           (?, ?, ?, ?)
-      `;
-  
+      `;  
       let {lastID} = await db.run(usuarioSQL, [nome, email, senha, perfil_id]);
+
   
       return lastID;
-    } else {
+    } else {      
       return {"status": "Já possui uma conta com esse email!"}
     }
-
-    
-    
 };
 
 async function verifyEmail(email) {
@@ -85,11 +82,8 @@ async function verifyEmail(email) {
     `;
   
   const emails = await db.all(EmailSQL);
-
   
-  const response = emails.find(DBEmail =>  email == DBEmail.email);
-
-  console.log(response);
+  const response = emails.some(DBEmail =>  email === DBEmail.email);
   
   return response;
 }
@@ -106,7 +100,6 @@ async function readAll(){
 
   const usuarios = await db.all(selectUserSQL);
   
-  
     return usuarios;
 };
 
@@ -120,22 +113,80 @@ function readByNome(nome) {
     }
 }
 
-function readById(id) {
-    const response = (users.find(user => user.id == id));
+async function readById(id) {
+  const db = await Database.connect();
 
-    if (response) {
-        return response;
-    } else {
-        return undefined;
-    }
+  const selectUserSQL = `
+    SELECT
+      *
+    FROM
+      usuario
+    WHERE
+      id = ?
+    `;
+
+  const usuarios = await db.all(selectUserSQL, [id]);
+  
+    return usuarios;
 }
 
-function auth(login, senha) {
-  const response = (users.find(user => user.email == login));
+async function auth(login, senha) {
+  const db = await Database.connect();
 
-  if (response) {
-    return (response.senha == senha);
+  const selectUserSQL = `
+    SELECT
+      email, senha, id
+    FROM
+      usuario
+    WHERE
+      email = ?
+    `;
+
+  const user = await db.get(selectUserSQL, [login]);
+
+  if(user && user.email === login && user.senha === senha) {
+    return user.id;
+  } else return false;
+}
+
+async function change(user) {
+  const db = await Database.connect();
+  
+  const {id, nome, telefone, data_nascimento, foto_perfil, bio, sexo,
+         email} = user;
+
+
+      const usuarioSQL = `
+        UPDATE
+          usuario
+        SET
+          nome = ?,
+          telefone = ?,
+          data_nascimento = ?,
+          foto_perfil = ?,
+          bio = ?,
+          sexo = ?,
+          email = ?
+        WHERE
+          id = ?
+      `;
+
+  try {
+    // Não funciona
+    const {lastID, changes} = await db.run(usuarioSQL, [nome, telefone, data_nascimento, foto_perfil, bio, sexo, email, id]);
+
+
+  if (changes === 1) {
+    return lastID;
+  } else {
+    return false;
   }
+  } catch (err) {
+    console.error(err)
+  }
+
+
+  
 }
 
-export default {create, readAll, loadSeed, readByNome, readById, auth}
+export default {create, change, readAll, loadSeed, readByNome, readById, auth}
