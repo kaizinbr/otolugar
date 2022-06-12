@@ -38,7 +38,49 @@ async function verifyAuth() {
 logout
 </span>`
   } else {
-    sign.innerHTML = `<a href="main-cadastro-login.html">Cadastro/Login</a>`
+    sign.innerHTML = `<a href="signinup.html">Cadastro/Login</a>`
   }           
+}
+
+function checkPassword(){
+  const inputSenha = document.querySelector("#senha");
+  const spanDeErro = document.querySelector("#passwordError");
+  const submit = document.querySelector(".submit");
+
+  console.log('achei a senha');
+
+  if(inputSenha.value.length < 6){
+    spanDeErro.innerHTML = "A senha deve ter no mínimo 6 caracteres";
+    submit.disabled = true;
+    submit.classList.add("disabled");
+  } else{
+    spanDeErro.innerHTML = "";
+    submit.disabled = false;
+    submit.classList.remove("disabled");
+  }
+
+  // CHECA SE A SENHA TEM MAIS DE 20 CARACTERES
+  if(inputSenha.value.length > 20){
+    spanDeErro.innerHTML = "A senha deve ter no máximo 20 caracteres";
+    submit.disabled = true;
+    submit.classList.add("disabled");
+  } 
+
+  // CHECA SE A ULTIMA LETRA DIGITADA É UM CARACTERE ESPECIAL
+  if(inputSenha.value.match(/[^a-zA-Z0-9]$/)){
+    spanDeErro.innerHTML = "A senha deve não deve conter caracteres especiais";
+    submit.disabled = true;
+    submit.classList.add("disabled");
+  }
+
+  if (submit) {
+    btnSignin.addEventListener("click", function () {
+     body.className = "sign-in-js"; 
+  });
+  }
+
+
+  // const confirmPassword = document.getElementById('confirmPassword');
+  // const submit = document.getElementById('submit');
 }
 

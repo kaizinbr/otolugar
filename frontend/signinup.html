@@ -65,17 +65,17 @@
                     
                     <label class="label-input" for="senha">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha" id="senha">
-                    </label>
+                        <input type="password" placeholder="Senha" id="senha" onkeyup="checkPassword()">
+                    </label>                        
+                        <span id="passwordError"></span>
 
                     <label class="radioBtn" for="radioBtn">
                         <div><input type="radio" name="radioBtn" id="user"> <label for="user" >Pessoal</label></div>
                         <div><input type="radio" name="radioBtn" id="business"> <label for="business" >Empresarial</label> </div>
-                      
                     </label>
                     
                     
-                    <button class="btn btn-second"
+                    <button class="btn submit btn-second"
                       onclick="createUser()">
                         Registrar</button>        
                 </form>

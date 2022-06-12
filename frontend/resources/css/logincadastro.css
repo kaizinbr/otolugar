@@ -99,7 +99,7 @@ html {
 }
 .btn-primary:hover {
     background-color: #fff;
-    color: #D3DABB;
+    color: #bfc99e;
 }
 .btn-second {
     background-color: var(--cadmium-green);
@@ -109,8 +109,17 @@ html {
 .btn-second:hover {
     background-color: #fff;
     border: 1px solid var(--cadmium-green);
-    color: #D3DABB;
+    color: #bfc99e;
 }
+
+.btn-second.disabled {
+    background-color: gray;
+}
+.btn-second.disabled:hover {
+    background-color: gray;
+    color: white;
+}
+
 .first-content {
     display: flex;
 }
@@ -310,6 +319,16 @@ input:-webkit-autofill {
     z-index: -1;
     animation: deslocamentoDir 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
 }
+
+/* SPAN QUE MOSTRA ERRO NA SENHA */
+span#passwordError {
+    color: #e74c3c;
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+    /* display: none; */
+}
+
 
 /*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
 
