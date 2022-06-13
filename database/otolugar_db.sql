@@ -9,7 +9,7 @@ CREATE TABLE usuario (
     us_nome VARCHAR(60) NOT NULL,
     us_telefone VARCHAR(11),
     us_data_nascimento DATE,
-    us_foto_perfil VARCHAR(70),
+    us_foto_perfil BLOB(70),
     us_bio VARCHAR(250),
     us_email VARCHAR(50) UNIQUE NOT NULL,
     us_avaliacao NUMERIC(3,2),

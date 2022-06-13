@@ -283,7 +283,11 @@ section.secaoPerfil{
     -webkit-font-smoothing: antialiased;
 }
 /* Menu responsivo */
-
+@media screen and (max-width: 1440px){
+  .perfil-usuario{
+    height: 1100px;
+  }
+}
 @media screen and (max-width: 768px){
 
     .perfil-usuario{

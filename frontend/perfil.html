@@ -80,7 +80,7 @@
                                     <option value="nb">Não-Binárie</option>
                                 </select>
                             </div>
-                            <button class="button-dados" type="submit">Alterar dados</button>
+                            <button class="button-dados" onclick="changeDataUser()" type="submit">Alterar dados</button>
         <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
                     </div>
                 </div>
@@ -105,7 +105,7 @@ document.getElementById('formulario').addEventListener(
       function startToPerfil() {
         
         if(!(window.sessionStorage.getItem('user_id'))) {
-          window.location.href = '/main-cadastro-login.html'
+          window.location.href = '/signinup.html'
         } else {
           verifyAuth()
           loadInfos()
@@ -134,6 +134,41 @@ document.getElementById('formulario').addEventListener(
       dataNascimentoInput.value = user.data_nascimento
       
       }
+
+      async function changeDataUser() {
+        const nomeInput = document.getElementById('nome').value
+        const emailInput = document.getElementById('email').value
+        const bioInput = document.getElementById('bio').value
+        const dataNascInput = document.getElementById('data_nascimento').value
+        const telInput = document.getElementById('telefone').value
+
+
+        const dataChanged = {
+          "nome": nomeInput,
+          "email": emailInput,
+          "biografia": bioInput,
+          "data_de_nascimento": dataNascInput,
+          "telInput": telInput,
+        }
+
+          const url = '/change-user';
+
+          await fetch(url, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataChanged),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        
+        }
 
       
     </script>

@@ -13,24 +13,24 @@ const router = express.Router();
 
 // Pontos
 
-router.post('/create-pontos', (req, res) => {
+router.post('/create-pontos', async (req, res) => {
     let ponto = req.body;
   
     // junta o novo ponto aos do Seed, adicionando sempre na última posição
-    seed.create(ponto);
+    const id = await seed.create(ponto);
 
-    res.status(200).json(ponto);
+    res.status(200).json(id);
 });
   
-router.get('/get-pontos', (req, res) => {
+router.get('/get-pontos', async (req, res) => {
     // envia os pontos do Seed automaticamente e fora Bolsonaro!!!
-    const pontos = seed.readAll();
+    const pontos = await seed.readAll();
     res.status(200).json(pontos);
 });
 
-router.get('/get-pontos/nome/:nome', (req, res) => {
+router.get('/get-pontos/nome/:nome', async (req, res) => {
     // envia os pontos do Seed automaticamente
-    const ponto = seed.readByNome(req.params.nome);
+    const ponto = await seed.readByNome(req.params.nome);
 
     if(ponto) {
         res.status(200).json(ponto);
@@ -39,9 +39,9 @@ router.get('/get-pontos/nome/:nome', (req, res) => {
     }
 });
 
-router.get('/get-pontos/id/:id', (req, res) => {
+router.get('/get-pontos/id/:id', async (req, res) => {
     // envia os pontos do Seed automaticamente
-    const ponto = seed.readById(parseInt((req.params.id)));
+    const ponto = await seed.readById(parseInt((req.params.id)));
 
     if(ponto) {
         res.status(200).json(ponto);
@@ -49,12 +49,14 @@ router.get('/get-pontos/id/:id', (req, res) => {
         res.status(404).json("Não encontrado");
     }
 });
-
+/*
 router.get('/get-datapontos', (req, res) => {
     // envia os dados das páginas individuais dos pontos automaticamente
     const pontos = readData();
     res.status(200).json(pontos);
 });
+*/
+
 
 // Users
 
@@ -108,5 +110,17 @@ router.get('/pontos', (req, res) => {
 });
 
 router.get('/get')
-  
+
+/* app.put(""/perfil/:id", (req, res) =>
+      const perfil = Perfil.updateOne({_id: req.params.id}, req.body, (err) => {
+          if(err) return res.status(400).json({
+              error: true,
+              message: "Erro arquivo não editado!"
+      });
+          return res.json({
+              error: false,  
+              message: "Arquivo editado com sucesso!
+          });
+});
+*/
 export default router;
