@@ -67,7 +67,7 @@ router.post('/create-user', async (req, res) => {
     res.status(200).json(response);
 });
 
-router.put('/change-user', async (req, res) => {
+router.post('/change-user', async (req, res) => {
     let user = req.body;
 
     console.log(user)

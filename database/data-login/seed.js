@@ -151,9 +151,10 @@ async function auth(login, senha) {
 
 async function change(user) {
   const db = await Database.connect();
-  
-  const {id, nome, telefone, data_nascimento, foto_perfil, bio, sexo,
-         email} = user;
+  // tirei o foto_perfil temporariamente
+  const {nome, telefone, data_nascimento, bio, sexo,
+         email, id} = user;
+
 
 
       const usuarioSQL = `
@@ -163,7 +164,6 @@ async function change(user) {
           nome = ?,
           telefone = ?,
           data_nascimento = ?,
-          foto_perfil = ?,
           bio = ?,
           sexo = ?,
           email = ?
@@ -171,19 +171,16 @@ async function change(user) {
           id = ?
       `;
 
-  try {
-    // Não funciona
-    const {lastID, changes} = await db.run(usuarioSQL, [nome, telefone, data_nascimento, foto_perfil, bio, sexo, email, id]);
+
+    const {changes} = await db.run(usuarioSQL, [nome, telefone, data_nascimento, bio, sexo, email, id]);
 
 
   if (changes === 1) {
-    return lastID;
+    return `perfil de id ${id} atualizado com sucesso!`;
   } else {
-    return false;
+    return `Falha ao atualizar usuário ${id}, tente novamente! Mudanças:${changes}`;
   }
-  } catch (err) {
-    console.error(err)
-  }
+  
 
 
   

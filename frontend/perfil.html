@@ -141,20 +141,29 @@ document.getElementById('formulario').addEventListener(
         const bioInput = document.getElementById('bio').value
         const dataNascInput = document.getElementById('data_nascimento').value
         const telInput = document.getElementById('telefone').value
+        const sexoInput = document.getElementById('sexo').value
+        const urlUser = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
+        const user_id = (await (await fetch(urlUser)).json())[0].id;
+
+        console.log(user_id)
 
         const dataChanged = {
+          "id": user_id,
           "nome": nomeInput,
-          "email": emailInput,
-          "biografia": bioInput,
-          "data_de_nascimento": dataNascInput,
-          "telInput": telInput,
-        }
+          "telefone": telInput,
+          "data_nascimento": dataNascInput,
+          "bio": bioInput,
+          "sexo": sexoInput ,
+          "email": emailInput
+        };
+
+        console.log(dataChanged);
 
           const url = '/change-user';
 
           await fetch(url, {
-            method: "PUT",
+            method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
