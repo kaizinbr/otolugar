@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="resources/css/create-iti.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
       <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
-      <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-<body onload="verifyAuth()">
+<body onload="startCreatePonto()">
     
     <header>
         <nav>
@@ -71,7 +71,8 @@
                                     <input rows="6" type="number" class="ende3" id="valor" name="value1" placeholder="Insira o quanto custa">
                                     <br>
                                 </div>
-                                <button class= button-dados onclick="getFormInfos(), window.location.href = '/'"type=text>Criar</button>
+                                <button class= button-dados onclick="getFormInfos(), window.location.href = '/'"type=submit id="submit">Criar</button>
+															<span id="passwordError"></span>
             <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
                             </form>
                         </div>
@@ -87,11 +88,24 @@
         <script src="resources/js/app.js"></script>
 
         <script>
- if(!(window.sessionStorage.getItem('user_id'))) {
+				async function startCreatePonto() {
+					await verifyAuth()
+
+					 if(!(window.sessionStorage.getItem('user_id'))) {
           window.location.href = '/signinup.html'
- } else if (!(verifyEmpresarial(window.sessionStorage.getItem('user_id')))) {
+ } if (!(await verifyEmpresarial(window.sessionStorage.getItem('user_id')))) {
 	 // To-do
+	 const button = document.getElementById('submit');
+  const spanDeErro = document.querySelector("#passwordError");
+
+	 button.disabled = true;
+
+	    spanDeErro.innerHTML = "Somente contas empresariais podem criar um ponto!";
  }
+				}
+	 
+					
+
           
         function getFormInfos() {
 

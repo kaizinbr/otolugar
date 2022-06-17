@@ -26,6 +26,16 @@
 
 }
 
+/* SPAN QUE MOSTRA ERRO NO ACESSO */
+span#passwordError {
+    color: #e74c3c;
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+		margin-left: 42%;
+    /* display: none; */
+}
+
 .box-iti{
     color:#012e1bff;
     position: relative;

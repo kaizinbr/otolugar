@@ -84,7 +84,9 @@ function checkPassword(){
   // const submit = document.getElementById('submit');
 }
 
-async function verifyEmpresarial() {
+async function verifyEmpresarial(id) {
+  const url = `/get-user/id/${id}`;
+	
 	const user = (await (await fetch(url)).json())[0];
 
 	if(user.perfil_id == 1) return true;
