@@ -1,5 +1,4 @@
-import Database from './database.js'
-import seedUser from './data-login/seed.js'; 
+import Database from './database.js';
 
 
 async function up() {
@@ -35,7 +34,7 @@ async function up() {
         altImagem VARCHAR(250),
         endereco VARCHAR(100),
         valor NUMERIC(10,2),
-        usuario_id INTEGER NOT NULL,
+        usuario_id INTEGER,
         FOREIGN KEY (usuario_id) REFERENCES usuario (usuario_id)
       )`;
 
@@ -51,13 +50,12 @@ async function up() {
       )`;
   
   try {
-  db.run(createPerfil);
-  db.run(createUsuario);
-  db.run(createPonto);
-  db.run(createReserva);
-  seedUser.loadSeed();
+  await db.run(createPerfil);
+  await db.run(createUsuario);
+  await db.run(createPonto);
+  await db.run(createReserva);
   } catch (err) {
-   console.err(err); 
+   console.error(err); 
   }
   
 }

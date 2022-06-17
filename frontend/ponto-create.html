@@ -52,10 +52,10 @@
                             <form class="form" id="formulario" action="." method="get">
                               <h1 class= iti-create>Crie um Ponto</h1>
                                 <div class="campo1">
-                                      <label class="nameiti1"><strong class="nameiti2">Nome</strong></label>
+                                      <label class="ende1"><strong class="ende2">Nome</strong></label>
                                     <input rows="6" type="text" class="ende3" id="nome" name="nameiti1" placeholder="Insira o nome da sua empresa">
                                     <br>
-                                    <label class="desc1"><strong class="desc2">Descrição</strong></label>
+                                    <label class="ende1"><strong class="ende2">Descrição</strong></label>
                                     <textarea rows="6" type="text"  id="descricao" class="ende3" name="desc1" placeholder="Insira informações aqui"></textarea>
                                     <br>
                                     <label class="ende1"><strong class="ende2">Endereço</strong></label>
@@ -86,10 +86,11 @@
         <script src="resources/js/menu.js"></script>
         <script src="resources/js/app.js"></script>
 
-        <!-- Retira o evento padrão do formulario-->
         <script>
  if(!(window.sessionStorage.getItem('user_id'))) {
-          window.location.href = '/main-cadastro-login.html'
+          window.location.href = '/signinup.html'
+ } else if (!(verifyEmpresarial(window.sessionStorage.getItem('user_id')))) {
+	 // To-do
  }
           
         function getFormInfos() {
@@ -106,8 +107,9 @@
     descricao: descricao,
     imagem: imagem,
     altImagem: altImagem,
-    mapa: mapa,
-    valor: valor
+    endereco: mapa,
+    valor: valor,
+		usuario_id: window.sessionStorage.getItem('user_id')
   }
 
   createPonto(ponto);

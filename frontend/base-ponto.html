@@ -129,7 +129,9 @@
 
     const url = `/get-pontos/id/${id}`;
 
-    const ponto = await (await fetch(url)).json();
+    const newPonto = await (await fetch(url)).json();
+
+		const ponto = newPonto[0];
 
     const h1 = document.querySelector('h1');
     const paraFotos = document.querySelector('.slides'); 
@@ -153,7 +155,7 @@
                 paraDescricao.insertAdjacentHTML('beforeend', descricao);
 
             const mapa = `
-                <div class="mapa"><iframe src="${ponto.mapa}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+                <div class="mapa"><iframe src="${ponto.endereco}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
                     `;
 
             paraMapa.insertAdjacentHTML('beforeend', mapa);

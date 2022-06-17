@@ -1,21 +1,28 @@
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .perfil-usuario{
     display: flex;
     justify-content: center;
-    /* top: 70px; */
-    width: 70%;
-    height: 1100px;
+    width: 800px;
+    height: 1000px;
     border-radius: 15px;
     align-items: center;
     background-color: rgba(40, 161, 71, 0.479);
     padding: 160px;
-    backdrop-filter: blur(10px);
     position: relative;
+    box-shadow: 0 4px 8px 0 rgba(6, 133, 69, 0.2), 
+                0 6px 20px 0 rgba(14, 156, 9, 0.19);
 }
 .meu-perfil{
     position: relative;
     font-size: 50px;
     margin-top: -1000px;
     left: 190px;
+    top: 50px;
     white-space: nowrap;
     display: flex;
     color: #012e1bff;
@@ -23,12 +30,15 @@
     padding-left: 100px;
     padding-right: 80px; 
     border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(6, 133, 69, 0.2), 
+                0 6px 20px 0 rgba(14, 156, 9, 0.19);
 
 }
 .box{
     color:#012e1bff;
     position: relative;
     left: -100px;
+    top: 30px;
 }
 
 
@@ -61,7 +71,7 @@ section.secaoPerfil{
     margin-left: 350px;
     border: none;
     /* border-bottom: 2px solid #5b6b54ff; */
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     color: white;
     cursor: pointer;
     width: 270px;
@@ -91,7 +101,7 @@ section.secaoPerfil{
     box-shadow: 0 0 12px rgba(0, 0, 0, -2);
     position:relative;
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     left: -90px;
 }
 .info-emp{
@@ -134,12 +144,11 @@ section.secaoPerfil{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: -220px;
+    margin-left: -205px;
     margin-top: 10px;
 }
 .bio2{
     position: relative;
-    top: -15px;
 }
 .bio3{
     padding: 10px;
@@ -149,77 +158,32 @@ section.secaoPerfil{
     border-width: medium;
     border-style: solid;
     border-color:white ;
-    min-height: 100px;
     width: 100%;
     height: auto;
     outline: none;transition: .7s ease-in-out;
     position: relative;
-    top: -12px;
+    margin-bottom: 10px;
 
 }
 .bio3:focus{
     background-color: #e3eccf;
 }
 
-
-.name{
-    padding-right: 400px;
-    align-items: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
-    border-width: medium;
-    border-style: solid;
-    border-color:white ;
-
-}
-.tel{
-    padding-right: 400px;
-    align-items: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
-    border-width: medium;
-    border-style: solid;
-    border-color:white ;
-
-}
-.datan1{
-    padding-right: 400px;
-    align-items: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
+.gener2{
+    border-radius: 25px;
+    background-color:white;
     border: none;
     border-width: medium;
     border-style: solid;
     border-color:white ;
+    height: auto;
+    outline: none;transition: .7s ease-in-out;
+    position: relative;
+    top: 10px;
 }
-.gener1{
-    margin-top:25px;
-}
-.gener{
-    padding-right: 100px;
-    margin-top: 0px;
-    align-items: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
-    border: none;
-    border-width: medium;
-    border-style: solid;
-    border-color:white ;
-}
-.email{
-    padding-right: 400px;
-    align-items: center;
-    justify-content: center;
-    display:flex;
-    border-radius: 10px;
-    background-color:white ;
-    border-width: medium;
-    border-style: solid;
-    border-color:white ;
+.gener3{
+    position: relative;
+    top: 10px;
 }
 .campo{
     margin-top: 40px;
@@ -230,15 +194,10 @@ section.secaoPerfil{
     padding: 7px;
     padding-left: 15px;
     outline: none;
-    width: 100%;
     transition: .7s ease-in-out;
     border-bottom: 2px solid white;
-}
 
-.campo1 {
-  width: 100%;
 }
-
 .campo1 input:focus{
     background-color: #e3eccf;
 }
@@ -248,7 +207,6 @@ section.secaoPerfil{
     outline: none;
     transition: .7s ease-in-out;
 }
-
 #foto{
     display: none;
 }
@@ -264,6 +222,7 @@ section.secaoPerfil{
     transition: 7s ease-in-out;
     position: relative;
     left: -80px;
+    cursor: pointer;
 } 
 
 .bx-image-alt{
@@ -283,114 +242,190 @@ section.secaoPerfil{
     -webkit-font-smoothing: antialiased;
 }
 /* Menu responsivo */
-@media screen and (max-width: 1440px){
-  .perfil-usuario{
-    height: 1100px;
-  }
-}
+
 @media screen and (max-width: 768px){
 
     .perfil-usuario{
-        width: 100px;
-        height: 1000px;
-        top: 100px;
-        left: -22px;
-        display:flex;
+        width: 85%;
+        height: 900px;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
     }
-    .form{
-        position: relative;
-        left: -50px;
-    }
-    .box{
-        box-sizing: inherit;
-        padding-left: 10px;
-    }
+
+
     .button-dados{
         position: relative;
-        top: 100px;
-        left: 110px;
-    }
-    .email1{
-        position: relative;
-        left: 300px;
+        top: 50px;
+        left: -175px;
+        white-space : nowrap
 
     }
-    .email{
-        position: relative;
-        left: 470px;
-    }
-    .nome{
-        position: relative;
-        left: 470px;
-    }
-    .name{
-        position: relative;
-        left: 470px;
-        padding-left: 80px;
-        padding-right: 80px;
-    }
+
     .bio2{ 
         position: relative;
-        left: 470px;
+        left: 100px;
     }
     .bio3{
         position: relative;
-        left: 470px;
+        left: 100px;
+        width: 70%;
     }
-    .datan1{
+    .gener2{
         position: relative;
-        left: 470px;
-        padding-left: 80px;
-        padding-right: 80px;
+        left: 100px;
     }
-    .datan{
+    .gener3{
         position: relative;
-        left: 470px;
+        left: 100px;
     }
-    .gener1{
-        margin-top: 0px;
-        margin-left:50px;
-    }
-    .gener{
-        position: relative;
-        left: 470px;
-    }
-    .tele{
-        position: relative;
-        left: 470px;
-    }
-    .tel{
-        position: relative;
-        left: 470px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
     .meu-perfil{
-        left: 300px;
-        top: 60px;
-        font-size: 30px;
+        left: 200px;
+        top: 85px;
+        font-size: 40px;
         padding-left: 100px;
         padding-right: 100px;
     }
     .foto{
         position: relative;
-        left: 250px;
-    }
-    .info-media{
-        width: 80%;
-    }
-}
-
-@media screen and (max-width: 500px){
-    .campo1 input, .bio3{
-        width: 80%;
+        left: -70px;
+        width: 40px;
+        height: 40px;
+        
     }
 
     .perfil-foto{
+        width: 230px;
+        height: 230px;
         position: relative;
-        left: 250px;
-        width: 150px;
-        height: 150px;
+        left: -80px;
     }
 }
+@media screen and (max-width: 600px){
+    .perfil-usuario{
+        width: 85%;
+        height: 900px;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+
+    .button-dados{
+        position: relative;
+        top: 50px;
+        left: -175px;
+        white-space : nowrap
+
+    }
+
+    .bio2{ 
+        position: relative;
+        left: 135px;
+    }
+    .bio3{
+        position: relative;
+        left: 135px;
+        width: 60%;
+    }
+    .gener2{
+        position: relative;
+        left: 135px;
+    }
+    .gener3{
+        position: relative;
+        left: 135px;
+    }
+    .meu-perfil{
+        left: 200px;
+        top: 85px;
+        font-size: 40px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    .foto{
+        position: relative;
+        left: -70px;
+        width: 40px;
+        height: 40px;
+        
+    }
+
+    .perfil-foto{
+        width: 230px;
+        height: 230px;
+        position: relative;
+        left: -80px;
+    }
+}
+@media screen and (max-width: 500px){
+
+    .perfil-usuario{
+        width: 85%;
+        height: 900px;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+
+    .button-dados{
+        position: relative;
+        top: 50px;
+        left: -125px;
+        white-space : nowrap
+
+    }
+
+    .bio2{ 
+        position: relative;
+        left: 205px;
+    }
+    .bio3{
+        position: relative;
+        left: 205px;
+        width: 50%;
+    }
+    .gener2{
+        position: relative;
+        left: 205px;
+    }
+    .gener3{
+        position: relative;
+        left: 205px;
+    }
+    .meu-perfil{
+        left: 200px;
+        top: 85px;
+        font-size: 40px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .foto{
+        position: relative;
+        left: -35px;
+        width: 40px;
+        height: 40px;
+        
+    }
+
+    .perfil-foto{
+        width: 230px;
+        height: 230px;
+        position: relative;
+        left: -35px;
+    }
+}
+
