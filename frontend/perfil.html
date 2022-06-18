@@ -10,11 +10,11 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="resources/js/app.js"></script>
     <title>Meu Perfil | OtoLugar</title>
 </head>
-<body onload="startToPerfil()">
+<body>
     
-    <script src="resources/js/app.js"></script>
     
     
     <header>
@@ -47,32 +47,33 @@
             <box class="box" >
                 <div class="perfil"> 
                     <div class="perfil-foto">
-                        <img class="avatar" src="images/soul.jpg" alt="avatar">
+                        <img class="avatar" id="img-preview" src="" alt="avatar">
                     </div>
-                    <input type="file" name="foto" id="foto">
+                    <input type="file" accept="image/*"
+											name="foto" id="foto">
                     <label class="foto" for="foto"><i class='bx bx-image-alt'></i></label>
                 </div>
                 <div class="info">
                     <div class="info-media">
-                        <form class="form" action="getform.php" method="get">
+                        <form class="form" id="formulario">
                             <div class="campo1">
                                 <label class="bio1"><strong class="bio2">Biografia</strong></label>
-                                <textarea rows="6" type="text"  class="bio3" name="bio3" placeholder="Insira informações sobre você aqui"></textarea>
+                                <textarea rows="6" type="text"  class="bio3" name="bio3" id="bio" placeholder="Insira informações sobre você aqui"></textarea>
                                 <br>
                                 <label class="bio1"><strong class="bio2">Nome</strong></label>
-                                <input rows="6" type="text" class="bio3" name="bio3" placeholder="Insira seu nome aqui">
+                                <input id="nome" rows="6" type="text" class="bio3" name="bio3" placeholder="Insira seu nome aqui">
                                 <br>
                                 <label class="bio1"><strong class="bio2">Email</strong></label>
-                                <input rows="6" type="email" class="bio3" name="email" placeholder="Seu email não será compartilhado com terceiros!">
+                                <input id="email" rows="6" type="email" class="bio3" name="email" placeholder="Seu email não será compartilhado com terceiros!">
                                 <br>
                                 <label for="bio1"><strong class="bio2">Telefone</strong></label>
-                                <input rows="6" type="tel" class="bio3" name="tel" placeholder="Ex.: 83 912345678">
+                                <input id="telefone" rows="6" type="tel" class="bio3" name="tel" placeholder="Ex.: 83 912345678">
                                 <br>
                                 <label for="bio1"><strong class="bio2">Data de Nascimento</strong></label>
-                                <input rows="6" type="date" class="bio3" name="datan1" placeholder="Ex.: 21/10/2000">
+                                <input id="data_nascimento" rows="6" type="date" class="bio3" name="datan1" placeholder="Ex.: 21/10/2000">
                                 <br>
-                                <label for="bio1"><strong class="gener3">Gênero</strong></label>
-                                <select class="gener2" required>
+                                <label for="sexo"><strong class="gener3">Gênero</strong></label>
+                                <select id="sexo" class="gener2" required>
                                     <option selected disabled value="">Selecione como você se identifica</option>
                                     <option value="masc">Masculino</option>
                                     <option value="fem">Feminino</option>
@@ -101,6 +102,28 @@
     </footer>
     <script src="resources/js/menu.js"></script>
     <script>
+				let newImgPerfil;
+				verifyAuth()
+        if(!(window.sessionStorage.getItem('user_id'))) {
+          window.location.href = '/signinup.html'
+        } else {
+          loadInfos()
+        }
+			// https://stackoverflow.com/questions/11511511/how-to-save-a-png-image-server-side-from-a-base64-data-uri
+			function readImage() {				
+    if (this.files && this.files[0]) {
+        var file = new FileReader();
+        file.onload = function(e) {
+            document.getElementById("img-preview").src = e.target.result;
+					newImgPerfil = e.target.result;
+
+					console.log(file)
+        };       
+        file.readAsDataURL(this.files[0]);
+    }
+}
+document.getElementById("foto").addEventListener("change", readImage, false);
+			
       function stopDefAction(evt) {
             evt.preventDefault();
       }
@@ -109,31 +132,21 @@ document.getElementById('formulario').addEventListener(
             'submit', stopDefAction, false
         );
       
-      function startToPerfil() {
-        
-        if(!(window.sessionStorage.getItem('user_id'))) {
-          window.location.href = '/signinup.html'
-        } else {
-          verifyAuth()
-          loadInfos()
-        }
-      }
-      
       async function loadInfos() {
-      const imagemInput = document.getElementById('foto_perfil')
+      const imagemInput = document.getElementById('img-preview')
       const nomeInput = document.getElementById('nome')
       const emailInput = document.getElementById('email')
       const telefoneInput = document.getElementById('telefone')
       const dataNascimentoInput = document.getElementById('data_nascimento')
       const sexoInput = document.getElementById('sexo')
+			
         
       const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
       const user = (await (await fetch(url)).json())[0];
-
-      console.log(user)
+				
         
-      imagemInput.src = user.foto_perfil
+      imagemInput.src = user.foto_perfil ? user.foto_perfil : "/resources/img-main/profile_picture.svg" 
       nomeInput.value = user.nome
       emailInput.value = user.email
       telefoneInput.value = user.telefone
@@ -159,9 +172,10 @@ document.getElementById('formulario').addEventListener(
           "id": user_id,
           "nome": nomeInput,
           "telefone": telInput,
+					"foto_perfil": newImgPerfil,
           "data_nascimento": dataNascInput,
           "bio": bioInput,
-          "sexo": sexoInput ,
+          "sexo": sexoInput,
           "email": emailInput
         };
 
