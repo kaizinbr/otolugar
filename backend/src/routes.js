@@ -43,6 +43,8 @@ router.get('/get-pontos/id/:id', async (req, res) => {
     // envia os pontos do Seed automaticamente
     const ponto = await seed.readById(parseInt((req.params.id)));
 
+																				
+
     if(ponto) {
         res.status(200).json(ponto);
     } else {

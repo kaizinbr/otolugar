@@ -15,23 +15,30 @@
 .iti-create{
     position: relative;
     padding: 3px;
-    margin-bottom: 20px;
-    font-size: 30px;
+    margin-bottom: 50px;
+    font-size: 35px;
     text-align: center;
     white-space: nowrap;
     color: #012e1bff;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
+    left: 110px;
 
 }
-.form{
-    width: 500px;
+
+/* SPAN QUE MOSTRA ERRO NO ACESSO */
+span#passwordError {
+    color: #e74c3c;
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+		margin-left: 42%;
+    /* display: none; */
 }
+
 .box-iti{
     color:#012e1bff;
     position: relative;
-    
-    top: 10px;
 }
 
 
@@ -52,7 +59,7 @@ section.secaoiti{
     display: flex;
     padding: 10px;
     position: relative;
-    left: 170px;
+    left: 280px;
     margin-top: 10px;
     border: none;
     /* border-bottom: 2px solid #5b6b54ff; */
@@ -92,7 +99,9 @@ section.secaoiti{
     /* border-bottom: 2px solid #5b6b54ff; */
 
 }
-
+.form{
+    width: 500px;
+}
 .itinenario{
     align-items: center;
     justify-content: center;
@@ -101,7 +110,6 @@ section.secaoiti{
 
 .info-iti{
     margin-top: 5px;
-    margin-left: 200px;
     display: flex;
 
 }
@@ -115,11 +123,7 @@ section.secaoiti{
     align-items: center;
 
 }
-.info-iti-create .ende2{
-    display: flex;
-    align-items: center;
 
-}
 .info-iti-create .value2{
     display: flex;
     align-items: center;
@@ -158,8 +162,11 @@ section.secaoiti{
 
 .ende1{
   position: relative;
+  left: 110px;
+  width: 0px;
   
 }
+
 .ende3{
     padding: 10px;
     margin-bottom: 10px;
@@ -172,13 +179,14 @@ section.secaoiti{
     border-color:white ;
     width: 100%;
     outline: none;transition: .7s ease-in-out;
-    position: ; relative;
-    top: 10px;
+    position:  relative;
+    left: 110px;
+
 }
 .select1{
     margin-top:25px;
 
-
+}
 
 label {
     margin-top: 20px;
@@ -192,7 +200,6 @@ label {
     padding: 7px;
     padding-left: 15px;
     outline: none;
-    width: 100%;
     transition: .7s ease-in-out;
     border-bottom: 2px solid white;
 
@@ -216,8 +223,8 @@ label {
     display: flex;
     justify-content: center;
     top: 20px;
-    width: 600px;
-    height: 820px;
+    width: 85%;
+    height: 800px;
     border-radius: 15px;
     align-items: center;
     background-color: rgba(40, 161, 71, 0.479);
@@ -230,22 +237,19 @@ label {
     position: relative;
     padding: 3px;
     margin-bottom: 20px;
+    width: 50%;
     font-size: 30px;
     text-align: center;
     white-space: nowrap;
     color: #012e1bff;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
+    left: 135px;
 
-}
-.form{
-    width: 500px;
 }
 .box-iti{
     color:#012e1bff;
     position: relative;
-    
-    top: 10px;
 }
 
 
@@ -266,8 +270,8 @@ section.secaoiti{
     display: flex;
     padding: 10px;
     position: relative;
-    left: 170px;
-    margin-top: 10px;
+    left: 178px;
+    top: 8px;
     border: none;
     /* border-bottom: 2px solid #5b6b54ff; */
     transition-duration: 0.5s;
@@ -372,6 +376,8 @@ section.secaoiti{
 
 .ende1{
   position: relative;
+  top: 15px;
+  left: 58px;
   
 }
 .ende3{
@@ -384,17 +390,19 @@ section.secaoiti{
     border-width: medium;
     border-style: solid;
     border-color:white ;
-    width: 100%;
+    width: 80%;
     outline: none;transition: .7s ease-in-out;
-    position: ; relative;
+    position: relative;
     top: 10px;
+    left: 58px;
 }
+
 .select1{
     margin-top:25px;
 
 
-
-label {
+}
+label{
     margin-top: 20px;
 }
 .campo{
@@ -406,7 +414,6 @@ label {
     padding: 7px;
     padding-left: 15px;
     outline: none;
-    width: 100%;
     transition: .7s ease-in-out;
     border-bottom: 2px solid white;
 
@@ -428,7 +435,7 @@ label {
     display: flex;
     justify-content: center;
     top: 20px;
-    width: 600px;
+    width: 70%;
     height: 820px;
     border-radius: 15px;
     align-items: center;
@@ -440,7 +447,8 @@ label {
 }
 .iti-create{
     position: relative;
-    padding: 3px;
+    left: 135px;
+    width: 50%;
     margin-bottom: 20px;
     font-size: 30px;
     text-align: center;
@@ -449,15 +457,13 @@ label {
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
 
-}
-.form{
-    width: 500px;
+    
+
 }
 .box-iti{
     color:#012e1bff;
     position: relative;
-    
-    top: 10px;
+
 }
 
 
@@ -584,6 +590,8 @@ section.secaoiti{
 
 .ende1{
   position: relative;
+  left: 135px;
+  top: 15px;
   
 }
 .ende3{
@@ -596,16 +604,17 @@ section.secaoiti{
     border-width: medium;
     border-style: solid;
     border-color:white ;
-    width: 100%;
+    width: 50%;
     outline: none;transition: .7s ease-in-out;
-    position: ; relative;
-    top: 10px;
+    position:  relative;
+    position: relative;
+    left: 135px;
 }
 .select1{
     margin-top:25px;
 
 
-
+}
 label {
     margin-top: 20px;
 }
@@ -618,7 +627,6 @@ label {
     padding: 7px;
     padding-left: 15px;
     outline: none;
-    width: 100%;
     transition: .7s ease-in-out;
     border-bottom: 2px solid white;
 
@@ -632,4 +640,4 @@ label {
     outline: none;
     transition: .7s ease-in-out;
 }
-
+}}

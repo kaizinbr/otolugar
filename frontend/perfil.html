@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="resources/css/main.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
-      <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="resources/js/app.js"></script>
     <title>Meu Perfil | OtoLugar</title>
 </head>
 <body onload="startToPerfil(), canEdit()">
     
-    <script src="resources/js/app.js"></script>
     
     
     <header>
@@ -41,42 +41,42 @@
             </div>
         </nav>
     </header>
-  <form class="form" id="formulario">
-    <section class="secaoPerfil">
+  <section class="secaoPerfil">
         <div class="perfil-usuario">
             <h1 class= meu-perfil>Meu Perfil</h1>
             <box class="box" >
                 <div class="perfil"> 
                     <div class="perfil-foto">
-                        <img class="avatar" src="https://static1.purebreak.com.br/articles/0/35/25/0/@/173286-justin-bieber-voltou-a-ser-loiro-no-fina-700x700-1.jpg" alt="avatar" id="foto_perfil">
+                        <img class="avatar" id="img-preview" src="" alt="avatar">
                     </div>
-                    <input type="file" name="foto" id="foto">
+                    <input type="file" accept="image/*"
+											name="foto" id="foto">
                     <label class="foto" for="foto"><i class='bx bx-image-alt'></i></label>
                 </div>
                 <div class="info " >
                     <div class="info-media">
-                      
+                        <form class="form" id="formulario">
                             <div class="campo1">
-                                <label class="bio1"><strong class="bio2" >Biografia</strong></label>
+                                <label class="bio1"><strong class="bio2">Biografia</strong></label>
                                 <textarea rows="6" type="text"  class="bio3" name="bio3" id="bio" placeholder="Insira informações sobre você aqui"></textarea>
                                 <br>
-                                <label class="name2"><strong class="nome">Nome</strong></label>
-                                <input rows="6" type="text" class="name" name="name" id="nome" placeholder="Insira seu nome aqui">
+                                <label class="bio1"><strong class="bio2">Nome</strong></label>
+                                <input id="nome" rows="6" type="text" class="bio3" name="bio3" placeholder="Insira seu nome aqui">
                                 <br>
-                                <label class="email2"><strong class="email1">Email</strong></label>
-                                <input rows="6" type="email" class="email" name="email" id="email" placeholder="Seu email não será compartilhado com terceiros!">
+                                <label class="bio1"><strong class="bio2">Email</strong></label>
+                                <input id="email" rows="6" type="email" class="bio3" name="email" placeholder="Seu email não será compartilhado com terceiros!">
                                 <br>
-                                <label for="tele1"><strong class="tele">Telefone</strong></label>
-                                <input rows="6" type="tel" class="tel" name="tel" id="telefone" placeholder="Ex.: 83 912345678">
+                                <label for="bio1"><strong class="bio2">Telefone</strong></label>
+                                <input id="telefone" rows="6" type="tel" class="bio3" name="tel" placeholder="Ex.: 83 912345678">
                                 <br>
-                                <label for="datan2"><strong class="datan">Data de Nascimento</strong></label>
-                                <input rows="6" type="date" class="datan1" name="datan1" id="data_nascimento" data-date-format="DD MMMM YYYY" placeholder="Ex.: 21/10/2000">
+                                <label for="bio1"><strong class="bio2">Data de Nascimento</strong></label>
+                                <input id="data_nascimento" rows="6" type="date" class="bio3" name="datan1" placeholder="Ex.: 21/10/2000">
                                 <br>
-                                <label for="gener2"><strong class="gener1">Gênero</strong></label>
-                                <select class="gener" id="sexo" required>
+                                <label for="sexo"><strong class="gener3">Gênero</strong></label>
+                                <select id="sexo" class="gener2" required>
                                     <option selected disabled value="">Selecione como você se identifica</option>
-                                    <option value="masculino">Masculino</option>
-                                    <option value="feminino">Feminino</option>
+                                    <option value="masc">Masculino</option>
+                                    <option value="fem">Feminino</option>
                                     <option value="nb">Não-Binárie</option>
                                 </select>
                             </div>
@@ -85,6 +85,14 @@
                                 <button class="button-dados" onclick="changeDataUser()" type="submit">Alterar dados</button>
                             </div>
                             
+        <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
+                        </form>
+                    </div>
+                </form>
+                </div>
+            </box>
+        </div>
+    </section>
         <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
                     </div>
                 </div>
@@ -98,6 +106,28 @@
     </footer>
     <script src="resources/js/menu.js"></script>
     <script>
+				let newImgPerfil;
+				verifyAuth()
+        if(!(window.sessionStorage.getItem('user_id'))) {
+          window.location.href = '/signinup.html'
+        } else {
+          loadInfos()
+        }
+			// https://stackoverflow.com/questions/11511511/how-to-save-a-png-image-server-side-from-a-base64-data-uri
+			function readImage() {				
+    if (this.files && this.files[0]) {
+        var file = new FileReader();
+        file.onload = function(e) {
+            document.getElementById("img-preview").src = e.target.result;
+					newImgPerfil = e.target.result;
+
+					console.log(file)
+        };       
+        file.readAsDataURL(this.files[0]);
+    }
+}
+document.getElementById("foto").addEventListener("change", readImage, false);
+			
       function stopDefAction(evt) {
             evt.preventDefault();
       }
@@ -106,18 +136,8 @@ document.getElementById('formulario').addEventListener(
             'submit', stopDefAction, false
         );
       
-      function startToPerfil() {
-        
-        if(!(window.sessionStorage.getItem('user_id'))) {
-          window.location.href = '/signinup.html'
-        } else {
-          verifyAuth()
-          loadInfos()
-        }
-      }
-      
       async function loadInfos() {
-      const imagemInput = document.getElementById('foto_perfil')
+      const imagemInput = document.getElementById('img-preview')
       const nomeInput = document.getElementById('nome')
       const emailInput = document.getElementById('email')
       const telefoneInput = document.getElementById('telefone')
@@ -128,10 +148,9 @@ document.getElementById('formulario').addEventListener(
       const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
       const user = (await (await fetch(url)).json())[0];
-
-      console.log(user)
+				
         
-      imagemInput.src = user.foto_perfil
+      imagemInput.src = user.foto_perfil ? user.foto_perfil : "/resources/img-main/profile_picture.svg" 
       nomeInput.value = user.nome
       emailInput.value = user.email
       telefoneInput.value = user.telefone
@@ -158,9 +177,10 @@ document.getElementById('formulario').addEventListener(
           "id": user_id,
           "nome": nomeInput,
           "telefone": telInput,
+					"foto_perfil": newImgPerfil,
           "data_nascimento": dataNascInput,
           "bio": bioInput,
-          "sexo": sexoInput ,
+          "sexo": sexoInput,
           "email": emailInput
         };
 

@@ -3,11 +3,9 @@
 async function loadSeed() {
     const perfis = [
     {
-      "id": 1,
       "nome": "profissional"
     },
     {
-      "id": 2,
       "nome": "visitante"
     }             
    ]
@@ -118,7 +116,7 @@ async function readById(id) {
 
   const selectUserSQL = `
     SELECT
-      *
+    nome, telefone, data_nascimento, foto_perfil, bio, email, sexo, perfil_id
     FROM
       usuario
     WHERE
