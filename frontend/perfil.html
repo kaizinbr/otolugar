@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Meu Perfil | OtoLugar</title>
 </head>
-<body onload="startToPerfil()">
+<body onload="startToPerfil(), canEdit()">
     
     <script src="resources/js/app.js"></script>
     
@@ -53,7 +53,7 @@
                     <input type="file" name="foto" id="foto">
                     <label class="foto" for="foto"><i class='bx bx-image-alt'></i></label>
                 </div>
-                <div class="info">
+                <div class="info " >
                     <div class="info-media">
                       
                             <div class="campo1">
@@ -80,7 +80,11 @@
                                     <option value="nb">Não-Binárie</option>
                                 </select>
                             </div>
-                            <button class="button-dados" onclick="changeDataUser()" type="submit">Alterar dados</button>
+                            <div class="campo2">
+                                <button class="button-edit-dados" onclick="canEdit(), changeEditBtn()" type="submit">Editar</button>
+                                <button class="button-dados" onclick="changeDataUser()" type="submit">Alterar dados</button>
+                            </div>
+                            
         <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
                     </div>
                 </div>
@@ -119,6 +123,7 @@ document.getElementById('formulario').addEventListener(
       const telefoneInput = document.getElementById('telefone')
       const dataNascimentoInput = document.getElementById('data_nascimento')
       const sexoInput = document.getElementById('sexo')
+      const bioInput = document.getElementById('bio')
         
       const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
@@ -132,6 +137,7 @@ document.getElementById('formulario').addEventListener(
       telefoneInput.value = user.telefone
       sexoInput.value = user.sexo
       dataNascimentoInput.value = user.data_nascimento
+      bioInput.value = user.bio
       
       }
 
@@ -179,7 +185,50 @@ document.getElementById('formulario').addEventListener(
         
         }
 
-      
+
+        // FUNÇÃO PRA TRANSFORMAR HABILITAR E DESATIVAR A EDIÇÃO
+        function canEdit(){           
+
+            const info = document.querySelector('.info');
+            const imagemInput = document.getElementById('foto_perfil');
+            const nomeInput = document.getElementById('nome');
+            const emailInput = document.getElementById('email');
+            const telefoneInput = document.getElementById('telefone');
+            const dataNascimentoInput = document.getElementById('data_nascimento');
+            const sexoInput = document.getElementById('sexo');
+            const bioInput = document.getElementById('bio');
+
+            info.classList.toggle('cant-edit');
+
+            const userData = {imagemInput, nomeInput, emailInput, telefoneInput, dataNascimentoInput, sexoInput, bioInput};
+
+            if(info.classList.contains('cant-edit')){
+                      for (let data in userData) {
+                      userData[data].disabled = !userData[data].disabled;
+                  }
+                }
+                else{
+                  for (let data in userData) {
+                      userData[data].removeAttribute('disabled')
+                  }
+                }
+        }
+
+        function changeEditBtn(){
+
+          const info = document.querySelector('.info');
+
+          const editButton = document.querySelector('.button-edit-dados');
+            console.log(editButton.textContent);
+
+            if(editButton.textContent == 'Editar'){
+              editButton.textContent = 'Cancelar';
+            }
+            else if(editButton.textContent == 'Cancelar'){
+              startToPerfil();
+              editButton.textContent = 'Editar';
+            }
+        }
     </script>
     
 </body>

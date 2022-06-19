@@ -604,6 +604,41 @@ img.imgPerfil {
 }
 
 .logout {
-  color: var(--dark-green);
+  color: var(--cadmium-green);
   cursor: pointer;
+}
+
+@media(max-width: 650px){
+    img.imgPerfil {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: var(--dark-green);    
+    margin: 0 2px;   
+    cursor: pointer;    
+    }
+    
+    .saudacao{
+        text-decoration: none;
+        padding: 4px;
+        border-radius: 8px;
+        transition: letter-spacing 0.7s,
+                    background-color 0.7s;;
+    
+        color: var(--cadmium-green);
+        font-size: 12px;
+        /* background-color: var(--aero-blue); */
+    }
+    
+    .saudacao:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    
+    .logout {
+    color: var(--cadmium-green);
+    cursor: pointer;
+    }
+    
 }

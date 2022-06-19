@@ -13,6 +13,7 @@
     --british-racing-green: #13442Eff;
 }
 
+
 #btn-mobile {
     display: none;
 }
@@ -22,6 +23,12 @@
 }
 
 @media (max-width: 1080px){
+
+    .mobile-auth{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
     #btn-mobile{
         display: block;

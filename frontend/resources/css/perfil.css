@@ -15,7 +15,7 @@
     position: relative;
     font-size: 50px;
     margin-top: -1000px;
-    left: 190px;
+    left: 60%;
     white-space: nowrap;
     display: flex;
     color: #012e1bff;
@@ -48,6 +48,16 @@ section.secaoPerfil{
     min-width: 150px;
 }
 
+.campo2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 70%;
+    gap: 30px;
+    margin-top: 30px;
+}
+
 .button-dados{
     border-radius: 25px;
     background-color: #012e1bff;
@@ -57,8 +67,41 @@ section.secaoPerfil{
     padding: 10px;
     padding-left: 50px;
     padding-right: 50px;
-    margin-top: -18px;
-    margin-left: 350px;
+    /* margin-top: -18px;
+    margin-left: 350px; */
+    border: none;
+    /* border-bottom: 2px solid #5b6b54ff; */
+    transition-duration: 1s;
+    color: white;
+    cursor: pointer;
+    width: 270px;
+    visibility: visible;
+    transition: all 0.5s;
+}
+
+.cant-edit .button-dados {
+    visibility: hidden;
+    width: 1px;    
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.button-dados:hover{
+    background-color:#ebf5d7;
+    border:#012e1bff;
+    color:rgb(127, 133, 125);
+    /* border-bottom: 2px solid #5b6b54ff; */
+
+}
+.button-edit-dados{
+    border-radius: 25px;
+    background-color: #012e1bff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
     border: none;
     /* border-bottom: 2px solid #5b6b54ff; */
     transition-duration: 1s;
@@ -66,7 +109,7 @@ section.secaoPerfil{
     cursor: pointer;
     width: 270px;
 }
-.button-dados:hover{
+.button-edit-dados:hover{
     background-color:#ebf5d7;
     border:#012e1bff;
     color:rgb(127, 133, 125);
@@ -78,6 +121,7 @@ section.secaoPerfil{
     align-items: center;
     justify-content: center;
     display: flex;
+    margin-top: 30px;
 }
 .perfil-foto{
     display: flex;
@@ -136,6 +180,7 @@ section.secaoPerfil{
     justify-content: center;
     margin-left: -220px;
     margin-top: 10px;
+    min-width: 700px;
 }
 .bio2{
     position: relative;
@@ -236,7 +281,10 @@ section.secaoPerfil{
 }
 
 .campo1 {
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    width: 70%;
 }
 
 .campo1 input:focus{
@@ -282,6 +330,29 @@ section.secaoPerfil{
     speak-as: none;
     -webkit-font-smoothing: antialiased;
 }
+
+
+.cant-edit input{
+    border-bottom: 2px solid #dfdcdc;
+    background-color: #dfdcdc;
+    border-color:#dfdcdc;
+}
+
+.cant-edit .gener{
+    background-color:#dfdcdc ;
+    border: none;
+    border-width: medium;
+    border-style: solid;
+    border-color:#dfdcdc ;
+}
+
+.cant-edit .bio3{
+    background-color:#dfdcdc ;
+    border: none;
+    border-width: medium;
+    border-style: solid;
+    border-color:#dfdcdc ;
+}
 /* Menu responsivo */
 @media screen and (max-width: 1440px){
   .perfil-usuario{
@@ -306,6 +377,11 @@ section.secaoPerfil{
         padding-left: 10px;
     }
     .button-dados{
+        position: relative;
+        top: 100px;
+        left: 110px;
+    }
+    .button-edit-dados{
         position: relative;
         top: 100px;
         left: 110px;

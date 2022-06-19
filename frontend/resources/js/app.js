@@ -23,8 +23,10 @@ function logout() {
 
 async function verifyAuth() {
   const sign = document.getElementById('sign')
+  const altura = window.innerHeight;
+  const largura = window.innerWidth;
   
-  if(window.sessionStorage.getItem('user_id')) {
+  if(window.sessionStorage.getItem('user_id') && largura >= 1080) {
     const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
       const user = (await (await fetch(url)).json())[0];
@@ -37,9 +39,37 @@ async function verifyAuth() {
                 onclick="logout()">
 logout
 </span>`
-  } else {
+  }else if (window.sessionStorage.getItem('user_id') && largura < 1080) {
+      const mobileAuth = document.querySelector('.mobile-auth');
+      console.log(mobileAuth)
+
+    const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
+
+      const user = (await (await fetch(url)).json())[0];
+    
+    const imgPerfil = user.foto_perfil ? user.foto_perfil : "/resources/img-main/profile_picture.svg" 
+
+    
+    mobileAuth.innerHTML = `<img class="imgPerfil" src="${imgPerfil}" alt="" onclick="window.location.href = '/perfil.html'">
+              <p class="saudacao" onclick="window.location.href = '/perfil.html'">Olá, ${user.nome}!</p>`;
+
+    const logout = `<li class="logout" onclick="logout()">Sair<span class="material-symbols-outlined logout">
+logout
+</span></li>`
+    const lista = document.querySelector('.list');
+    lista.insertAdjacentHTML('beforeend', logout);
+  }
+   else {
+    const cadastro = '<li><a href="signinup.html" class="mobileSign">Cadastro/Login</a></li>';
+    const lista = document.querySelector('.list');
+    lista.insertAdjacentHTML('beforeend', cadastro);
+
     sign.innerHTML = `<a href="signinup.html">Cadastro/Login</a>`
-  }           
+  }      
+
+  
+  console.log(altura, largura);
+
 }
 
 function checkPassword(){
