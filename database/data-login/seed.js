@@ -116,7 +116,7 @@ async function readById(id) {
 
   const selectUserSQL = `
     SELECT
-    nome, telefone, data_nascimento, foto_perfil, bio, email, sexo, perfil_id
+    id, nome, telefone, data_nascimento, foto_perfil, bio, email, sexo, perfil_id
     FROM
       usuario
     WHERE

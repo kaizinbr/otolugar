@@ -13,34 +13,35 @@
     <script src="resources/js/app.js"></script>
     <title>Meu Perfil | OtoLugar</title>
 </head>
-<body onload="startToPerfil(), canEdit()">
+<body onload="canEdit()">
     
     
     
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html">
-                    <img class="isotipo" src="resources/img-main/logo.svg" alt="">
-                </a>
-            </div>
+  <header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img class="isotipo" src="resources/img-main/logo.svg" alt="">
+            </a>
+        </div>
 
-            <div class="navmenu">
-                <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
-                <ul class="list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pesquisa.html">Pesquisar</a></li>
-                    <!--<li><a href="perfil.html">Meu perfil</a></li> -->
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="main-cadastro-login.html" class="mobileSign">Cadastro/Login</a></li>
-                </ul>
-            </div>
+        <div class="navmenu">
+            <div class="mobile-auth"></div>
+            <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
+            <ul class="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pesquisa.html">Pesquisar</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                
+            </ul>
+        </div>
 
-            <div class="sign" id="sign">
-                <!-- verifyAuth -->
-            </div>
-        </nav>
-    </header>
+
+        <div class="sign" id="sign">
+            <!-- verifyAuth -->
+        </div>
+    </nav>
+</header>
   <section class="secaoPerfil">
         <div class="perfil-usuario">
             <h1 class= meu-perfil>Meu Perfil</h1>
@@ -101,9 +102,7 @@
     </section>
   </form>
   
-    <footer>
-        <p>Todos os direitos de imagem são de seus respectivos donos/criadores. Todas as imagens utilizadas são para fins acadêmicos. <br> Para mais informações ou reclamações entre em contato conosco.</p>
-    </footer>
+   
     <script src="resources/js/menu.js"></script>
     <script>
 				let newImgPerfil;
@@ -147,7 +146,10 @@ document.getElementById('formulario').addEventListener(
         
       const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
+      
+
       const user = (await (await fetch(url)).json())[0];
+      console.log(user)
 				
         
       imagemInput.src = user.foto_perfil ? user.foto_perfil : "/resources/img-main/profile_picture.svg" 
@@ -168,7 +170,8 @@ document.getElementById('formulario').addEventListener(
         const telInput = document.getElementById('telefone').value
         const sexoInput = document.getElementById('sexo').value
         const urlUser = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
-
+        
+        console.log(urlUser)
         const user_id = (await (await fetch(urlUser)).json())[0].id;
 
         console.log(user_id)
@@ -177,7 +180,7 @@ document.getElementById('formulario').addEventListener(
           "id": user_id,
           "nome": nomeInput,
           "telefone": telInput,
-					"foto_perfil": newImgPerfil,
+					// "foto_perfil": newImgPerfil,
           "data_nascimento": dataNascInput,
           "bio": bioInput,
           "sexo": sexoInput,
@@ -210,7 +213,6 @@ document.getElementById('formulario').addEventListener(
         function canEdit(){           
 
             const info = document.querySelector('.info');
-            const imagemInput = document.getElementById('foto_perfil');
             const nomeInput = document.getElementById('nome');
             const emailInput = document.getElementById('email');
             const telefoneInput = document.getElementById('telefone');
@@ -220,11 +222,13 @@ document.getElementById('formulario').addEventListener(
 
             info.classList.toggle('cant-edit');
 
-            const userData = {imagemInput, nomeInput, emailInput, telefoneInput, dataNascimentoInput, sexoInput, bioInput};
+            const userData = {nomeInput, emailInput, telefoneInput, dataNascimentoInput, sexoInput, bioInput};
+            console.log(userData)
 
             if(info.classList.contains('cant-edit')){
                       for (let data in userData) {
-                      userData[data].disabled = !userData[data].disabled;
+                        userData[data].disabled = true;
+                      
                   }
                 }
                 else{
@@ -245,7 +249,7 @@ document.getElementById('formulario').addEventListener(
               editButton.textContent = 'Cancelar';
             }
             else if(editButton.textContent == 'Cancelar'){
-              startToPerfil();
+              loadInfos();
               editButton.textContent = 'Editar';
             }
         }

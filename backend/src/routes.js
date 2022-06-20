@@ -94,8 +94,7 @@ router.post('/auth-user', async (req, res) => {
 
 router.get('/get-user/id/:id', async (req, res) => {
     const id = req.params.id;
-    const user = await seedUser.readById(id)
-
+    const user = await seedUser.readById(id);
     console.log({id, user})
   
     res.status(200).json(user);
