@@ -58,14 +58,14 @@
                     <div class="info-media">
                         <form class="form" id="formulario">
                             <div class="campo1">
-                                <label class="bio1"><strong class="bio2">Biografia</strong></label>
+                               <label class="bio1"><strong class="bio2">Nome</strong></label>
+                                <input id="nome" rows="6" type="text" class="bio3" name="bio3" placeholder="Insira seu nome aqui" required>
+                                <br>
+ 				                                <label class="bio1"><strong class="bio2">Biografia</strong></label>
                                 <textarea rows="6" type="text"  class="bio3" name="bio3" id="bio" placeholder="Insira informações sobre você aqui"></textarea>
                                 <br>
-                                <label class="bio1"><strong class="bio2">Nome</strong></label>
-                                <input id="nome" rows="6" type="text" class="bio3" name="bio3" placeholder="Insira seu nome aqui">
-                                <br>
                                 <label class="bio1"><strong class="bio2">Email</strong></label>
-                                <input id="email" rows="6" type="email" class="bio3" name="email" placeholder="Seu email não será compartilhado com terceiros!">
+                                <input id="email" rows="6" type="email" class="bio3" name="email" placeholder="Seu email não será compartilhado com terceiros!" required>
                                 <br>
                                 <label for="bio1"><strong class="bio2">Telefone</strong></label>
                                 <input id="telefone" rows="6" type="tel" class="bio3" name="tel" placeholder="Ex.: 83 912345678">
@@ -74,7 +74,7 @@
                                 <input id="data_nascimento" rows="6" type="date" class="bio3" name="datan1" placeholder="Ex.: 21/10/2000">
                                 <br>
                                 <label for="sexo"><strong class="gener3">Gênero</strong></label>
-                                <select id="sexo" class="gener2" required>
+                                <select id="sexo" class="gener2">
                                     <option selected disabled value="">Selecione como você se identifica</option>
                                     <option value="masc">Masculino</option>
                                     <option value="fem">Feminino</option>
@@ -172,7 +172,8 @@ document.getElementById('formulario').addEventListener(
         const urlUser = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
         
         console.log(urlUser)
-        const user_id = (await (await fetch(urlUser)).json())[0].id;
+				const user = (await (await fetch(urlUser)).json())[0]
+        const user_id = user.id;
 
         console.log(user_id)
 
@@ -180,7 +181,7 @@ document.getElementById('formulario').addEventListener(
           "id": user_id,
           "nome": nomeInput,
           "telefone": telInput,
-					// "foto_perfil": newImgPerfil,
+					"foto_perfil": (newImgPerfil) ? newImgPerfil : user.foto_perfil,
           "data_nascimento": dataNascInput,
           "bio": bioInput,
           "sexo": sexoInput,

@@ -150,7 +150,7 @@ async function auth(login, senha) {
 async function change(user) {
   const db = await Database.connect();
   // tirei o foto_perfil temporariamente
-  const {nome, telefone, data_nascimento, bio, sexo,
+  const {nome, foto_perfil, telefone, data_nascimento, bio, sexo,
          email, id} = user;
 
 
@@ -164,13 +164,14 @@ async function change(user) {
           data_nascimento = ?,
           bio = ?,
           sexo = ?,
-          email = ?
+          email = ?,
+					foto_perfil = ?
         WHERE
           id = ?
       `;
 
 
-    const {changes} = await db.run(usuarioSQL, [nome, telefone, data_nascimento, bio, sexo, email, id]);
+    const {changes} = await db.run(usuarioSQL, [nome, telefone, data_nascimento, bio, sexo, email, foto_perfil, id]);
 
 
   if (changes === 1) {
