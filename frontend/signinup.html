@@ -56,17 +56,17 @@
                 <form class="form" id="form-create">
                     <label class="label-input" for="nome">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="Nome" id="nome">
+                        <input type="text" placeholder="Nome" id="nome" required>
                     </label>
                     
                     <label class="label-input" for="email">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="E-mail" id="email">
+                        <input type="email" placeholder="E-mail" id="email" required>
                     </label>
                     
                     <label class="label-input" for="senha">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha" id="senha" onkeyup="checkPassword()">
+                        <input type="password" placeholder="Senha" id="senha" onkeyup="checkPassword()" required>
                     </label>                        
                         <span id="passwordError"></span>
 
@@ -105,10 +105,13 @@
                         <i class="fas fa-lock icon-modify"></i>
                         <input type="password" placeholder="Senha" id="senha-auth">
                     </label>
+                    <span id="loginError"></span>
+									
                 
                     <a class="password" href="emconstrução.html">Esqueceu sua senha?</a>
                     <button class="btn btn-second" type="submit"
                       onclick="authUser()">Entrar</button>
+									
                 </form>
             </div><!-- second column -->
         </div><!-- second-content -->
@@ -120,6 +123,10 @@
     <script src="resources/js/app.js"></script>
 
     <script>
+  const spanDeErro = document.querySelector("#passwordError");
+  const spanDeErroLogin = document.querySelector("#loginError");
+			
+			
       // Previne evento padrão dos form
       document.getElementById('form-create').addEventListener(
             'submit', stopDefAction, false
@@ -143,6 +150,7 @@
         
         const perfilInput = businessInput ? 1 : 2
 
+
         const newUser = {
           "nome": nomeInput,
           "email": emailInput,
@@ -150,7 +158,8 @@
           "perfil_id": perfilInput
         }
 
-          const url = '/create-user';
+				if (newUser.nome && newUser.email && newUser.senha && newUser.perfil_id) {
+					const url = '/create-user';
 
           await fetch(url, {
             method: "POST",
@@ -166,6 +175,10 @@
             .catch((error) => {
               console.error("Error:", error);
             });
+				} else spanDeErro.innerHTML = "Campos obrigatórios precisam ser preenchidos!";
+				
+
+          
         
         }
 
@@ -178,9 +191,10 @@
           "senha": senhaInput
         }
 
+				if (authUser.login && authUser.senha) {
           const url = '/auth-user';
-
-  await fetch(url, {
+					
+					  await fetch(url, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -200,6 +214,10 @@
             .catch((error) => {
               console.error("Error:", error);
             });
+				} else spanDeErroLogin.innerHTML = "Campos obrigatórios precisam ser preenchidos!";
+
+
+
         
         }
       

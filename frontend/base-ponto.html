@@ -148,10 +148,20 @@
           const fotos = ` <div class="slide s1">
                 <img src="${ponto.imagem}" alt="${ponto.altImagem}">
             </div>`
-      
-                const descricao = `
-                    <p>${ponto.descricao}</p>
+			
+                let descricao = `
+                    <p>${ponto.descricao}</p><p>Valor: ${(ponto.valor > 0) ? ("R$ " + ponto.valor) : "Gratuito"}</p>
                 `
+
+							const userId = ponto.usuario_id;
+			
+							if (userId) {
+								console.log(userId)
+								const usuarioCriador = (await (await fetch(`/get-user/id/${Number(userId)}`)).json())[0]
+								
+								descricao += `<p>Ponto criado por ${usuarioCriador.nome}</p>`
+							}
+			
                 paraDescricao.insertAdjacentHTML('beforeend', descricao);
 
             const mapa = `

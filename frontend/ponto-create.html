@@ -53,25 +53,25 @@
                               <h1 class= iti-create>Crie um Ponto</h1>
                                 <div class="campo1">
                                       <label class="ende1"><strong class="ende2">Nome</strong></label>
-                                    <input rows="6" type="text" class="ende3" id="nome" name="nameiti1" placeholder="Insira o nome da sua empresa">
+                                    <input rows="6" type="text" class="ende3" id="nome" name="nameiti1" placeholder="Insira o nome da sua empresa" required>
                                     <br>
                                     <label class="ende1"><strong class="ende2">Descrição</strong></label>
-                                    <textarea rows="6" type="text"  id="descricao" class="ende3" name="desc1" placeholder="Insira informações aqui"></textarea>
+                                    <textarea rows="6" type="text"  id="descricao" class="ende3" name="desc1" placeholder="Insira informações aqui" required></textarea>
                                     <br>
                                     <label class="ende1"><strong class="ende2">Endereço</strong></label>
-                                    <input rows="6" type="text" id="endereco" class="ende3" name="ende1" placeholder="Insira o local">
+                                    <input rows="6" type="text" id="endereco" class="ende3" name="ende1" placeholder="Insira o local" required>
                                     <br>
                                     <label class="ende1"><strong class="ende2">Imagem</strong></label>
-                                    <input rows="6" type="text" id="imagem" class="ende3" name="ende1" placeholder="Insira a url da imagem">
+                                    <input rows="6" type="text" id="imagem" class="ende3" name="ende1" placeholder="Insira a url da imagem" required>
                                     <br>
                                     <label class="ende1"><strong class="ende2">Descrição da imagem</strong></label>
                                     <textarea rows="6" type="text"  class="ende3" id="altImagem" name="ende1" placeholder="Insira uma descrição da imagem para ajudar na acessibilidade"></textarea>
                                     <br>
-                                    <label class="value1"><strong class="value2">Valor</strong></label>
+                                    <label class="ende1"><strong class="ende2">Valor</strong></label>
                                     <input rows="6" type="number" class="ende3" id="valor" name="value1" placeholder="Insira o quanto custa">
                                     <br>
                                 </div>
-                                <button class= button-dados onclick="getFormInfos(), window.location.href = '/'"type=submit id="submit">Criar</button>
+                                <button class= button-dados onclick="getFormInfos()"type=submit id="submit">Criar</button>
 															<span id="passwordError"></span>
             <!-- (Ou para o botão) input type="submit" class=button-dados value="Alterar dados" /> -->
                             </form>
@@ -88,6 +88,8 @@
         <script src="resources/js/app.js"></script>
 
         <script>
+  const spanDeErro = document.querySelector("#passwordError");
+					
 				async function startCreatePonto() {
 					await verifyAuth()
 
@@ -96,7 +98,6 @@
  } if (!(await verifyEmpresarial(window.sessionStorage.getItem('user_id')))) {
 	 // To-do
 	 const button = document.getElementById('submit');
-  const spanDeErro = document.querySelector("#passwordError");
 
 	 button.disabled = true;
 
@@ -122,7 +123,7 @@
     imagem: imagem,
     altImagem: altImagem,
     endereco: mapa,
-    valor: valor,
+    valor: (valor) ? valor : 0,
 		usuario_id: window.sessionStorage.getItem('user_id')
   }
 
@@ -130,7 +131,8 @@
 }
 
 async function createPonto(ponto) {
-  const url = '/create-pontos';
+	if (ponto.nome && ponto.descricao && ponto.imagem && ponto.endereco) {
+		  const url = '/create-pontos';
 
   await fetch(url, {
             method: "POST",
@@ -145,7 +147,13 @@ async function createPonto(ponto) {
             })
             .catch((error) => {
               console.error("Error:", error);
-            });
+            }).then(() => {
+							window.location.href = '/';
+						});
+	    
+	} else spanDeErro.innerHTML = "Campos obrigatórios precisam ser preenchidos!";
+	
+
         
         }
           
