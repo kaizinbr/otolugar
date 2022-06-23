@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#026b3f">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtoLugar - Encontre o seu lugar</title>
+    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/responsive-menu.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
+</head>
+
+<body onload="startIndex()" on> 
+
+    <script src="resources/js/app.js"></script>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img class="isotipo" src="resources/img-main/logo.svg" alt="">
+                </a>
+            </div>
+
+            <div class="navmenu">
+                <div class="mobile-auth"></div>
+                <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
+                <ul class="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pesquisa.html">Pesquisar</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    
+                </ul>
+            </div>
+
+
+            <div class="sign" id="sign">
+                <!-- verifyAuth -->
+            </div>
+        </nav>
+    </header>
+
+    <main class="pass">
+        <div class="forgot-password">
+            <form action="">
+                <h1>Digite seu e-mail</h1>
+                <h2>Um e-mail será enviado com instruções para a mudança de senha</h2>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" class="form-control email-nova-senha" id="email" placeholder="Digite seu e-mail">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Todos os direitos de imagem são de seus respectivos donos/criadores. Todas as imagens utilizadas são para fins acadêmicos. <br> Para mais informações ou reclamações entre em contato conosco.</p>
+    </footer>
+    
+
+    <script src="resources/js/menu.js"></script>
+    <!-- <script src="../database/data-pontos/favs.js"></script> -->
+    <script>
+    function startIndex() {
+      verifyAuth()
+      loadPontos()
+    }
+      
+    async function loadPontos() {
+    const section = document.querySelector('section .content');
+
+    const url = '/get-pontos';
+
+    const pontos = await (await fetch(url)).json();
+    let heart = "";
+
+
+    for (const ponto of pontos) {
+        
+        if (ponto.avaliacaoUsuario == 1){
+            heart = "bxs-heart";
+        } else{
+            heart = "bx-heart";
+        };
+
+        let endereco = ponto.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').toLowerCase();
+
+        const view = `                
+            <div class="card ${ponto.n}" id="${ponto.id}">
+            <div class="card-inside">
+                <figure>
+                    <img src="${ponto.imagem}" alt="${ponto.altImagem}">
+                </figure>
+                <h1>${ponto.nome}</h1>
+                <footer>
+                    <a href="/pontos?id=${ponto.id}">Saiba mais</a>
+                    <i class='bx ${heart} bx-sm'></i>
+                </footer>
+            </div>
+        </div>`
+
+        section.insertAdjacentHTML('beforeend', view);
+
+    }
+    };
+
+    </script>
+  
+</body>
+</html>
