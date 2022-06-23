@@ -37,23 +37,11 @@ async function up() {
         usuario_id INTEGER,
         FOREIGN KEY (usuario_id) REFERENCES usuario (usuario_id)
       )`;
-
-    const createReserva = `
-      CREATE TABLE reserva_Ponto_TO_Usuario (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        data VARCHAR(10),
-        descricao VARCHAR(250),
-        usuario_id INTEGER NOT NULL,
-        ponto_id INTEGER NOT NULL,
-        FOREIGN KEY (usuario_id) REFERENCES usuario (usuario_id),
-        FOREIGN KEY (ponto_id) REFERENCES ponto (ponto_id)
-      )`;
   
   try {
   await db.run(createPerfil);
   await db.run(createUsuario);
-  await db.run(createPonto);
-  await db.run(createReserva);
+  await db.run(createPonto)
   } catch (err) {
    console.error(err); 
   }

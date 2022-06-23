@@ -72,11 +72,11 @@ router.post('/create-user', async (req, res) => {
 router.post('/change-user', async (req, res) => {
     let user = req.body;
 
-    console.log(user)
   
     const response = await seedUser.change(user);
-
-    res.status(200).json(response);
+		if(typeof response == 'string') {
+    	res.status(404).json(response);		
+		} else res.status(200).json(response);
 });
 
 router.post('/auth-user', async (req, res) => {
@@ -85,9 +85,9 @@ router.post('/auth-user', async (req, res) => {
     const authorized = await seedUser.auth(login, senha);
 
     if (authorized) {
-      res.status(200).json({"status": "logado!", "id": authorized});
+      res.status(200).json({"status": "Login feito com Sucesso!", "id": authorized});
     } else {
-      res.status(404).json({"status": "Não foi!"});
+      res.status(404).json({"status": "Login e/ou senha incorreto(s)!", "error": true});
     }
 
 });
@@ -95,7 +95,6 @@ router.post('/auth-user', async (req, res) => {
 router.get('/get-user/id/:id', async (req, res) => {
     const id = req.params.id;
     const user = await seedUser.readById(id);
-    console.log({id, user})
   
     res.status(200).json(user);
 })

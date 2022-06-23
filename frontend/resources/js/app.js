@@ -26,7 +26,7 @@ async function verifyAuth() {
   const altura = window.innerHeight;
   const largura = window.innerWidth;
   
-  if(window.sessionStorage.getItem('user_id') && largura >= 1080) {
+  if(typeof (window.sessionStorage.getItem('user_id')) == 'number' && largura >= 1080) {
     const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
       const user = (await (await fetch(url)).json())[0];
@@ -41,7 +41,6 @@ logout
 </span>`
   }else if (window.sessionStorage.getItem('user_id') && largura < 1080) {
       const mobileAuth = document.querySelector('.mobile-auth');
-      console.log(mobileAuth)
 
     const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
@@ -68,8 +67,6 @@ logout
   }      
 
   
-  console.log(altura, largura);
-
 }
 
 function checkPassword(){
@@ -77,7 +74,6 @@ function checkPassword(){
   const spanDeErro = document.querySelector("#passwordError");
   const submit = document.querySelector(".submit");
 
-  console.log('achei a senha');
 
   if(inputSenha.value.length < 6){
     spanDeErro.innerHTML = "A senha deve ter no mínimo 6 caracteres";
