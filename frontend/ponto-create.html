@@ -17,7 +17,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html">
+                <a href="/">
                     <img class="isotipo" src="resources/img-main/logo.svg" alt="">
                 </a>
             </div>
@@ -25,7 +25,7 @@
             <div class="navmenu">
                 <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
                 <ul class="list">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
                     <!--<li><a href="perfil.html">Meu perfil</a></li> -->
                     <li><a href="contato.html">Contato</a></li>
@@ -93,7 +93,7 @@
 				async function startCreatePonto() {
 					await verifyAuth()
 
-					 if(!(window.sessionStorage.getItem('user_id'))) {
+					 if(!(typeof (window.sessionStorage.getItem('user_id')) == 'number')) {
           window.location.href = '/signinup.html'
  } if (!(await verifyEmpresarial(window.sessionStorage.getItem('user_id')))) {
 	 // To-do
@@ -143,7 +143,6 @@ async function createPonto(ponto) {
           })
             .then((response) => response.json())
             .then((data) => {
-              console.log("Success:", data);
             })
             .catch((error) => {
               console.error("Error:", error);

@@ -92,8 +92,8 @@
 
 <script src="resources/js/menu.js"></script>
 <script>
-  if(!(window.sessionStorage.getItem('user_id'))) {
-          window.location.href = '/main-cadastro-login.html'
+  if(!(typeof (window.sessionStorage.getItem('user_id')) == 'number')) {
+          window.location.href = '/signinup.html'
         }
 </script>
 

@@ -20,7 +20,7 @@
   <header>
     <nav>
         <div class="logo">
-            <a href="index.html">
+            <a href="/">
                 <img class="isotipo" src="resources/img-main/logo.svg" alt="">
             </a>
         </div>
@@ -29,7 +29,7 @@
             <div class="mobile-auth"></div>
             <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
             <ul class="list">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="pesquisa.html">Pesquisar</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 
@@ -107,7 +107,7 @@
     <script>
 				let newImgPerfil;
 				verifyAuth()
-        if(!(window.sessionStorage.getItem('user_id'))) {
+        if(!(typeof (window.sessionStorage.getItem('user_id')) == 'number')) {
           window.location.href = '/signinup.html'
         } else {
           loadInfos()
@@ -119,8 +119,6 @@
         file.onload = function(e) {
             document.getElementById("img-preview").src = e.target.result;
 					newImgPerfil = e.target.result;
-
-					console.log(file)
         };       
         file.readAsDataURL(this.files[0]);
     }
@@ -149,7 +147,6 @@ document.getElementById('formulario').addEventListener(
       
 
       const user = (await (await fetch(url)).json())[0];
-      console.log(user)
 				
         
       imagemInput.src = user.foto_perfil ? user.foto_perfil : "/resources/img-main/profile_picture.svg" 
@@ -171,11 +168,9 @@ document.getElementById('formulario').addEventListener(
         const sexoInput = document.getElementById('sexo').value
         const urlUser = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
         
-        console.log(urlUser)
 				const user = (await (await fetch(urlUser)).json())[0]
         const user_id = user.id;
 
-        console.log(user_id)
 
         const dataChanged = {
           "id": user_id,
@@ -188,7 +183,6 @@ document.getElementById('formulario').addEventListener(
           "email": emailInput
         };
 
-        console.log(dataChanged);
 
           const url = '/change-user';
 
@@ -201,7 +195,6 @@ document.getElementById('formulario').addEventListener(
           })
             .then((response) => response.json())
             .then((data) => {
-              console.log("Success:", data);
             })
             .catch((error) => {
               console.error("Error:", error);
@@ -224,7 +217,6 @@ document.getElementById('formulario').addEventListener(
             info.classList.toggle('cant-edit');
 
             const userData = {nomeInput, emailInput, telefoneInput, dataNascimentoInput, sexoInput, bioInput};
-            console.log(userData)
 
             if(info.classList.contains('cant-edit')){
                       for (let data in userData) {
@@ -244,7 +236,6 @@ document.getElementById('formulario').addEventListener(
           const info = document.querySelector('.info');
 
           const editButton = document.querySelector('.button-edit-dados');
-            console.log(editButton.textContent);
 
             if(editButton.textContent == 'Editar'){
               editButton.textContent = 'Cancelar';

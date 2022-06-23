@@ -20,7 +20,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html">
+                <a href="/">
                     <img class="isotipo" src="../resources/img-main/logo.svg" alt="">
                 </a>
             </div>
@@ -28,7 +28,7 @@
             <div class="navmenu">
                 <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
                 <ul class="list">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
                     <!--<li><a href="perfil.html">Meu perfil</a></li> -->
                     <li><a href="contato.html">Contato</a></li>
@@ -123,7 +123,6 @@
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
 
-    console.log(id)
       
     const section = document.querySelector('section .content');
 
@@ -156,7 +155,6 @@
 							const userId = ponto.usuario_id;
 			
 							if (userId) {
-								console.log(userId)
 								const usuarioCriador = (await (await fetch(`/get-user/id/${Number(userId)}`)).json())[0]
 								
 								descricao += `<p>Ponto criado por ${usuarioCriador.nome}</p>`

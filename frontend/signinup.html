@@ -19,7 +19,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html">
+                <a href="/">
                     <img class="isotipo" src="resources/img-main/logo.svg" alt="">
                 </a>
             </div>
@@ -27,7 +27,7 @@
             <div class="navmenu">
                 <button id="btn-mobile"><i class='bx bx-menu active' ></i><i class='bx bx-x'></i></button>
                 <ul class="list">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="pesquisa.html">Pesquisar</a></li>
                     <!--<li><a href="perfil.html">Meu perfil</a></li> -->
                     <li><a href="contato.html">Contato</a></li>
@@ -69,6 +69,7 @@
                         <input type="password" placeholder="Senha" id="senha" onkeyup="checkPassword()" required>
                     </label>                        
                         <span id="passwordError"></span>
+                        <span id="successSpan"></span>
 
                     <label class="radioBtn" for="radioBtn">
                         <div><input type="radio" name="radioBtn" id="user"> <label for="user" >Pessoal</label></div>
@@ -125,6 +126,8 @@
     <script>
   const spanDeErro = document.querySelector("#passwordError");
   const spanDeErroLogin = document.querySelector("#loginError");
+  const spanDeSucesso = document.querySelector("#successSpan");
+			
 			
 			
       // Previne evento padrão dos form
@@ -170,12 +173,23 @@
           })
             .then((response) => response.json())
             .then((data) => {
-              console.log("Success:", data);
+							if (data.status) {
+					spanDeErro.innerHTML = `<span class="material-symbols-outlined">
+																						error
+																						</span> ${data.status}`;
+							} else spanDeSucesso.innerHTML = `<span class="material-symbols-outlined">
+																					done
+																					</span> Conta criada com sucesso!`;
             })
             .catch((error) => {
               console.error("Error:", error);
             });
-				} else spanDeErro.innerHTML = "Campos obrigatórios precisam ser preenchidos!";
+				} else {
+					spanDeSucesso.innerHTML = "";
+					spanDeErro.innerHTML = `<span class="material-symbols-outlined">
+																						error
+																						</span> Campos obrigatórios precisam ser preenchidos!`;
+				}
 				
 
           
@@ -203,18 +217,30 @@
           })
             .then((response) => response.json())
             .then((data) => {
-              console.log("Success:", data);
+							if (data.error) {
+								spanDeErroLogin.innerHTML = `<span class="material-symbols-outlined">
+																						error
+																						</span> ${data.status}`;
+							} else {
+								spanDeSucesso.innerHTML = `<span class="material-symbols-outlined">
+																					done
+																					</span> ${data.status}`;
+             	 window.sessionStorage.setItem('user_id', data.id);
+              	window.location.href = '/';
+							}
 
-              window.sessionStorage.setItem('user_id', data.id);
               
-              console.log(window.sessionStorage.getItem('user_id'));
 
-              window.location.href = '/'
             })
             .catch((error) => {
               console.error("Error:", error);
             });
-				} else spanDeErroLogin.innerHTML = "Campos obrigatórios precisam ser preenchidos!";
+				} else {
+					spanDeSucesso.innerHTML = "";
+					spanDeErroLogin.innerHTML = `<span class="material-symbols-outlined">
+																						error
+																						</span> Campos obrigatórios precisam ser preenchidos!`;
+				}
 
 
 
