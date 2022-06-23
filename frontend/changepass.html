@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="resources/css/main.css">
     <link rel="stylesheet" href="resources/css/responsive-menu.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="resources/img-main/isologo.svg" type="image/x-icon">
 </head>
 
@@ -43,17 +43,48 @@
         </nav>
     </header>
 
+    <!-- A IDEIA É QUE UM EMAIL SEJA ENVIADO PARA A PESSOA COM INFORMAÇÕES E UM LINK PARA REDEFINIR A SENHA, MAS PARA FACILITAR NOS TESTES FAREI TUDO SEM A VERIFICAÇÃO POR EMAIL SZ -->
+
     <main class="pass">
         <div class="forgot-password">
-            <form action="">
-                <h1>Digite seu e-mail</h1>
-                <h2>Um e-mail será enviado com instruções para a mudança de senha</h2>
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" class="form-control email-nova-senha" id="email" placeholder="Digite seu e-mail">
+            <div class="verify-mail">
+                <form action="">
+                    <h1>Digite seu e-mail</h1>
+                    <h4>Iremos verificar se existe um usuário com o e-mail inserido</h4>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" class="form-control email-nova-senha" id="email-auth" placeholder="Digite seu e-mail">
+                        <span id="emailError"></span>
+                    </div>
+                    <button type="button" onclick="authUser()" class="btn btn-primary">Verificar</button>
+                </form>
+            </div>
+
+            <br>
+            
+            <div class="new-password">
+                <div class="change-password">
+                    <form action="">
+                        <h1>Redefina sua senha</h1>
+                        <h4>Lembre-se de não compartilha-la com ninguém</h4>
+                        <div class="form-group">
+                            <div class="pass-div">
+                                <label for="password">Nova senha:</label>
+                                <input type="password" onkeyup="checkPassword()" class="form-control password" id="password" name="password" placeholder="Digite uma nova senha">
+                                    <span id="passwordError" class="caracteres"></span>  
+                            </div>
+
+                            <div class="pass-div">
+                                <label for="confirmation_password" class="form-label">Confirmar nova senha:</label>
+                                <input type="password" onkeyup="checkConfPassword()" class="form-control" id="confirmation_password" name="confirmation_password" placeholder="Confirme sua nova senha">
+                                <span id="confPasswordError" class="caracteres"></span>
+                            </div>
+                        </div>
+                        <button type="button" onclick="changeUserPassword()" class="btn btn-primary submit">Confirmar</button>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
+
+            </div>
         </div>
     </main>
 
@@ -65,48 +96,148 @@
     <script src="resources/js/menu.js"></script>
     <!-- <script src="../database/data-pontos/favs.js"></script> -->
     <script>
+        
+        const spanDeEmail = document.querySelector("#emailError");
+        let user_id = '';
+
     function startIndex() {
       verifyAuth()
-      loadPontos()
     }
-      
-    async function loadPontos() {
-    const section = document.querySelector('section .content');
 
-    const url = '/get-pontos';
+    function canChange(){
+        const forgot = document.querySelector('.forgot-password');
 
-    const pontos = await (await fetch(url)).json();
-    let heart = "";
+        forgot.classList.add('can-change-password')
+    }
+
+    function checkPassword(){
+        const inputSenha = document.querySelector("#password");
+        const spanDeErro = document.querySelector("#passwordError");
+        const submit = document.querySelector(".submit");
 
 
-    for (const ponto of pontos) {
-        
-        if (ponto.avaliacaoUsuario == 1){
-            heart = "bxs-heart";
+        if(inputSenha.value.length < 6){
+            spanDeErro.innerHTML = "A senha deve ter no mínimo 6 caracteres";
+            submit.disabled = true;
+            submit.classList.add("disabled");
         } else{
-            heart = "bx-heart";
+            spanDeErro.innerHTML = "";
+            submit.disabled = false;
+            submit.classList.remove("disabled");
+        }
+
+        // CHECA SE A SENHA TEM MAIS DE 20 CARACTERES
+        if(inputSenha.value.length > 20){
+            spanDeErro.innerHTML = "A senha deve ter no máximo 20 caracteres";
+            submit.disabled = true;
+            submit.classList.add("disabled");
+        } 
+
+        // CHECA SE A ULTIMA LETRA DIGITADA É UM CARACTERE ESPECIAL
+        if(inputSenha.value.match(/[^a-zA-Z0-9]$/)){
+            spanDeErro.innerHTML = "A senha deve não deve conter caracteres especiais";
+            submit.disabled = true;
+            submit.classList.add("disabled");
+        }
+
+    }
+
+    function checkConfPassword(){
+        const inputSenha = document.querySelector("#password");
+        const submit = document.querySelector(".submit");
+
+        const inputConfSenha = document.querySelector("#confirmation_password");
+        const spanDeErro2 = document.querySelector("#confPasswordError");
+
+
+        if(inputConfSenha.value != inputSenha.value){            
+            spanDeErro2.innerHTML = "Senhas diferentes!";
+            submit.disabled = true;
+            submit.classList.add("disabled");
+        } else{
+            spanDeErro2.innerHTML = "";
+            submit.disabled = false;
+            submit.classList.remove("disabled");
+        }
+    }
+    
+    async function authUser() {
+        const emailInput = document.getElementById('email-auth').value
+        console.log(emailInput)
+
+        const authMail = {            
+            email: emailInput
         };
 
-        let endereco = ponto.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').toLowerCase();
+        console.log(authMail)
 
-        const view = `                
-            <div class="card ${ponto.n}" id="${ponto.id}">
-            <div class="card-inside">
-                <figure>
-                    <img src="${ponto.imagem}" alt="${ponto.altImagem}">
-                </figure>
-                <h1>${ponto.nome}</h1>
-                <footer>
-                    <a href="/pontos?id=${ponto.id}">Saiba mais</a>
-                    <i class='bx ${heart} bx-sm'></i>
-                </footer>
-            </div>
-        </div>`
+		if (authMail) {
+        const url = '/verify-email';
+					
+	    await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(authMail),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+                user_id =  data.id;
+                if (data.error) {
+                    spanDeEmail.innerHTML = `<span class="material-symbols-outlined">
+																						error
+																						</span> ${data.status}`;
+							} else {
+								spanDeEmail.innerHTML = `<span class="material-symbols-outlined">
+																					done
+																					</span> ${data.status}`;
+			    }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
 
-        section.insertAdjacentHTML('beforeend', view);
+        }
 
+        console.log(user_id)
+        
+
+
+
+        
     }
-    };
+      
+
+    async function changeUserPassword() {
+        const senha = document.querySelector('.password').value
+        const id = user_id;
+
+
+        const dataChanged = {
+          "id": id,
+          "senha": senha,
+        };
+
+
+          const url = '/change-password';
+
+          await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataChanged),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+                window.location.href = '/signinup.html';
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        
+        };
 
     </script>
   

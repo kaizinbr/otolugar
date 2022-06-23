@@ -185,4 +185,55 @@ async function change(user) {
   
 }
 
-export default {create, change, readAll, loadSeed, readByNome, readById, auth}
+async function getUserIdByEmail(email){
+  const db = await Database.connect();
+
+  const selectUserSQL = `
+    SELECT
+      email, id
+    FROM
+      usuario
+    WHERE
+      email = ?
+    `;
+
+  const user = await db.get(selectUserSQL, [email]);
+  console.log(user)
+
+  if(user && user.email === email) {
+    return user.id;
+  } else return false;  
+}
+
+async function changePassword(user) {
+  const db = await Database.connect();
+
+  const {senha, id} = user;
+
+
+
+      const usuarioSQL = `
+        UPDATE
+          usuario
+        SET
+          senha = ?
+        WHERE
+          id = ?
+      `;
+
+
+    const {changes} = await db.run(usuarioSQL, [senha, id]);
+
+
+  if (changes === 1) {
+    return `perfil de id ${id} existe!`;
+  } else {
+    return `Falha ao atualizar usuário ${id}, tente novamente! Mudanças:${changes}`;
+  }
+  
+
+
+  
+}
+
+export default {create, change, readAll, loadSeed, readByNome, readById, auth, changePassword, getUserIdByEmail}

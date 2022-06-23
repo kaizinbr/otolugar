@@ -323,9 +323,9 @@ input:-webkit-autofill {
 
 /* SPAN QUE MOSTRA ERRO NA SENHA */
 span#passwordError, span#loginError{
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
     color: #e74c3c;
     font-size: 12px;
     margin: 0;

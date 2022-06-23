@@ -50,7 +50,8 @@ logout
 
     
     mobileAuth.innerHTML = `<img class="imgPerfil" src="${imgPerfil}" alt="" onclick="window.location.href = '/perfil.html'">
-              <p class="saudacao" onclick="window.location.href = '/perfil.html'">Olá, ${user.nome}!</p>`;
+              <p class="s
+              audacao" onclick="window.location.href = '/perfil.html'">Olá, ${user.nome}!</p>`;
 
     const logout = `<li class="logout" onclick="logout()">Sair<span class="material-symbols-outlined logout">
 logout

@@ -79,6 +79,30 @@ router.post('/change-user', async (req, res) => {
 		} else res.status(200).json(response);
 });
 
+
+router.post('/change-password', async (req, res) => {
+    let user = req.body;
+
+  
+    const response = await seedUser.changePassword(user);
+		if(typeof response == 'string') {
+    	res.status(404).json(response);		
+		} else res.status(200).json(response);
+});
+
+router.post('/verify-email', async (req, res) => {
+    let {email} = req.body;
+
+    const authorized = await seedUser.getUserIdByEmail(email);
+
+    if (authorized) {
+      res.status(200).json({"status": "Tudo certo, pode continuar!", "id": authorized});
+    } else {
+      res.status(404).json({"status": "Não encontramos esse usuário :/", "error": true});
+    }
+
+});
+
 router.post('/auth-user', async (req, res) => {
     let {login, senha} = req.body;
 
