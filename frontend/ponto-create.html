@@ -93,7 +93,7 @@
 				async function startCreatePonto() {
 					await verifyAuth()
 
-					 if(!(typeof (window.sessionStorage.getItem('user_id')) == 'number')) {
+					 if(!(userIsAuth()) {
           window.location.href = '/signinup.html'
  } if (!(await verifyEmpresarial(window.sessionStorage.getItem('user_id')))) {
 	 // To-do

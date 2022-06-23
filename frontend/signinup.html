@@ -225,7 +225,7 @@
 								spanDeSucesso.innerHTML = `<span class="material-symbols-outlined">
 																					done
 																					</span> ${data.status}`;
-             	 window.sessionStorage.setItem('user_id', data.id);
+             	 window.sessionStorage.setItem('user_id', Number(data.id));
               	window.location.href = '/';
 							}
 
