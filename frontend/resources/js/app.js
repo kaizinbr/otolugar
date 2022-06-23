@@ -20,13 +20,18 @@ function logout() {
     window.location.href = "/"
 }
 
+function userIsAuth() {
+	if (window.sessionStorage.getItem('user_id') && typeof window.sessionStorage.getItem('user_id') != 'undefined') return true;
+	else return false;
+}
+
 
 async function verifyAuth() {
   const sign = document.getElementById('sign')
   const altura = window.innerHeight;
   const largura = window.innerWidth;
   
-  if(typeof (window.sessionStorage.getItem('user_id')) == 'number' && largura >= 1080) {
+  if(userIsAuth() && largura >= 1080) {
     const url = `/get-user/id/${window.sessionStorage.getItem('user_id')}`;
 
       const user = (await (await fetch(url)).json())[0];
