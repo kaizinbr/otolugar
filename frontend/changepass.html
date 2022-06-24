@@ -48,7 +48,7 @@
     <main class="pass">
         <div class="forgot-password">
             <div class="verify-mail">
-                <form action="">
+                <form action="" id="formularioEmail">
                     <h1>Digite seu e-mail</h1>
                     <h4>Iremos verificar se existe um usuário com o e-mail inserido</h4>
                     <div class="form-group">
@@ -64,7 +64,7 @@
             
             <div class="new-password">
                 <div class="change-password">
-                    <form action="">
+                    <form action="" id="formularioSenha">
                         <h1>Redefina sua senha</h1>
                         <h4>Lembre-se de não compartilha-la com ninguém</h4>
                         <div class="form-group">
@@ -98,10 +98,16 @@
     <script>
         
         const spanDeEmail = document.querySelector("#emailError");
+			  const inputSenha = document.querySelector("#password");
+        const spanDeErro = document.querySelector("#passwordError");
+        const submit = document.querySelector(".submit");
         let user_id = '';
 
     function startIndex() {
       verifyAuth()
+			submit.disabled = true;
+      submit.classList.add("disabled");
+			
     }
 
     function canChange(){
@@ -111,9 +117,7 @@
     }
 
     function checkPassword(){
-        const inputSenha = document.querySelector("#password");
-        const spanDeErro = document.querySelector("#passwordError");
-        const submit = document.querySelector(".submit");
+
 
 
         if(inputSenha.value.length < 6){
@@ -163,13 +167,11 @@
     
     async function authUser() {
         const emailInput = document.getElementById('email-auth').value
-        console.log(emailInput)
 
         const authMail = {            
             email: emailInput
         };
 
-        console.log(authMail)
 
 		if (authMail) {
         const url = '/verify-email';
@@ -184,28 +186,29 @@
             .then((response) => response.json())
             .then((data) => {
                 user_id =  data.id;
+
                 if (data.error) {
+									  submit.disabled = true;
+            				submit.classList.add("disabled");
                     spanDeEmail.innerHTML = `<span class="material-symbols-outlined">
 																						error
 																						</span> ${data.status}`;
+										spanDeEmail.style.color = '#e74c3c'
 							} else {
+								submit.disabled = false;
+            		submit.classList.remove("disabled");
 								spanDeEmail.innerHTML = `<span class="material-symbols-outlined">
 																					done
 																					</span> ${data.status}`;
+								spanDeEmail.style.color = '#00CC76ff'
+								
 			    }
             })
             .catch((error) => {
               console.error("Error:", error);
             });
 
-        }
-
-        console.log(user_id)
-        
-
-
-
-        
+        }     
     }
       
 
@@ -238,6 +241,18 @@
             });
         
         };
+
+			document.getElementById('formularioEmail').addEventListener(
+         'submit', stopDefAction, false
+        );
+
+			document.getElementById('formularioSenha').addEventListener(
+         'submit', stopDefAction, false
+        );
+
+        function stopDefAction(evt) {
+            evt.preventDefault();
+        }
 
     </script>
   

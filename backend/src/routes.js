@@ -85,7 +85,7 @@ router.post('/change-password', async (req, res) => {
 
   
     const response = await seedUser.changePassword(user);
-		if(typeof response == 'string') {
+		if(response.status == false) {
     	res.status(404).json(response);		
 		} else res.status(200).json(response);
 });

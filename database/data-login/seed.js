@@ -198,7 +198,6 @@ async function getUserIdByEmail(email){
     `;
 
   const user = await db.get(selectUserSQL, [email]);
-  console.log(user)
 
   if(user && user.email === email) {
     return user.id;
@@ -226,9 +225,9 @@ async function changePassword(user) {
 
 
   if (changes === 1) {
-    return `perfil de id ${id} existe!`;
+    return {"status": true, "message": `perfil de id ${id} existe!`};
   } else {
-    return `Falha ao atualizar usuário ${id}, tente novamente! Mudanças:${changes}`;
+    return {"status": false, "message": `Falha ao atualizar usuário ${id}, tente novamente! Mudanças:${changes}`};
   }
   
 

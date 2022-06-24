@@ -124,3 +124,8 @@ async function verifyEmpresarial(id) {
 	if(user.perfil_id == 1) return true;
 	else return false;
 }
+
+function userIsAuth() {
+	if (window.sessionStorage.getItem('user_id') && typeof window.sessionStorage.getItem('user_id') != 'undefined') return true;
+	else return false;
+}
