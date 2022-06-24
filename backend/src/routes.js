@@ -1,7 +1,6 @@
 import express from 'express';
 import seed from '../../database/data-pontos/seed.js'; 
 import seedUser from '../../database/data-login/seed.js'; 
-import readData from '../../database/data-pontos/datapontos.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';

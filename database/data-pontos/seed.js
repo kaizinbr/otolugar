@@ -3,7 +3,7 @@
 async function loadSeed() {
     const novosPontos = [
     {
-        nome: "Centro Cultutal São Francisco",
+        nome: "Centro Cultural São Francisco",
         altImagem: "Imagem do Centro Cultural São Francisco",
         imagem: "https://spguia.melhoresdestinos.com.br/system/fotos_local/fotos/4162/show/centro-cultural-sao-francisco.jpg",
         descricao:
