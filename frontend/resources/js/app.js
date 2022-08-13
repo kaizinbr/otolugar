@@ -69,7 +69,8 @@ logout
     const lista = document.querySelector('.list');
     lista.insertAdjacentHTML('beforeend', cadastro);
 
-    sign.innerHTML = `<a href="signinup.html">Cadastro/Login</a>`
+    sign.innerHTML = `<a href="signinup.html">Cadastro/Login</a>`;
+
   }      
 
   
