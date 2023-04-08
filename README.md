@@ -9,7 +9,9 @@
     O backend foi adaptado para também funcionar no Replit
     * [OtoLugar no Replit](https://replit.com/join/fxtimwknim-jovemcarlosti)
 
-## Caso esteja acessando pelo git pages, [clique aqui](frontend/index.html)
+## Para ver a versão estática, [clique aqui](https://kaizinbr.github.io/otolugar/frontend/index.html)
+
+
 
 ## Comandos Úteis
 ### Clonando o repositório atual para o seu pc:
